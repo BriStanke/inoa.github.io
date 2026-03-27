@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior Designer</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f2ee;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 40px;
+      z-index: 1000;
+      background: rgba(244,242,238,0.85);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 3px;
+      font-size: 18px;
+    }
+
+    .menu-btn {
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* Fullscreen Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      transform: translateY(-100%);
+      transition: 0.5s ease;
+      z-index: 999;
+    }
+
+    .menu.active {
+      transform: translateY(0);
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero img {
+      width: 65%;
+      max-width: 700px;
+      transform: scale(0.95);
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .vertical-text {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #888;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* Sections */
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 100px 30px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .section p {
+      line-height: 1.7;
+      max-width: 600px;
+      color: #444;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .project {
+      overflow: hidden;
+    }
+
+    .project img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .project:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .projects {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MA SPACE</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+
+<div class="menu" id="menu">
+  <a href="#">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
+  <div class="vertical-text">THE SHAPE OF SPACE</div>
+</section>
+
+<section class="section" id="about">
+  <h2>About</h2>
+  <p>
+    We create calm, intentional interiors inspired by Japanese minimalism.
+    Every space is reduced to its essence — light, texture, and balance.
+  </p>
+</section>
+
+<section class="section" id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"></div>
+    <div class="project"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb"></div>
+    <div class="project"><img src="https://images.unsplash.com/photo-1507089947367-19c1da9775ae"></div>
+    <div class="project"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858"></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Email: hello@interiordesign.com</p>
+</section>
+
+<footer>
+  © 2026 Interior Design Studio
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('active');
+  }
+
+  // Scroll animation
+  const sections = document.querySelectorAll('.section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
