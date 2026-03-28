@@ -4,31 +4,41 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function InteriorPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Smooth scroll (Lenis via CDN)
   useEffect(() => {
     const lenis = new window.Lenis({
       lerp: 0.08,
       smooth: true,
     });
-  
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-  
+
     requestAnimationFrame(raf);
   }, []);
 
   const handleClose = () => setMenuOpen(false);
+
+  const menuItems = [
+    { name: "Home", link: "#" },
+    { name: "About", link: "#about" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact", link: "#contact" },
+  ];
 
   return (
     <div className="bg-[#f4f2ee] text-black font-sans">
       {/* Header */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-10 py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
         <div className="tracking-[0.2em] text-sm font-serif">MA SPACE</div>
-        <button onClick={() => setMenuOpen(true)} className="text-2xl">☰</button>
+        <button onClick={() => setMenuOpen(true)} className="text-2xl">
+          ☰
+        </button>
       </header>
 
-      {/* Transparent Menu Overlay */}
+      {/* Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -45,12 +55,10 @@ export default function InteriorPortfolio() {
               ✕
             </button>
 
-            {["Home", "About", "Projects", "Contact"].map((item) => (
+            {menuItems.map((item) => (
               <motion.a
-                key={item}
-                href="#about"
-                href="#projects"
-                href="#contact"
+                key={item.name}
+                href={item.link}
                 onClick={handleClose}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -58,7 +66,7 @@ export default function InteriorPortfolio() {
                 transition={{ duration: 0.3 }}
                 className="text-white text-3xl tracking-widest"
               >
-                {item}
+                {item.name}
               </motion.a>
             ))}
           </motion.div>
