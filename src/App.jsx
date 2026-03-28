@@ -107,7 +107,7 @@ export default function InteriorPortfolio() {
 
       {/* Projects */}
       <Section id="projects" title="Projects">
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-20 max-w-4xl mx-auto">
           {images.map((src, i) => (
             <motion.div
               key={i}
@@ -117,7 +117,7 @@ export default function InteriorPortfolio() {
               viewport={{ once: true }}
               className="overflow-hidden"
             >
-              <div className="h-[300px] overflow-hidden">
+              <div className="h-[220px] overflow-hidden rounded-sm"
                 <motion.img
                   src={src}
                   className="w-full h-full object-cover"
