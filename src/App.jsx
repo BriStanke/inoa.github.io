@@ -5,8 +5,18 @@ export default function InteriorPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
-  }, [menuOpen]);
+    const lenis = new window.Lenis({
+      lerp: 0.08,
+      smooth: true,
+    });
+  
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+  
+    requestAnimationFrame(raf);
+  }, []);
 
   const handleClose = () => setMenuOpen(false);
 
@@ -38,7 +48,9 @@ export default function InteriorPortfolio() {
             {["Home", "About", "Projects", "Contact"].map((item) => (
               <motion.a
                 key={item}
-                href="#"
+                href="#about"
+                href="#projects"
+                href="#contact"
                 onClick={handleClose}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
