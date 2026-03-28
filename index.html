@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function InteriorPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,36 +8,50 @@ export default function InteriorPortfolio() {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
+  const handleClose = () => setMenuOpen(false);
+
   return (
     <div className="bg-[#f4f2ee] text-black font-sans">
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-10 py-6 z-50 backdrop-blur bg-[#f4f2ee]/80">
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-10 py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
         <div className="tracking-[0.2em] text-sm font-serif">MA SPACE</div>
         <button onClick={() => setMenuOpen(true)} className="text-2xl">☰</button>
       </header>
 
-      {/* Menu Overlay */}
-      {menuOpen && (
-        <motion.div
-          initial={{ y: "-100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.6 }}
-          className="fixed top-0 left-0 w-full h-screen bg-black text-white flex flex-col justify-center items-center gap-10 z-50"
-        >
-          <button
-            className="absolute top-6 right-10 text-2xl"
-            onClick={() => setMenuOpen(false)}
+      {/* Transparent Menu Overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 bg-black/40 backdrop-blur-md flex flex-col justify-center items-center gap-10 z-50"
           >
-            ✕
-          </button>
-          {["Home", "About", "Projects", "Contact"].map((item) => (
-            <a key={item} href="#" className="text-3xl tracking-widest">
-              {item}
-            </a>
-          ))}
-        </motion.div>
-      )}
+            <button
+              className="absolute top-6 right-10 text-2xl text-white"
+              onClick={handleClose}
+            >
+              ✕
+            </button>
+
+            {["Home", "About", "Projects", "Contact"].map((item) => (
+              <motion.a
+                key={item}
+                href="#"
+                onClick={handleClose}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 20, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-white text-3xl tracking-widest"
+              >
+                {item}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero */}
       <section className="h-screen flex items-center justify-center relative">
@@ -53,7 +67,7 @@ export default function InteriorPortfolio() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="absolute right-10 top-1/2 -translate-y-1/2 rotate-180 writing-mode-vertical text-xs tracking-[0.3em] text-gray-500"
+          className="absolute right-10 top-1/2 -translate-y-1/2 rotate-180 text-xs tracking-[0.3em] text-gray-500"
           style={{ writingMode: "vertical-rl" }}
         >
           THE SHAPE OF SPACE
