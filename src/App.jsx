@@ -117,7 +117,7 @@ export default function InteriorPortfolio() {
               viewport={{ once: true }}
               className="overflow-hidden"
             >
-              <div className="h-[220px] overflow-hidden rounded-sm"
+              <div className="h-[220px] overflow-hidden rounded-sm">
                 <motion.img
                   src={src}
                   className="w-full h-full object-cover"
