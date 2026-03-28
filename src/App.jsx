@@ -78,14 +78,14 @@ export default function InteriorPortfolio() {
       </AnimatePresence>
 
       {/* Hero */}
-      <section className="h-screen flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden pt-24">
         <motion.img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
           style={{ y }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-[60%] max-w-[650px] object-cover"
+          className="w-[50%] max-w-[520px] object-cover"
         />
       
         <motion.div
@@ -150,7 +150,7 @@ function Section({ id, title, children }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
-      className="max-w-5xl mx-auto px-6 py-24"
+      className="max-w-5xl mx-auto px-6 py-32"
     >
       <h2 className="font-serif text-3xl mb-6">{title}</h2>
       <div className="text-gray-600 max-w-xl leading-relaxed">
