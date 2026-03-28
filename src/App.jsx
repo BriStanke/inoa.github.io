@@ -166,7 +166,9 @@ function Section({ id, title, children }) {
     </motion.section>
   );
 }
-
+<h1 className="text-red-500 text-4xl">
+  TEST
+</h1>
 /* IMAGES */
 const images = [
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
