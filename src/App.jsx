@@ -135,9 +135,6 @@ export default function InteriorPortfolio() {
       {/* CONTACT */}
       <Section id="contact" title="Contact">
         Email: hello@interiordesign.com
-        <h1 className="text-red-500 text-4xl">
-          TEST
-        </h1>
       </Section>
 
       {/* FOOTER */}
