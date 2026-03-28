@@ -87,13 +87,13 @@ export default function InteriorPortfolio() {
       </section>
 
       {/* About */}
-      <Section title="About">
+      <Section id="about" title="About">
         We create calm, intentional interiors inspired by Japanese minimalism.
         Every space is reduced to its essence — light, texture, and balance.
       </Section>
 
       {/* Projects */}
-      <Section title="Projects">
+      <Section id="projects" title="Projects">
         <div className="grid md:grid-cols-2 gap-6">
           {images.map((src, i) => (
             <motion.div
@@ -108,7 +108,7 @@ export default function InteriorPortfolio() {
       </Section>
 
       {/* Contact */}
-      <Section title="Contact">
+      <Section id="contact" title="Contact">
         Email: hello@interiordesign.com
       </Section>
 
@@ -119,9 +119,10 @@ export default function InteriorPortfolio() {
   );
 }
 
-function Section({ title, children }) {
+function Section({ id, title, children }) {
   return (
     <motion.section
+      id={id}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
