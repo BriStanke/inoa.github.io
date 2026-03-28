@@ -8,16 +8,18 @@ export default function InteriorPortfolio() {
 
   // Smooth scroll (Lenis via CDN)
   useEffect(() => {
+    if (!window.Lenis) return; // prevent crash
+  
     const lenis = new window.Lenis({
       lerp: 0.08,
       smooth: true,
     });
-
+  
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
+  
     requestAnimationFrame(raf);
   }, []);
 
