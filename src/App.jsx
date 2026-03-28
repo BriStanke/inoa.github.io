@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 export default function InteriorPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 80]);
 
   // Smooth scroll (Lenis via CDN)
   useEffect(() => {
@@ -74,15 +76,16 @@ export default function InteriorPortfolio() {
       </AnimatePresence>
 
       {/* Hero */}
-      <section className="h-screen flex items-center justify-center relative">
+      <section className="h-screen flex items-center justify-center relative overflow-hidden">
         <motion.img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+          style={{ y }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-[70%] max-w-[700px] object-cover"
+          className="w-[60%] max-w-[650px] object-cover"
         />
-
+      
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -102,14 +105,24 @@ export default function InteriorPortfolio() {
 
       {/* Projects */}
       <Section id="projects" title="Projects">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-16">
           {images.map((src, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              viewport={{ once: true }}
               className="overflow-hidden"
             >
-              <img src={src} className="w-full" />
+              <div className="h-[300px] overflow-hidden">
+                <motion.img
+                  src={src}
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.6 }}
+                />
+              </div>
             </motion.div>
           ))}
         </div>
