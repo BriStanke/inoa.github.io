@@ -37,7 +37,7 @@ export default function InteriorPortfolio() {
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#F4F2EE]/70">
-        <div className="tracking-[0.2em] text-sm font-serif">
+        <div className="tracking-[0.3em] text-base md:text-lg font-serif">
           MA SPACE
         </div>
 
@@ -89,7 +89,7 @@ export default function InteriorPortfolio() {
         />
 
         <div
-          className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 text-xs tracking-[0.4em] text-gray-500"
+          className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 text-sm md:text-base tracking-[0.4em] text-gray-500"
           style={{ writingMode: "vertical-rl" }}
         >
           THE SHAPE OF SPACE
