@@ -29,17 +29,17 @@ function ProjectCard({ project }) {
     <div className="group">
       <div className="relative w-full aspect-[4/5] overflow-hidden">
         <img
-          src={project.image}
+          src={ct.image}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
         <div className="absolute inset-0 transition-opacity flex flex-col justify-end p-4 text-white">
           <p className="text-[10px] tracking-[0.3em] opacity-70">
-            {project.category}
+            {ct.category}
           </p>
 
           <p className="text-sm font-light">
-            {project.title}
+            {ct.title}
           </p>
         </div>
       </div>
@@ -161,17 +161,22 @@ export default function InteriorPortfolio() {
           </h2>
         </div>
       
-        {/* MOBILE → horizontal scroll */}
+        {/* MOBILE → horizontal scroll (FIXED SIZE) */}
         <div className="flex md:hidden gap-6 overflow-x-auto px-6 pb-10">
           {projects.map((project) => (
-            <div key={project.title} className="min-w-[260px] flex-shrink-0">
-              <div className="relative">
+            <div
+              key={project.title}
+              className="min-w-[220px] max-w-[240px] flex-shrink-0"
+            >
+              <div className="relative group overflow-hidden">
+      
                 <img
                   src={project.image}
-                  className="w-full h-[320px] object-cover"
+                  className="w-full h-[280px] object-cover"
                 />
       
-                <div className="absolute bottom-4 left-4 text-white">
+                {/* HOVER ONLY TEXT */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-white">
                   <p className="text-[10px] tracking-[0.3em] opacity-70">
                     {project.category}
                   </p>
@@ -179,27 +184,28 @@ export default function InteriorPortfolio() {
                     {project.title}
                   </p>
                 </div>
+      
               </div>
             </div>
           ))}
         </div>
       
-        {/* DESKTOP → 2x2 grid */}
+        {/* DESKTOP → GRID */}
         <div className="hidden md:grid grid-cols-2 gap-10 px-10 max-w-6xl mx-auto">
           {projects.map((project) => (
-            <div key={project.title} className="relative group">
+            <div key={project.title} className="relative group overflow-hidden">
       
               <img
                 src={project.image}
                 className="w-full h-[420px] object-cover"
               />
       
-              {/* bottom text (no blur) */}
-              <div className="absolute bottom-4 left-4 text-white">
+              {/* HOVER ONLY TEXT */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6 text-white">
                 <p className="text-[10px] tracking-[0.3em] opacity-70">
                   {project.category}
                 </p>
-                <p className="text-sm">
+                <p className="text-base">
                   {project.title}
                 </p>
               </div>
