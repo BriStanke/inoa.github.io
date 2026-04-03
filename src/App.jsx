@@ -201,7 +201,7 @@ export default function InteriorPortfolio() {
           <div className="font-serif text-lg tracking-[0.2em]">
             INOA STUDIJA
             <p className="mt-4 text-sm text-gray-600 tracking-normal">
-              Tyčinė tuštuma.
+              Tyčinė tuštuma
             </p>
           </div>
       
@@ -222,7 +222,7 @@ export default function InteriorPortfolio() {
       
         {/* Bottom line */}
         <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-xs text-gray-500 flex justify-between">
-          <span>© 2026 INOA STUDIJA.</span>
+          <span>© 2026 INOA STUDIJA</span>
           <span>VISOS TEISĖS SAUGOMOS.</span>
         </div>
       
