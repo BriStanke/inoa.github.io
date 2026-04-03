@@ -237,45 +237,34 @@ export default function InteriorPortfolio() {
       </Section>
 
       {/* FOOTER */}
-        <footer className="bg-[#F7F3F0] text-black w-full px-6 md:px-10 py-20">
-          <div className="w-full">
-        
-            {/* TOP SECTION */}
-            <div className="flex flex-col md:flex-row justify-between gap-16 md:gap-32">
-        
-              {/* LEFT SIDE */}
-              <div className="max-w-md">
-                <p className="tracking-[0.25em] text-sm font-light">
-                  INOA INTERJERO DIZAINO STUDIO
-                </p>
-                <p className="mt-4 text-xs text-gray-600 tracking-normal">
-                  Minimalistinio interjero dizaino studija.
-                </p>
-              </div>
-        
-              {/* RIGHT SIDE */}
-              <div className="flex flex-col md:flex-row gap-16">
-        
-                {/* LOCATION */}
-                <div className="text-xs md:text-sm">
-                  <p className="tracking-[0.25em] mb-4">VIETA</p>
-                  <p className="text-gray-600">VILNIUS, LIETUVA</p>
-                  <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
-                </div>
-        
-                {/* CONTACT */}
-                <div className="text-xs md:text-sm">
-                  <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
-                  <p className="text-gray-600">inoa@gmail.com</p>
-                </div>
-        
-              </div>
-            </div>
-        
-            {/* BOTTOM BAR */}
-            <div className="w-full border-t border-gray-300 mt-16 pt-6 text-[10px] md:text-xs text-gray-400 tracking-[0.2em]">
-              © 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.
-            </div>
-        
+      <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          <div className="tracking-[0.25em] text-sm font-light">
+            INOA INTERJERO DIZAINO STUDIO
+            <p className="mt-4 text-xs text-gray-500 tracking-normal">
+              Minimalistinio interjero dizaino studija.
+            </p>
           </div>
-        </footer>
+
+          <div className="text-xs md:text-sm">
+            <p className="tracking-[0.25em] mb-4">VIETA</p>
+            <p className="text-gray-600">VILNIUS, LIETUVA</p>
+            <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
+          </div>
+
+          <div className="text-xs md:text-sm">
+            <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
+            <p className="text-gray-600">inoa@gmail.com.jp</p>
+          </div>
+
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-between tracking-[0.2em]">
+          <span>© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.</span>
+        </div>
+      </footer>
+
+    </div>
+  );
+}
