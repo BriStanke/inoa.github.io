@@ -37,7 +37,7 @@ export default function InteriorPortfolio() {
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#F4F2EE]/70">
-        <div className="tracking-[0.3em] text-lg md:text-lg font-serif">
+        <div className="tracking-[0.3em] text-lg md:text-xl font-serif">
           INOA
         </div>
 
