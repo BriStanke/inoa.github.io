@@ -223,7 +223,7 @@ export default function InteriorPortfolio() {
         {/* Bottom line */}
         <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-xs text-gray-500 flex justify-between">
           <span>© 2026 INOA STUDIJA</span>
-          <span>VISOS TEISĖS SAUGOMOS.</span>
+          <span>VISOS TEISĖS SAUGOMOS</span>
         </div>
       
       </footer>
