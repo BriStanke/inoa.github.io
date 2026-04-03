@@ -116,19 +116,31 @@ export default function InteriorPortfolio() {
           {images.map((src, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 80 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: i * 0.1 }}
               viewport={{ once: true }}
               className={`${i % 2 !== 0 ? "md:mt-20" : ""}`}  // offset every second image
             >
-              <div className="h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden">
+              <div className="relative h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden group">
+
                 <motion.img
                   src={src}
+                  style={{ scale: 1.05 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 1.2 }}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.6 }}
                 />
+              
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                  
+                  <span className="text-white text-sm tracking-[0.3em] cursor-pointer">
+                    PROJECT {i + 1}
+                  </span>
+              
+                </div>
+              
               </div>
             </motion.div>
           ))}
