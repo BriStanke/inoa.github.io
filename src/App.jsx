@@ -111,7 +111,8 @@ export default function InteriorPortfolio() {
 
       {/* PROJECTS */}
       <Section id="projects" title="Projects">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 max-w-5xl mx-auto">
+
           {images.map((src, i) => (
             <motion.div
               key={i}
@@ -119,17 +120,19 @@ export default function InteriorPortfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
               viewport={{ once: true }}
+              className={`${i % 2 !== 0 ? "md:mt-20" : ""}`}  // offset every second image
             >
-              <div className="h-[180px] sm:h-[220px] md:h-[260px] overflow-hidden rounded-sm">
+              <div className="h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden">
                 <motion.img
                   src={src}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.08 }}
+                  whileHover={{ scale: 1.06 }}
                   transition={{ duration: 0.6 }}
                 />
               </div>
             </motion.div>
           ))}
+        
         </div>
       </Section>
 
