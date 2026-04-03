@@ -175,6 +175,6 @@ function Section({ id, title, children }) {
 const images = [
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
   "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
-  "https://images.unsplash.com/photo-1507089947367-19c1da9775ae",
+  "https://www.bhg.com/thmb/wiidsHcxqmE7cYU7BV2Ie2PeoXo=/1000x0/filters:no_upscale():strip_icc()/Kinuta4472_low-7f79bad051a14f129ecb342e918529a8.jpg",
   "https://images.unsplash.com/photo-1484154218962-a197022b5858",
 ];
