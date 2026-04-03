@@ -30,7 +30,7 @@ export default function InteriorPortfolio() {
   ];
 
   return (
-    <div className="bg-[#f4f2ee] text-black font-sans overflow-x-hidden">
+    <div className="bg-[#f4f2ee] text-black font-sans">
       
       {/* Header */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 sm:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
@@ -90,6 +90,15 @@ export default function InteriorPortfolio() {
           transition={{ duration: 1.2 }}
           className="w-[85%] sm:w-[70%] md:w-[45%] max-w-[520px] object-cover"
         />
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-6 text-xs tracking-[0.3em] text-gray-500 text-center"
+        >
+          INTERIOR DESIGN STUDIO
+        </motion.p>
       
         {/* Floating text (DESKTOP ONLY) */}
         <motion.div
@@ -135,7 +144,7 @@ export default function InteriorPortfolio() {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center">
                   
-                  <div className="text-center text-white">
+                  <div className="text-center text-white space-y-2">
                     <p className="text-xs tracking-[0.3em] mb-2 opacity-70">
                       {project.category}
                     </p>
@@ -177,7 +186,7 @@ function Section({ id, title, children }) {
       transition={{ duration: 0.8 }}
       className="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36"
     >
-      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-8 tracking-wide">
+      <h2 className="font-[Playfair_Display] text-3xl md:text-4xl">
         {title}
       </h2>
 
