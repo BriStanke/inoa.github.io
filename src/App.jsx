@@ -158,13 +158,13 @@ function Section({ id, title, children }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
-      className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32"
+      className="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36"
     >
-      <h2 className="font-serif text-2xl sm:text-3xl mb-6">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-8 tracking-wide">
         {title}
       </h2>
 
-      <div className="text-gray-600 max-w-xl leading-relaxed text-sm sm:text-base">
+      <div className="text-gray-600 max-w-xl leading-relaxed text-sm sm:text-base md:text-lg">
         {children}
       </div>
     </motion.section>
