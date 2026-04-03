@@ -6,7 +6,6 @@ export default function InteriorPortfolio() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
 
-  // Smooth scroll
   useEffect(() => {
     if (!window.Lenis) return;
 
@@ -86,10 +85,9 @@ export default function InteriorPortfolio() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-[55%] max-w-[700px] object-cover"
+          className="w-[70%] max-w-[700px] object-cover"
         />
 
-        {/* Vertical text */}
         <div
           className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 text-xs tracking-[0.4em] text-gray-500"
           style={{ writingMode: "vertical-rl" }}
@@ -97,7 +95,6 @@ export default function InteriorPortfolio() {
           THE SHAPE OF SPACE
         </div>
 
-        {/* Bottom label */}
         <div className="absolute bottom-10 text-xs tracking-[0.3em] text-gray-500">
           INTERIOR DESIGN STUDIO
         </div>
@@ -110,35 +107,41 @@ export default function InteriorPortfolio() {
         Every space is reduced to its essence — light, texture, and balance.
       </Section>
 
-      {/* PROJECTS (HORIZONTAL SCROLL) */}
+      {/* PROJECTS */}
       <section id="projects" className="py-24">
 
         <h2 className="font-serif text-3xl md:text-4xl px-6 md:px-10 mb-12">
           Projects
         </h2>
 
-        <div className="overflow-x-auto flex gap-10 px-6 md:px-10 pb-10">
+        <div className="flex gap-8 px-6 md:px-10 overflow-x-auto pb-10">
 
           {projects.map((project, i) => (
             <div
               key={i}
-              className="min-w-[300px] md:min-w-[420px] flex-shrink-0"
+              className="min-w-[300px] md:min-w-[400px] flex-shrink-0 group"
             >
-              <div className="relative group">
+              <div className="relative overflow-hidden">
 
-                <img
-                  src={project.image}
-                  className="w-full h-[320px] object-cover"
-                />
+                {/* FIXED IMAGE SIZE */}
+                <div className="w-full aspect-[4/5] overflow-hidden">
+                  <img
+                    src={project.image}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
 
-                {/* Bottom text */}
-                <div className="absolute bottom-4 left-4 text-white">
+                {/* HOVER TEXT */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+
                   <p className="text-xs tracking-[0.3em] opacity-70">
                     {project.category}
                   </p>
+
                   <p className="text-lg font-serif">
                     {project.title}
                   </p>
+
                 </div>
 
               </div>
@@ -148,7 +151,7 @@ export default function InteriorPortfolio() {
         </div>
       </section>
 
-      {/* CONTACT FORM */}
+      {/* CONTACT */}
       <Section id="contact" title="Engraved Inquiry">
 
         <form
