@@ -80,26 +80,27 @@ export default function InteriorPortfolio() {
       </AnimatePresence>
 
       {/* HERO */}
-      <section className="min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-10 pt-24 px-4 sm:px-6 md:px-10">
-        
+      <section className="min-h-[90vh] flex items-center justify-center relative px-4 sm:px-6 md:px-10">
+
         <motion.img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
           style={{ y }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-full sm:w-[80%] md:w-[50%] max-w-[520px] object-cover"
+          className="w-[85%] sm:w-[70%] md:w-[45%] max-w-[520px] object-cover"
         />
-
+      
+        {/* Floating text (DESKTOP ONLY) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 rotate-180 text-xs tracking-[0.3em] text-gray-500"
-          style={{ writingMode: "vertical-rl" }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6 }}
+          className="hidden md:block absolute right-[8%] top-[55%] -translate-y-1/2 text-xs tracking-[0.4em] text-gray-500"
         >
-          THE SHAPE OF SPACE
+          THE SHAPE<br />OF SPACE
         </motion.div>
+      
       </section>
 
       {/* ABOUT */}
