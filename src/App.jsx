@@ -36,7 +36,7 @@ export default function InteriorPortfolio() {
     <div className="bg-[#F7F3F0] text-black font-sans overflow-x-hidden">
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#F4F2EE]/70">
         <div className="tracking-[0.2em] text-sm font-serif">
           MA SPACE
         </div>
@@ -193,7 +193,7 @@ export default function InteriorPortfolio() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="bg-[#f4f2ee] text-black px-6 md:px-10 py-16">
+      <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-16">
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
       
