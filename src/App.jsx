@@ -214,7 +214,7 @@ export default function InteriorPortfolio() {
 
       {/* FOOTER */}
       <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="w-full max-w-none">
 
           <div className="tracking-[0.25em] text-sm font-light">
             INOA INTERJERO DIZAINO STUDIO
