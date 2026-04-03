@@ -33,7 +33,7 @@ export default function InteriorPortfolio() {
   ];
 
   return (
-    <div className="bg-[#f4f2ee] text-black font-sans overflow-x-hidden">
+    <div className="bg-[#F7F3F0] text-black font-sans overflow-x-hidden">
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
