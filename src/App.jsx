@@ -26,10 +26,10 @@ export default function InteriorPortfolio() {
   }, []);
 
   const menuItems = [
-    { name: "Home", link: "#" },
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#contact" },
+    { name: "Pagrindinis", link: "#" },
+    { name: "Apie", link: "#about" },
+    { name: "Projektai", link: "#projects" },
+    { name: "Kontaktai", link: "#contact" },
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function InteriorPortfolio() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#F4F2EE]/70">
         <div className="tracking-[0.3em] text-base md:text-lg font-serif">
-          MA SPACE
+          INOA
         </div>
 
         <button onClick={() => setMenuOpen(true)} className="text-2xl">
@@ -80,7 +80,7 @@ export default function InteriorPortfolio() {
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
 
         <motion.img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+          src="https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/559287397_17865311022467882_1521011291223335657_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=h6LS_RkLiEcQ7kNvwFLTdQ1&_nc_oc=AdqTr0R0RfoPTYQ7VgluF008fhyYKjah9C3Y1fj3qEczdiTYzQ_RBdorDRY81QrxDqecbKi14fqg8haNC0Xi3eJs&_nc_zt=23&_nc_ht=scontent-lhr6-2.xx&_nc_gid=HGxSJP9NUnrbigXA6exkww&_nc_ss=7a3a8&oh=00_Af1Dtvz58g2VCtoh5hSyguOnea4oi4JutSLSAyyBZ0f1Ag&oe=69D5B60A"
           style={{ y }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -92,26 +92,26 @@ export default function InteriorPortfolio() {
           className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 text-sm md:text-base tracking-[0.4em] text-gray-500"
           style={{ writingMode: "vertical-rl" }}
         >
-          THE SHAPE OF SPACE
+          ERDVĖS FORMA
         </div>
 
         <div className="absolute bottom-10 text-xs tracking-[0.3em] text-gray-500">
-          INTERIOR DESIGN STUDIO
+          INTERJERO DIZAINO STUDIJA
         </div>
 
       </section>
 
       {/* ABOUT */}
       <Section id="about" title="About">
-        We create calm, intentional interiors inspired by Japanese minimalism.
-        Every space is reduced to its essence — light, texture, and balance.
+        Kuriame ramius, apgalvotus interjerus, įkvėptus japoniško minimalizmo.
+        Kiekviena erdvė sutelkta į savo esmę – šviesą, tekstūrą ir pusiausvyrą.
       </Section>
 
       {/* PROJECTS */}
       <section id="projects" className="py-24">
 
         <h2 className="font-serif text-3xl md:text-4xl px-6 md:px-10 mb-12">
-          Projects
+          Projektai
         </h2>
       
         <div className="flex gap-8 px-6 md:px-10 overflow-x-auto pb-10">
@@ -152,7 +152,7 @@ export default function InteriorPortfolio() {
       </section>
 
       {/* CONTACT */}
-      <Section id="contact" title="Send Your Inquiry">
+      <Section id="contact" title="Siųsti užklausą">
 
         <form
           action="https://formspree.io/f/your-id"
@@ -163,7 +163,7 @@ export default function InteriorPortfolio() {
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="Vardas"
             required
             className="border-b border-gray-400 bg-transparent py-2 outline-none"
           />
@@ -171,21 +171,21 @@ export default function InteriorPortfolio() {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="El. paštas"
             required
             className="border-b border-gray-400 bg-transparent py-2 outline-none"
           />
 
           <textarea
             name="message"
-            placeholder="Message"
+            placeholder="Žinutė"
             rows="4"
             required
             className="border-b border-gray-400 bg-transparent py-2 outline-none"
           />
 
           <button className="text-left tracking-[0.3em] text-sm mt-4">
-            SEND →
+            SIŲSTI →
           </button>
 
         </form>
@@ -199,31 +199,31 @@ export default function InteriorPortfolio() {
       
           {/* Brand */}
           <div className="font-serif text-lg tracking-[0.2em]">
-            MA-SPACE STUDIOS
+            INOA STUDIJA
             <p className="mt-4 text-sm text-gray-600 tracking-normal">
-              The intentional void.
+              Tyčinė tuštuma.
             </p>
           </div>
       
           {/* Location */}
           <div className="text-sm">
-            <p className="tracking-[0.2em] mb-4">LOCATION</p>
-            <p className="text-gray-600">Tokyo, Japan</p>
-            <p className="text-gray-600">Worldwide by appointment</p>
+            <p className="tracking-[0.2em] mb-4">VIETA</p>
+            <p className="text-gray-600">Vilnius, Lietuva</p>
+            <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
           </div>
       
           {/* Connect */}
           <div className="text-sm">
-            <p className="tracking-[0.2em] mb-4">CONNECT</p>
-            <p className="text-gray-600">studio@maspace.jp</p>
+            <p className="tracking-[0.2em] mb-4">SUSISIEKITE</p>
+            <p className="text-gray-600">inoa@gmail.com</p>
           </div>
       
         </div>
       
         {/* Bottom line */}
         <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-xs text-gray-500 flex justify-between">
-          <span>© 2026 MA-SPACE STUDIOS.</span>
-          <span>ALL RIGHTS RESERVED.</span>
+          <span>© 2026 INOA STUDIJA.</span>
+          <span>VISOS TEISĖS SAUGOMOS.</span>
         </div>
       
       </footer>
@@ -257,23 +257,23 @@ function Section({ id, title, children }) {
 /* DATA */
 const projects = [
   {
-    title: "Tokyo Minimal Apartment",
-    category: "Residential",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+    title: "Vonios erdvė",
+    category: "Gyvenamasis",
+    image: "https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/572029684_17867818608467882_4230653201519751878_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=2NBk7kBjeD0Q7kNvwGlbyHF&_nc_oc=AdoyHI4GQ7oDWxoSD8PDfaNtml2dOKX1O11TX08WA4LBGmX66a_W7zHbgkeVJILOb7F3p_hC_VWWxPfppBy3_U_e&_nc_zt=23&_nc_ht=scontent-lhr6-2.xx&_nc_gid=XBLSuj0BpQHy7CDnaXzSDA&_nc_ss=7a3a8&oh=00_Af2Yv1aA7fGrCknf2H4AYTfXNYW-tlPX6PYvUZ2I8AMVSg&oe=69D5D006",
   },
   {
-    title: "Kyoto Tea House",
-    category: "Hospitality",
-    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
+    title: "Virtuvės erdvė",
+    category: "ARTCRAFT Calce",
+    image: "https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/529774988_122135004752844125_1346394103216306535_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=Y3b64F2j1AAQ7kNvwGmgayz&_nc_oc=AdoFNqSF40uJDlMyw8OCv0_75tL250T7fTqk8VODJXYUkJ8DW-u80J42e4qD9nDYSPG5saQF_-DgVG4xVZ9GCbzt&_nc_zt=23&_nc_ht=scontent-lhr8-2.xx&_nc_gid=2k2j9eSTGITEdO9DmROefw&_nc_ss=7a3a8&oh=00_Af1z0hIlhuj9uXQ1KRKPXCeJFgnuqY3fSKNaZUHgzekJCA&oe=69D5BD7F",
   },
   {
-    title: "Osaka Modern Living",
-    category: "Interior",
-    image: "https://www.bhg.com/thmb/wiidsHcxqmE7cYU7BV2Ie2PeoXo=/1000x0/filters:no_upscale():strip_icc()/Kinuta4472_low-7f79bad051a14f129ecb342e918529a8.jpg",
+    title: "Miegamojo erdvė",
+    category: "Gyvenamasis",
+    image: "https://scontent-lhr6-1.xx.fbcdn.net/v/t39.30808-6/530767501_122135004878844125_8217486174292026629_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=8_rOeNOM1JYQ7kNvwHrTlGx&_nc_oc=AdpdQlftrAt3WARxqjtHUXn4RHZrkYh-RFHYoWzKnHC7xO9S9Gw5wiLr2tmrV7m8mKWQbdBURCGuA8TaQli9d27C&_nc_zt=23&_nc_ht=scontent-lhr6-1.xx&_nc_gid=FBFBfxKyGVNl7BlWz3qDMQ&_nc_ss=7a3a8&oh=00_Af276VMaOKmxbvnj8i-4-dil1tW62phhemQPllJ98FcG9A&oe=69D5D8F5",
   },
   {
-    title: "Zen Workspace",
-    category: "Commercial",
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858",
+    title: "Vonios erdvė",
+    category: "Gyvenamasis",
+    image: "https://scontent-lhr6-1.xx.fbcdn.net/v/t39.30808-6/547294817_122145991310844125_1441440643202851374_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_ohc=GvBFzFVd0B4Q7kNvwE2wRyl&_nc_oc=Adqj-Hk8DU-99USdzfm2jSvy2hHnZ7N0SjbVhhxNPWDgm6wBcMJYQNUh0eMR1kAnkRztJ2DDDg4uMk9MXZV-e4ML&_nc_zt=23&_nc_ht=scontent-lhr6-1.xx&_nc_gid=I8pFJVSdENOy_X40GvO1FA&_nc_ss=7a3a8&oh=00_Af0qZkRgD_xEYp4TXCbsLwgmhQhYXy7uUYEHldLIecuTjA&oe=69D5EB7D",
   },
 ];
