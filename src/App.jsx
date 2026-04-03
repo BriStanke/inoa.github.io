@@ -33,7 +33,7 @@ function ProjectCard({ project }) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+        <div className="absolute inset-0 transition-opacity flex flex-col justify-end p-4 text-white">
           <p className="text-[10px] tracking-[0.3em] opacity-70">
             {project.category}
           </p>
@@ -104,6 +104,35 @@ export default function InteriorPortfolio() {
         </button>
       </header>
 
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-md flex flex-col justify-center items-center gap-10 z-50"
+          >
+            <button
+              className="absolute top-6 right-6 text-2xl text-white"
+              onClick={() => setMenuOpen(false)}
+            >
+              ✕
+            </button>
+      
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                onClick={() => setMenuOpen(false)}
+                className="text-white text-2xl tracking-widest"
+              >
+                {item.name}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
       {/* HERO */}
       <section className="h-screen w-full relative overflow-hidden">
 
@@ -125,20 +154,63 @@ export default function InteriorPortfolio() {
 
       {/* PROJECTS */}
       <section id="projects" className="py-32">
-
+      
         <div className="max-w-5xl mx-auto px-6 md:px-10">
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-12">
             Projektai
           </h2>
         </div>
-
-        <div className="hidden md:grid grid-cols-2 gap-10 px-10 max-w-6xl mx-auto">
+      
+        {/* MOBILE → horizontal scroll */}
+        <div className="flex md:hidden gap-6 overflow-x-auto px-6 pb-10">
           {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <div key={project.title} className="min-w-[260px] flex-shrink-0">
+              <div className="relative">
+                <img
+                  src={project.image}
+                  className="w-full h-[320px] object-cover"
+                />
+      
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="text-[10px] tracking-[0.3em] opacity-70">
+                    {project.category}
+                  </p>
+                  <p className="text-sm">
+                    {project.title}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
+      
+        {/* DESKTOP → 2x2 grid */}
+        <div className="hidden md:grid grid-cols-2 gap-10 px-10 max-w-6xl mx-auto">
+          {projects.map((project) => (
+            <div key={project.title} className="relative group">
+      
+              <img
+                src={project.image}
+                className="w-full h-[420px] object-cover"
+              />
+      
+              {/* bottom text (no blur) */}
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-[10px] tracking-[0.3em] opacity-70">
+                  {project.category}
+                </p>
+                <p className="text-sm">
+                  {project.title}
+                </p>
+              </div>
+      
+            </div>
+          ))}
+        </div>
+      
       </section>
 
+      {/* Siųsti užklausą */}
       <Section id="contact" title="Siųsti užklausą">
         <div className="mt-6 max-w-md">
           <form className="flex flex-col gap-6">
