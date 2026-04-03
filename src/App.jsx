@@ -79,7 +79,7 @@ export default function InteriorPortfolio() {
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
 
         <motion.img
-          src="https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/559287397_17865311022467882_1521011291223335657_n.jpg"
+          src="https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/559287397_17865311022467882_1521011291223335657_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=h6LS_RkLiEcQ7kNvwFLTdQ1&_nc_oc=AdqTr0R0RfoPTYQ7VgluF008fhyYKjah9C3Y1fj3qEczdiTYzQ_RBdorDRY81QrxDqecbKi14fqg8haNC0Xi3eJs&_nc_zt=23&_nc_ht=scontent-lhr6-2.xx&_nc_gid=HGxSJP9NUnrbigXA6exkww&_nc_ss=7a3a8&oh=00_Af1Dtvz58g2VCtoh5hSyguOnea4oi4JutSLSAyyBZ0f1Ag&oe=69D5B60A"
           style={{ y }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -228,17 +228,17 @@ const projects = [
   {
     title: "Vonios erdvė",
     category: "Gyvenamasis",
-    image: "https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/572029684.jpg",
+    image: "https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/529774988_122135004752844125_1346394103216306535_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=Y3b64F2j1AAQ7kNvwGmgayz&_nc_oc=AdoFNqSF40uJDlMyw8OCv0_75tL250T7fTqk8VODJXYUkJ8DW-u80J42e4qD9nDYSPG5saQF_-DgVG4xVZ9GCbzt&_nc_zt=23&_nc_ht=scontent-lhr8-2.xx&_nc_gid=2k2j9eSTGITEdO9DmROefw&_nc_ss=7a3a8&oh=00_Af1z0hIlhuj9uXQ1KRKPXCeJFgnuqY3fSKNaZUHgzekJCA&oe=69D5BD7F",
   },
   {
     title: "Virtuvės erdvė",
     category: "Gyvenamasis",
-    image: "https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/529774988.jpg",
+    image: "https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/529774988_122135004752844125_1346394103216306535_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=Y3b64F2j1AAQ7kNvwGmgayz&_nc_oc=AdoFNqSF40uJDlMyw8OCv0_75tL250T7fTqk8VODJXYUkJ8DW-u80J42e4qD9nDYSPG5saQF_-DgVG4xVZ9GCbzt&_nc_zt=23&_nc_ht=scontent-lhr8-2.xx&_nc_gid=2k2j9eSTGITEdO9DmROefw&_nc_ss=7a3a8&oh=00_Af1z0hIlhuj9uXQ1KRKPXCeJFgnuqY3fSKNaZUHgzekJCA&oe=69D5BD7F",
   },
   {
     title: "Miegamojo erdvė",
     category: "Gyvenamasis",
-    image: "https://scontent-lhr6-1.xx.fbcdn.net/v/t39.30808-6/530767501.jpg",
+    image: "https://scontent-lhr6-1.xx.fbcdn.net/v/t39.30808-6/530767501_122135004878844125_8217486174292026629_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=8_rOeNOM1JYQ7kNvwHrTlGx&_nc_oc=AdpdQlftrAt3WARxqjtHUXn4RHZrkYh-RFHYoWzKnHC7xO9S9Gw5wiLr2tmrV7m8mKWQbdBURCGuA8TaQli9d27C&_nc_zt=23&_nc_ht=scontent-lhr6-1.xx&_nc_gid=FBFBfxKyGVNl7BlWz3qDMQ&_nc_ss=7a3a8&oh=00_Af276VMaOKmxbvnj8i-4-dil1tW62phhemQPllJ98FcG9A&oe=69D5D8F5",
   },
   { 
     title: "Vonios erdvė",
