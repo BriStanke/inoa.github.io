@@ -29,7 +29,7 @@ export default function InteriorPortfolio() {
     { name: "Pagrindinis", link: "#" },
     { name: "Apie", link: "#about" },
     { name: "Projektai", link: "#projects" },
-    { name: "Kontaktai", link: "#contact" },
+    { name: "Siųsti užklausą", link: "#contact" },
   ];
 
   return (
