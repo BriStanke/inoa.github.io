@@ -41,7 +41,7 @@ export default function InteriorPortfolio() {
         <img
           src="/logo.png"
           alt="INOA"
-          className="h-12 md:h-14 w-auto object-contain"
+          className="h-14 md:h-16 w-auto object-contain"
         />
       </div>
     
