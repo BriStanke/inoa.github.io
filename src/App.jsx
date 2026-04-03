@@ -125,7 +125,7 @@ export default function InteriorPortfolio() {
 
       {/* PROJECTS */}
       <section id="projects" className="py-32">
-        <h2 className="text-3xl md:text-4xl font-light tracking-tight px-6 md:px-10 mb-12">
+        <h2 className="text-3xl md:text-4xl font-light tracking-tight text-center mb-12">
           Projektai
         </h2>
 
