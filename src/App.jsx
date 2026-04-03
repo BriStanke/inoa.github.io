@@ -85,7 +85,7 @@ export default function InteriorPortfolio() {
       <section className="h-screen w-full relative overflow-hidden">
 
         <motion.img
-          src="/main.png"
+          src="/main.jpeg"
           style={{ y }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
