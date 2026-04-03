@@ -39,7 +39,7 @@ export default function InteriorPortfolio() {
 
       <div className="flex items-center">
         <img
-          src="/logo.png"
+          src="/logo.jpeg"
           alt="INOA"
           className="h-6 md:h-8 w-auto object-contain"
         />
