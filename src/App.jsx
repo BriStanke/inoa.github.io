@@ -214,7 +214,7 @@ const projects = [
   {
     title: "Osaka Modern Living",
     category: "Interior",
-    image: "https://images.unsplash.com/photo-1507089947367-19c1da9775ae",
+    image: "https://www.bhg.com/thmb/wiidsHcxqmE7cYU7BV2Ie2PeoXo=/1000x0/filters:no_upscale():strip_icc()/Kinuta4472_low-7f79bad051a14f129ecb342e918529a8.jpg",
   },
   {
     title: "Zen Workspace",
