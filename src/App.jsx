@@ -149,35 +149,6 @@ export default function InteriorPortfolio() {
         </div>
       </section>
 
-      function ProjectCard({ project }) {
-        return (
-          <div className="group">
-      
-            <div className="relative w-full aspect-[4/5] overflow-hidden">
-      
-              <img
-                src={project.image}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-      
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-      
-                <p className="text-[10px] tracking-[0.3em] opacity-70">
-                  {project.category}
-                </p>
-      
-                <p className="text-sm font-light">
-                  {project.title}
-                </p>
-      
-              </div>
-      
-            </div>
-      
-          </div>
-        );
-      }
-
       {/* CONTACT */}
       <Section id="contact" title="Siųsti užklausą">
         <form className="flex flex-col gap-6 max-w-md">
@@ -207,6 +178,51 @@ export default function InteriorPortfolio() {
         </form>
       </Section>
 
+      function ProjectCard({ project }) {
+        return (
+          <div className="group">
+            <div className="relative w-full aspect-[4/5] overflow-hidden">
+      
+              <img
+                src={project.image}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+      
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+      
+                <p className="text-[10px] tracking-[0.3em] opacity-70">
+                  {project.category}
+                </p>
+      
+                <p className="text-sm font-light">
+                  {project.title}
+                </p>
+      
+              </div>
+      
+            </div>
+          </div>
+        );
+      }
+      
+      function Section({ id, title, children }) {
+        return (
+          <motion.section
+            id={id}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="max-w-5xl mx-auto px-6 md:px-10 py-32"
+          >
+            <h2 className="text-3xl md:text-4xl font-light mb-10">
+              {title}
+            </h2>
+            <div className="text-gray-600">{children}</div>
+          </motion.section>
+        );
+      }
+      
       {/* FOOTER */}
       <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
 
