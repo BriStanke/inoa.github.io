@@ -216,9 +216,14 @@ export default function InteriorPortfolio() {
       <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
         <div className="w-full max-w-none">
 
-          <div className="tracking-[0.25em] text-sm font-light">
-            INOA INTERJERO DIZAINO STUDIO
-            <p className="mt-4 text-xs text-gray-500 tracking-normal">
+          {/* TOP SECTION */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-32">
+
+          <div>
+            <p className="tracking-[0.25em] text-sm font-light">
+              INOA INTERJERO DIZAINO STUDIO
+            </p>
+            <p className="mt-4 text-xs text-gray-600 tracking-normal">
               Minimalistinio interjero dizaino studija.
             </p>
           </div>
@@ -236,7 +241,7 @@ export default function InteriorPortfolio() {
 
         </div>
 
-        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-between tracking-[0.2em]">
+        <div className="w-full max-w-none border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-between tracking-[0.2em]">
           <span>© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.</span>
         </div>
       </footer>
