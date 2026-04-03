@@ -58,8 +58,8 @@ export default function InteriorPortfolio() {
 
         <img src="/logo.png" alt="INOA" className="h-12 md:h-14" />
 
-        {/* DESKTOP MENU */}
-        <nav className="hidden md:flex gap-8 text-sm">
+        {/* DESKTOP MENU (FIXED) */}
+        <nav className="hidden md:flex gap-12 text-base tracking-[0.2em] uppercase">
           {menuItems.map((item) => (
             <a key={item.name} href={item.link} className="hover:opacity-60">
               {item.name}
@@ -154,14 +154,14 @@ export default function InteriorPortfolio() {
           ))}
         </div>
 
-        {/* DESKTOP */}
-        <div className="hidden md:grid grid-cols-2 gap-8 px-10 max-w-5xl mx-auto">
+        {/* DESKTOP → 3x2 FULL WIDTH */}
+        <div className="hidden md:grid grid-cols-3 gap-6 px-10 max-w-[1400px] mx-auto">
           {projects.map((project) => (
             <div key={project.title} className="relative group overflow-hidden">
 
               <img
                 src={project.image}
-                className="w-full h-[380px] object-cover"
+                className="w-full h-[420px] object-cover"
               />
 
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4 text-white">
@@ -208,9 +208,33 @@ export default function InteriorPortfolio() {
         </form>
       </Section>
 
-      {/* FOOTER */}
-      <footer className="px-6 md:px-10 py-16 text-sm text-gray-500 text-center">
-        © 2026 INOA
+      {/* FULL FOOTER (RESTORED) */}
+      <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          <div className="tracking-[0.25em] text-sm font-light">
+            INOA STUDIO
+            <p className="mt-4 text-xs text-gray-500 tracking-normal">
+              Minimal interior design studio.
+            </p>
+          </div>
+
+          <div className="text-xs md:text-sm">
+            <p className="tracking-[0.25em] mb-4">LOCATION</p>
+            <p className="text-gray-600">London, UK</p>
+            <p className="text-gray-600">Available worldwide</p>
+          </div>
+
+          <div className="text-xs md:text-sm">
+            <p className="tracking-[0.25em] mb-4">CONTACT</p>
+            <p className="text-gray-600">hello@inoa.com</p>
+          </div>
+
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-between tracking-[0.2em]">
+          <span>© 2026 INOA. ALL RIGHTS RESERVED.</span>
+        </div>
       </footer>
 
     </div>
