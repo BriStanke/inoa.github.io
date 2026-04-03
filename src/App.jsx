@@ -6,7 +6,7 @@ export default function InteriorPortfolio() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
 
-  // Smooth scroll (Lenis)
+  // Smooth scroll
   useEffect(() => {
     if (!window.Lenis) return;
 
@@ -23,7 +23,6 @@ export default function InteriorPortfolio() {
     }
 
     rafId = requestAnimationFrame(raf);
-
     return () => cancelAnimationFrame(rafId);
   }, []);
 
@@ -35,10 +34,10 @@ export default function InteriorPortfolio() {
   ];
 
   return (
-    <div className="bg-[#f4f2ee] text-black font-sans">
+    <div className="bg-[#f4f2ee] text-black font-sans overflow-x-hidden">
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
+      {/* HEADER */}
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
         <div className="tracking-[0.2em] text-sm font-serif">
           MA SPACE
         </div>
@@ -48,14 +47,14 @@ export default function InteriorPortfolio() {
         </button>
       </header>
 
-      {/* Menu */}
+      {/* MENU */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-md flex flex-col justify-center items-center gap-10 z-50"
+            className="fixed inset-0 bg-black/40 backdrop-blur-md flex flex-col justify-center items-center gap-10 z-50"
           >
             <button
               className="absolute top-6 right-6 text-2xl text-white"
@@ -69,10 +68,7 @@ export default function InteriorPortfolio() {
                 key={item.name}
                 href={item.link}
                 onClick={() => setMenuOpen(false)}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 20, opacity: 0 }}
-                className="text-white text-2xl sm:text-3xl tracking-widest"
+                className="text-white text-3xl tracking-widest"
               >
                 {item.name}
               </motion.a>
@@ -82,37 +78,29 @@ export default function InteriorPortfolio() {
       </AnimatePresence>
 
       {/* HERO */}
-      <section className="min-h-[90vh] flex items-center justify-center relative px-4 sm:px-6 md:px-10">
+      <section className="h-screen flex items-center justify-center relative overflow-hidden">
 
-        <div className="flex flex-col items-center">
-          <motion.img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-            style={{ y }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2 }}
-            className="w-[85%] sm:w-[70%] md:w-[45%] max-w-[520px] object-cover"
-          />
+        <motion.img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+          style={{ y }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2 }}
+          className="w-[55%] max-w-[700px] object-cover"
+        />
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-6 text-xs tracking-[0.3em] text-gray-500 text-center"
-          >
-            INTERIOR DESIGN STUDIO
-          </motion.p>
+        {/* Vertical text */}
+        <div
+          className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 text-xs tracking-[0.4em] text-gray-500"
+          style={{ writingMode: "vertical-rl" }}
+        >
+          THE SHAPE OF SPACE
         </div>
 
-        {/* Floating text */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6 }}
-          className="hidden md:block absolute right-[8%] top-[55%] -translate-y-1/2 text-xs tracking-[0.4em] text-gray-500"
-        >
-          THE SHAPE<br />OF SPACE
-        </motion.div>
+        {/* Bottom label */}
+        <div className="absolute bottom-10 text-xs tracking-[0.3em] text-gray-500">
+          INTERIOR DESIGN STUDIO
+        </div>
 
       </section>
 
@@ -122,57 +110,90 @@ export default function InteriorPortfolio() {
         Every space is reduced to its essence — light, texture, and balance.
       </Section>
 
-      {/* PROJECTS */}
-      <Section id="projects" title="Projects">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 max-w-5xl mx-auto">
+      {/* PROJECTS (HORIZONTAL SCROLL) */}
+      <section id="projects" className="py-24">
+
+        <h2 className="font-serif text-3xl md:text-4xl px-6 md:px-10 mb-12">
+          Projects
+        </h2>
+
+        <div className="overflow-x-auto flex gap-10 px-6 md:px-10 pb-10">
 
           {projects.map((project, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut", delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className={`${i % 2 !== 0 ? "md:mt-20" : ""}`}
+              className="min-w-[300px] md:min-w-[420px] flex-shrink-0"
             >
-              <div className="relative h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden group">
+              <div className="relative group">
 
-                <motion.img
+                <img
                   src={project.image}
-                  style={{ scale: 1.05 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 1.2 }}
-                  className="w-full h-full object-cover"
+                  className="w-full h-[320px] object-cover"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 flex items-center justify-center">
-                  <div className="text-center text-white space-y-2">
-                    <p className="text-xs tracking-[0.3em] opacity-70">
-                      {project.category}
-                    </p>
-                    <p className="text-base md:text-lg font-serif">
-                      {project.title}
-                    </p>
-                  </div>
+                {/* Bottom text */}
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="text-xs tracking-[0.3em] opacity-70">
+                    {project.category}
+                  </p>
+                  <p className="text-lg font-serif">
+                    {project.title}
+                  </p>
                 </div>
 
               </div>
-            </motion.div>
+            </div>
           ))}
 
         </div>
-      </Section>
+      </section>
 
-      {/* CONTACT */}
-      <Section id="contact" title="Contact">
-        Email: hello@interiordesign.com
+      {/* CONTACT FORM */}
+      <Section id="contact" title="Engraved Inquiry">
+
+        <form
+          action="https://formspree.io/f/your-id"
+          method="POST"
+          className="flex flex-col gap-6 max-w-md"
+        >
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+            className="border-b border-gray-400 bg-transparent py-2 outline-none"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            className="border-b border-gray-400 bg-transparent py-2 outline-none"
+          />
+
+          <textarea
+            name="message"
+            placeholder="Message"
+            rows="4"
+            required
+            className="border-b border-gray-400 bg-transparent py-2 outline-none"
+          />
+
+          <button className="text-left tracking-[0.3em] text-sm mt-4">
+            SEND →
+          </button>
+
+        </form>
+
       </Section>
 
       {/* FOOTER */}
-      <footer className="text-center py-12 sm:py-16 text-gray-500 text-sm">
+      <footer className="text-center py-16 text-gray-500 text-sm">
         © 2026 Interior Design Studio
       </footer>
+
     </div>
   );
 }
@@ -184,22 +205,22 @@ function Section({ id, title, children }) {
       id={id}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36"
+      className="max-w-5xl mx-auto px-6 md:px-10 py-24"
     >
       <h2 className="font-serif text-3xl md:text-4xl mb-8">
         {title}
       </h2>
 
-      <div className="text-gray-600 max-w-xl leading-relaxed text-sm sm:text-base md:text-lg">
+      <div className="text-gray-600 max-w-xl leading-relaxed">
         {children}
       </div>
     </motion.section>
   );
 }
 
-/* PROJECT DATA */
+/* DATA */
 const projects = [
   {
     title: "Tokyo Minimal Apartment",
