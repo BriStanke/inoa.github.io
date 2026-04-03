@@ -59,7 +59,7 @@ export default function InteriorPortfolio() {
         <img src="/logo.png" alt="INOA" className="h-12 md:h-14" />
 
         {/* DESKTOP MENU (FIXED) */}
-        <nav className="hidden md:flex gap-12 text-base tracking-[0.2em] uppercase">
+        <nav className="hidden md:flex gap-10 text-sm font-light">
           {menuItems.map((item) => (
             <a key={item.name} href={item.link} className="hover:opacity-60">
               {item.name}
@@ -155,24 +155,27 @@ export default function InteriorPortfolio() {
         </div>
 
         {/* DESKTOP → 3x2 FULL WIDTH */}
-        <div className="hidden md:grid grid-cols-3 gap-6 px-10 max-w-[1400px] mx-auto">
+        <div className="hidden md:grid grid-cols-3 gap-2">
           {projects.map((project) => (
-            <div key={project.title} className="relative group overflow-hidden">
-
+            <div key={project.title} className="relative group overflow-hidden h-[70vh]">
+        
               <img
                 src={project.image}
-                className="w-full h-[600px] object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4 text-white">
-                <p className="text-xs opacity-70">
+        
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">
+        
+                <p className="text-[11px] tracking-[0.2em] opacity-70">
                   {project.category}
                 </p>
-                <p className="text-base">
+        
+                <p className="text-lg font-light">
                   {project.title}
                 </p>
+        
               </div>
-
+        
             </div>
           ))}
         </div>
@@ -233,7 +236,7 @@ export default function InteriorPortfolio() {
         </div>
 
         <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-between tracking-[0.2em]">
-          <span>© 2026 INOA. ALL RIGHTS RESERVED.</span>
+          <span>© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.</span>
         </div>
       </footer>
 
