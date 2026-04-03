@@ -82,15 +82,15 @@ export default function InteriorPortfolio() {
       </AnimatePresence>
 
       {/* HERO */}
-      <section className="h-screen flex items-center justify-center relative overflow-hidden">
+      <section className="h-screen w-full relative overflow-hidden">
 
         <motion.img
-          src="https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/559287397_17865311022467882_1521011291223335657_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=h6LS_RkLiEcQ7kNvwFLTdQ1&_nc_oc=AdqTr0R0RfoPTYQ7VgluF008fhyYKjah9C3Y1fj3qEczdiTYzQ_RBdorDRY81QrxDqecbKi14fqg8haNC0Xi3eJs&_nc_zt=23&_nc_ht=scontent-lhr6-2.xx&_nc_gid=HGxSJP9NUnrbigXA6exkww&_nc_ss=7a3a8&oh=00_Af1Dtvz58g2VCtoh5hSyguOnea4oi4JutSLSAyyBZ0f1Ag&oe=69D5B60A"
+          src="/main.png"
           style={{ y }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-[65%] max-w-[680px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
         <div
