@@ -247,30 +247,34 @@ export default function InteriorPortfolio() {
       </Section>
 
       {/* FOOTER */}
-      {/* FOOTER */}
       <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
-        
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        <div className="w-full flex flex-col md:flex-row justify-between items-start gap-12">
 
           {/* LEFT */}
-          <div className="text-left tracking-[0.25em] text-sm font-light">
+          <div className="tracking-[0.25em] text-sm font-light">
             INOA INTERJERO DIZAINO STUDIO
             <p className="mt-4 text-xs text-gray-500 tracking-normal">
               Minimalistinio interjero dizaino studija.
             </p>
           </div>
 
-          {/* CENTER */}
-          <div className="text-center text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-4">VIETA</p>
-            <p className="text-gray-600">VILNIUS, LIETUVA</p>
-            <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
-          </div>
+          {/* RIGHT SIDE GROUP (VIETA + KONTAKTAI together) */}
+          <div className="flex gap-20 md:gap-32 ml-auto">
 
-          {/* RIGHT */}
-          <div className="text-right text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
-            <p className="text-gray-600">inoa@gmail.com.jp</p>
+            {/* VIETA */}
+            <div className="text-xs md:text-sm">
+              <p className="tracking-[0.25em] mb-4">VIETA</p>
+              <p className="text-gray-600">VILNIUS, LIETUVA</p>
+              <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
+            </div>
+
+            {/* KONTAKTAI */}
+            <div className="text-xs md:text-sm text-right">
+              <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
+              <p className="text-gray-600">inoa@gmail.com.jp</p>
+            </div>
+
           </div>
 
         </div>
