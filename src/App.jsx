@@ -118,6 +118,7 @@ export default function InteriorPortfolio() {
       {/* ABOUT */}
       <Section id="about" title="Apie">
         Kuriame ramius, apgalvotus interjerus, įkvėptus japoniško minimalizmo.
+        Kiekviena erdvė sutelkta į savo esmę – šviesą, tekstūrą ir pusiausvyrą.
       </Section>
 
       {/* PROJECTS */}
@@ -211,26 +212,26 @@ export default function InteriorPortfolio() {
         </form>
       </Section>
 
-      {/* FULL FOOTER (RESTORED) */}
+      {/* FOOTER */}
       <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
 
           <div className="tracking-[0.25em] text-sm font-light">
-            INOA STUDIO
+            INOA INTERJERO DIZAINO STUDIO
             <p className="mt-4 text-xs text-gray-500 tracking-normal">
-              Minimal interior design studio.
+              Minimalistinio interjero dizaino studija.
             </p>
           </div>
 
           <div className="text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-4">LOCATION</p>
-            <p className="text-gray-600">London, UK</p>
-            <p className="text-gray-600">Available worldwide</p>
+            <p className="tracking-[0.25em] mb-4">VIETA</p>
+            <p className="text-gray-600">VILNIUS, LIETUVA</p>
+            <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
           </div>
 
           <div className="text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-4">CONTACT</p>
-            <p className="text-gray-600">hello@inoa.com</p>
+            <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
+            <p className="text-gray-600">inoa@gmail.com</p>
           </div>
 
         </div>
