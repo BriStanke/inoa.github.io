@@ -113,7 +113,7 @@ export default function InteriorPortfolio() {
       <Section id="projects" title="Projects">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 max-w-5xl mx-auto">
 
-          {images.map((src, i) => (
+          {projects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 80 }}
@@ -125,7 +125,7 @@ export default function InteriorPortfolio() {
               <div className="relative h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden group">
 
                 <motion.img
-                  src={src}
+                  src={project.image}
                   style={{ scale: 1.05 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 1.2 }}
@@ -133,11 +133,16 @@ export default function InteriorPortfolio() {
                 />
               
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center">
                   
-                  <span className="text-white text-sm tracking-[0.3em] cursor-pointer">
-                    PROJECT {i + 1}
-                  </span>
+                  <div className="text-center text-white">
+                    <p className="text-xs tracking-[0.3em] mb-2 opacity-70">
+                      {project.category}
+                    </p>
+                    <p className="text-lg font-serif">
+                      {project.title}
+                    </p>
+                  </div>
               
                 </div>
               
@@ -184,9 +189,25 @@ function Section({ id, title, children }) {
 }
 
 /* IMAGES */
-const images = [
-  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-  "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
-  "https://www.bhg.com/thmb/wiidsHcxqmE7cYU7BV2Ie2PeoXo=/1000x0/filters:no_upscale():strip_icc()/Kinuta4472_low-7f79bad051a14f129ecb342e918529a8.jpg",
-  "https://images.unsplash.com/photo-1484154218962-a197022b5858",
+const projects = [
+  {
+    title: "Tokyo Minimal Apartment",
+    category: "Residential",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+  },
+  {
+    title: "Kyoto Tea House",
+    category: "Hospitality",
+    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
+  },
+  {
+    title: "Osaka Modern Living",
+    category: "Interior",
+    image: "https://images.unsplash.com/photo-1507089947367-19c1da9775ae",
+  },
+  {
+    title: "Zen Workspace",
+    category: "Commercial",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858",
+  },
 ];
