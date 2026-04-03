@@ -1,6 +1,52 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
+/* SECTION */
+function Section({ id, title, children }) {
+  return (
+    <motion.section
+      id={id}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="max-w-5xl mx-auto px-6 md:px-10 py-32"
+    >
+      <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-10">
+        {title}
+      </h2>
+
+      <div className="text-gray-600 max-w-xl leading-relaxed text-base md:text-lg">
+        {children}
+      </div>
+    </motion.section>
+  );
+}
+
+/* PROJECT CARD */
+function ProjectCard({ project }) {
+  return (
+    <div className="group">
+      <div className="relative w-full aspect-[4/5] overflow-hidden">
+        <img
+          src={project.image}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+          <p className="text-[10px] tracking-[0.3em] opacity-70">
+            {project.category}
+          </p>
+
+          <p className="text-sm font-light">
+            {project.title}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function InteriorPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -37,16 +83,14 @@ export default function InteriorPortfolio() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-5 z-50 backdrop-blur bg-[#F4F2EE]/70">
 
-        {/* LOGO */}
         <div className="flex items-center">
           <img
             src="/logo.png"
             alt="INOA"
-            className="h-12 md:h-14 w-auto object-contain"
+            className="h-14 md:h-16 w-auto object-contain"
           />
         </div>
-      
-        {/* DESKTOP MENU */}
+
         <nav className="hidden md:flex gap-10 text-xs tracking-[0.25em]">
           {menuItems.map((item) => (
             <a key={item.name} href={item.link} className="hover:opacity-60 transition">
@@ -54,46 +98,11 @@ export default function InteriorPortfolio() {
             </a>
           ))}
         </nav>
-      
-        {/* MOBILE BURGER */}
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="md:hidden text-xl"
-        >
+
+        <button onClick={() => setMenuOpen(true)} className="md:hidden text-xl">
           ☰
         </button>
-      
       </header>
-
-      {/* MENU */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 backdrop-blur-md flex flex-col justify-center items-center gap-12 z-50"
-          >
-            <button
-              className="absolute top-6 right-6 text-2xl text-white"
-              onClick={() => setMenuOpen(false)}
-            >
-              ✕
-            </button>
-
-            {menuItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.link}
-                onClick={() => setMenuOpen(false)}
-                className="text-white text-2xl md:text-3xl tracking-[0.25em] font-light"
-              >
-                {item.name}
-              </motion.a>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* HERO */}
       <section className="h-screen w-full relative overflow-hidden">
@@ -107,23 +116,11 @@ export default function InteriorPortfolio() {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div
-          className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 text-xs md:text-sm tracking-[0.4em] text-gray-400 font-light"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          ERDVĖS FORMA
-        </div>
-
-        <div className="absolute bottom-10 text-[10px] md:text-xs tracking-[0.35em] text-gray-400">
-          INTERJERO DIZAINO STUDIJA
-        </div>
-
       </section>
 
-      {/* SECTION COMPONENT */}
+      {/* ABOUT */}
       <Section id="about" title="Apie">
         Kuriame ramius, apgalvotus interjerus, įkvėptus japoniško minimalizmo.
-        Kiekviena erdvė sutelkta į savo esmę – šviesą, tekstūrą ir pusiausvyrą.
       </Section>
 
       {/* PROJECTS */}
@@ -131,17 +128,7 @@ export default function InteriorPortfolio() {
         <h2 className="text-3xl md:text-4xl font-light tracking-tight px-6 md:px-10 mb-12">
           Projektai
         </h2>
-      
-        {/* MOBILE: horizontal scroll */}
-        <div className="flex md:hidden gap-6 px-6 overflow-x-auto pb-6">
-          {projects.map((project) => (
-            <div key={project.title} className="w-[80%] flex-shrink-0">
-              <ProjectCard project={project} />
-            </div>
-          ))}
-        </div>
-      
-        {/* DESKTOP: 2x2 GRID */}
+
         <div className="hidden md:grid grid-cols-2 gap-10 px-10 max-w-6xl mx-auto">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
@@ -149,83 +136,8 @@ export default function InteriorPortfolio() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <Section id="contact" title="Siųsti užklausą">
-        <form className="flex flex-col gap-6 max-w-md">
-
-          <input
-            type="text"
-            placeholder="Vardas"
-            className="border-b border-gray-300 bg-transparent py-3 text-sm outline-none placeholder-gray-400"
-          />
-
-          <input
-            type="email"
-            placeholder="El. paštas"
-            className="border-b border-gray-300 bg-transparent py-3 text-sm outline-none placeholder-gray-400"
-          />
-
-          <textarea
-            placeholder="Žinutė"
-            rows="4"
-            className="border-b border-gray-300 bg-transparent py-3 text-sm outline-none placeholder-gray-400"
-          />
-
-          <button className="text-left tracking-[0.3em] text-xs mt-4">
-            SIŲSTI →
-          </button>
-
-        </form>
-      </Section>
-
-      function ProjectCard({ project }) {
-        return (
-          <div className="group">
-            <div className="relative w-full aspect-[4/5] overflow-hidden">
-      
-              <img
-                src={project.image}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-      
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
-      
-                <p className="text-[10px] tracking-[0.3em] opacity-70">
-                  {project.category}
-                </p>
-      
-                <p className="text-sm font-light">
-                  {project.title}
-                </p>
-      
-              </div>
-      
-            </div>
-          </div>
-        );
-      }
-      
-      function Section({ id, title, children }) {
-        return (
-          <motion.section
-            id={id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="max-w-5xl mx-auto px-6 md:px-10 py-32"
-          >
-            <h2 className="text-3xl md:text-4xl font-light mb-10">
-              {title}
-            </h2>
-            <div className="text-gray-600">{children}</div>
-          </motion.section>
-        );
-      }
-      
       {/* FOOTER */}
       <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
-
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
 
           <div className="tracking-[0.25em] text-sm font-light">
@@ -251,32 +163,9 @@ export default function InteriorPortfolio() {
         <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-between tracking-[0.2em]">
           <span>© 2026 MA-SPACE STUDIOS. ALL RIGHTS RESERVED.</span>
         </div>
-
       </footer>
 
     </div>
-  );
-}
-
-/* SECTION */
-function Section({ id, title, children }) {
-  return (
-    <motion.section
-      id={id}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="max-w-5xl mx-auto px-6 md:px-10 py-32"
-    >
-      <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-10">
-        {title}
-      </h2>
-
-      <div className="text-gray-600 max-w-xl leading-relaxed text-base md:text-lg">
-        {children}
-      </div>
-    </motion.section>
   );
 }
 
