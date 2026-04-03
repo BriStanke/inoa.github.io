@@ -152,7 +152,7 @@ export default function InteriorPortfolio() {
       </section>
 
       {/* CONTACT */}
-      <Section id="contact" title="Engraved Inquiry">
+      <Section id="contact" title="Send Your Inquiry">
 
         <form
           action="https://formspree.io/f/your-id"
