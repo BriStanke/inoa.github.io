@@ -102,7 +102,7 @@ export default function InteriorPortfolio() {
       </section>
 
       {/* ABOUT */}
-      <Section id="about" title="About">
+      <Section id="about" title="Apie">
         Kuriame ramius, apgalvotus interjerus, įkvėptus japoniško minimalizmo.
         Kiekviena erdvė sutelkta į savo esmę – šviesą, tekstūrą ir pusiausvyrą.
       </Section>
