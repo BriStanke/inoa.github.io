@@ -59,7 +59,7 @@ export default function InteriorPortfolio() {
         <img src="/logo.png" alt="INOA" className="h-12 md:h-14" />
 
         {/* DESKTOP MENU (FIXED) */}
-        <nav className="hidden md:flex gap-12 text-base lg:text-lg font-light tracking-wide">
+        <nav className="hidden md:flex gap-10 text-sm lg:text-base font-light tracking-wide">
           {menuItems.map((item) => (
             <a key={item.name} href={item.link} className="hover:opacity-60">
               {item.name}
