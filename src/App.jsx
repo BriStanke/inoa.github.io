@@ -36,14 +36,20 @@ export default function InteriorPortfolio() {
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-5 z-50 backdrop-blur bg-[#F4F2EE]/70">
-        <div className="text-lg md:text-xl tracking-[0.35em] font-light">
-          INOA
-        </div>
 
-        <button onClick={() => setMenuOpen(true)} className="text-xl md:text-2xl">
-          ☰
-        </button>
-      </header>
+      <div className="flex items-center">
+        <img
+          src="/logo.png"
+          alt="INOA"
+          className="h-6 md:h-8 w-auto object-contain"
+        />
+      </div>
+    
+      <button onClick={() => setMenuOpen(true)} className="text-xl md:text-2xl">
+        ☰
+      </button>
+    
+    </header>
 
       {/* MENU */}
       <AnimatePresence>
