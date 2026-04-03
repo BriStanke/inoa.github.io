@@ -240,7 +240,7 @@ const projects = [
   {
     title: "Vonios erdvė",
     category: "Gyvenamasis",
-    image: "https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/529774988_122135004752844125_1346394103216306535_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=Y3b64F2j1AAQ7kNvwGmgayz&_nc_oc=AdoFNqSF40uJDlMyw8OCv0_75tL250T7fTqk8VODJXYUkJ8DW-u80J42e4qD9nDYSPG5saQF_-DgVG4xVZ9GCbzt&_nc_zt=23&_nc_ht=scontent-lhr8-2.xx&_nc_gid=2k2j9eSTGITEdO9DmROefw&_nc_ss=7a3a8&oh=00_Af1z0hIlhuj9uXQ1KRKPXCeJFgnuqY3fSKNaZUHgzekJCA&oe=69D5BD7F",
+    image: "https://scontent-lhr6-2.xx.fbcdn.net/v/t51.82787-15/572029684_17867818608467882_4230653201519751878_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=2NBk7kBjeD0Q7kNvwGlbyHF&_nc_oc=AdoyHI4GQ7oDWxoSD8PDfaNtml2dOKX1O11TX08WA4LBGmX66a_W7zHbgkeVJILOb7F3p_hC_VWWxPfppBy3_U_e&_nc_zt=23&_nc_ht=scontent-lhr6-2.xx&_nc_gid=XBLSuj0BpQHy7CDnaXzSDA&_nc_ss=7a3a8&oh=00_Af2Yv1aA7fGrCknf2H4AYTfXNYW-tlPX6PYvUZ2I8AMVSg&oe=69D5D006",
   },
   {
     title: "Virtuvės erdvė",
