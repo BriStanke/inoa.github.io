@@ -6,6 +6,7 @@ export default function InteriorPortfolio() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
 
+  // Smooth scroll (Lenis)
   useEffect(() => {
     if (!window.Lenis) return;
 
@@ -14,12 +15,16 @@ export default function InteriorPortfolio() {
       smooth: true,
     });
 
+    let rafId;
+
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
+
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   const menuItems = [
@@ -30,18 +35,15 @@ export default function InteriorPortfolio() {
   ];
 
   return (
-    <div className="bg-[#f4f2ee] text-black font-sans">
-      
+    <div className="bg-[#f4f2ee] text-black font-sans max-w-[1400px] mx-auto">
+
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 sm:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 md:py-6 z-50 backdrop-blur bg-[#f4f2ee]/70">
         <div className="tracking-[0.2em] text-sm font-serif">
           MA SPACE
         </div>
 
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="text-2xl"
-        >
+        <button onClick={() => setMenuOpen(true)} className="text-2xl">
           ☰
         </button>
       </header>
@@ -82,25 +84,27 @@ export default function InteriorPortfolio() {
       {/* HERO */}
       <section className="min-h-[90vh] flex items-center justify-center relative px-4 sm:px-6 md:px-10">
 
-        <motion.img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-          style={{ y }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="w-[85%] sm:w-[70%] md:w-[45%] max-w-[520px] object-cover"
-        />
+        <div className="flex flex-col items-center">
+          <motion.img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+            style={{ y }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+            className="w-[85%] sm:w-[70%] md:w-[45%] max-w-[520px] object-cover"
+          />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="mt-6 text-xs tracking-[0.3em] text-gray-500 text-center"
-        >
-          INTERIOR DESIGN STUDIO
-        </motion.p>
-      
-        {/* Floating text (DESKTOP ONLY) */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="mt-6 text-xs tracking-[0.3em] text-gray-500 text-center"
+          >
+            INTERIOR DESIGN STUDIO
+          </motion.p>
+        </div>
+
+        {/* Floating text */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -109,7 +113,7 @@ export default function InteriorPortfolio() {
         >
           THE SHAPE<br />OF SPACE
         </motion.div>
-      
+
       </section>
 
       {/* ABOUT */}
@@ -129,7 +133,7 @@ export default function InteriorPortfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`${i % 2 !== 0 ? "md:mt-20" : ""}`}  // offset every second image
+              className={`${i % 2 !== 0 ? "md:mt-20" : ""}`}
             >
               <div className="relative h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden group">
 
@@ -140,25 +144,23 @@ export default function InteriorPortfolio() {
                   transition={{ duration: 1.2 }}
                   className="w-full h-full object-cover"
                 />
-              
+
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center">
-                  
+                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 flex items-center justify-center">
                   <div className="text-center text-white space-y-2">
-                    <p className="text-xs tracking-[0.3em] mb-2 opacity-70">
+                    <p className="text-xs tracking-[0.3em] opacity-70">
                       {project.category}
                     </p>
-                    <p className="text-lg font-serif">
+                    <p className="text-base md:text-lg font-serif">
                       {project.title}
                     </p>
                   </div>
-              
                 </div>
-              
+
               </div>
             </motion.div>
           ))}
-        
+
         </div>
       </Section>
 
@@ -175,7 +177,7 @@ export default function InteriorPortfolio() {
   );
 }
 
-/* SECTION COMPONENT */
+/* SECTION */
 function Section({ id, title, children }) {
   return (
     <motion.section
@@ -186,7 +188,7 @@ function Section({ id, title, children }) {
       transition={{ duration: 0.8 }}
       className="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36"
     >
-      <h2 className="font-[Playfair_Display] text-3xl md:text-4xl">
+      <h2 className="font-serif text-3xl md:text-4xl mb-8">
         {title}
       </h2>
 
@@ -197,7 +199,7 @@ function Section({ id, title, children }) {
   );
 }
 
-/* IMAGES */
+/* PROJECT DATA */
 const projects = [
   {
     title: "Tokyo Minimal Apartment",
@@ -212,7 +214,7 @@ const projects = [
   {
     title: "Osaka Modern Living",
     category: "Interior",
-    image: "https://www.bhg.com/thmb/wiidsHcxqmE7cYU7BV2Ie2PeoXo=/1000x0/filters:no_upscale():strip_icc()/Kinuta4472_low-7f79bad051a14f129ecb342e918529a8.jpg",
+    image: "https://images.unsplash.com/photo-1507089947367-19c1da9775ae",
   },
   {
     title: "Zen Workspace",
