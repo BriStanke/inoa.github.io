@@ -113,41 +113,41 @@ export default function InteriorPortfolio() {
         <h2 className="font-serif text-3xl md:text-4xl px-6 md:px-10 mb-12">
           Projects
         </h2>
-
+      
         <div className="flex gap-8 px-6 md:px-10 overflow-x-auto pb-10">
-
+      
           {projects.map((project, i) => (
             <div
               key={i}
-              className="min-w-[300px] md:min-w-[400px] flex-shrink-0 group"
+              className="w-[260px] md:w-[320px] flex-shrink-0 group"
             >
               <div className="relative overflow-hidden">
-
-                {/* FIXED IMAGE SIZE */}
-                <div className="w-full aspect-[4/5] overflow-hidden">
+      
+                {/* Smaller, controlled image */}
+                <div className="w-full aspect-[3/4] overflow-hidden">
                   <img
                     src={project.image}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-
-                {/* HOVER TEXT */}
+      
+                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-
+      
                   <p className="text-xs tracking-[0.3em] opacity-70">
                     {project.category}
                   </p>
-
-                  <p className="text-lg font-serif">
+      
+                  <p className="text-base font-serif">
                     {project.title}
                   </p>
-
+      
                 </div>
-
+      
               </div>
             </div>
           ))}
-
+      
         </div>
       </section>
 
