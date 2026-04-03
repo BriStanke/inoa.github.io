@@ -136,6 +136,36 @@ export default function InteriorPortfolio() {
         </div>
       </section>
 
+      <Section id="contact" title="Siųsti užklausą">
+        <div className="mt-6 max-w-md">
+          <form className="flex flex-col gap-6">
+      
+            <input
+              type="text"
+              placeholder="Vardas"
+              className="border-b border-gray-300 bg-transparent py-3 text-sm outline-none placeholder-gray-400"
+            />
+      
+            <input
+              type="email"
+              placeholder="El. paštas"
+              className="border-b border-gray-300 bg-transparent py-3 text-sm outline-none placeholder-gray-400"
+            />
+      
+            <textarea
+              placeholder="Žinutė"
+              rows="4"
+              className="border-b border-gray-300 bg-transparent py-3 text-sm outline-none placeholder-gray-400"
+            />
+      
+            <button className="text-left tracking-[0.3em] text-xs mt-4 hover:opacity-60 transition">
+              SIŲSTI →
+            </button>
+      
+          </form>
+        </div>
+      </Section>
+      
       {/* FOOTER */}
       <footer className="bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
