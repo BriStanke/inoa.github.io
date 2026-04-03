@@ -120,25 +120,31 @@ export default function InteriorPortfolio() {
 
         <div className="flex gap-8 px-6 md:px-10 overflow-x-auto pb-10">
           {projects.map((project, i) => (
-            <div key={i} className="w-[240px] md:w-[280px] flex-shrink-0 group">
-              <div className="w-full aspect-[4/5] overflow-hidden">
+            <div className="w-[240px] md:w-[280px] flex-shrink-0 group">
 
-                <img
-                  src={project.image}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-              </div>
-
-              <div className="mt-3">
-                <p className="text-[10px] tracking-[0.3em] text-gray-500">
-                  {project.category}
-                </p>
-                <p className="text-sm font-light">
-                  {project.title}
-                </p>
-              </div>
+          <div className="relative w-full aspect-[4/5] overflow-hidden">
+        
+            <img
+              src={project.image}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+        
+            {/* OVERLAY */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+        
+              <p className="text-[10px] tracking-[0.3em] opacity-70">
+                {project.category}
+              </p>
+        
+              <p className="text-sm font-light">
+                {project.title}
+              </p>
+        
             </div>
+        
+          </div>
+        
+        </div>
           ))}
         </div>
       </section>
