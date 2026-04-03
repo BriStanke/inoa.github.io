@@ -193,8 +193,39 @@ export default function InteriorPortfolio() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="text-center py-16 text-gray-500 text-sm">
-        © 2026 Interior Design Studio
+      <footer className="bg-[#f4f2ee] text-black px-6 md:px-10 py-16">
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+          {/* Brand */}
+          <div className="font-serif text-lg tracking-[0.2em]">
+            MA-SPACE STUDIOS
+            <p className="mt-4 text-sm text-gray-600 tracking-normal">
+              The intentional void.
+            </p>
+          </div>
+      
+          {/* Location */}
+          <div className="text-sm">
+            <p className="tracking-[0.2em] mb-4">LOCATION</p>
+            <p className="text-gray-600">Tokyo, Japan</p>
+            <p className="text-gray-600">Worldwide by appointment</p>
+          </div>
+      
+          {/* Connect */}
+          <div className="text-sm">
+            <p className="tracking-[0.2em] mb-4">CONNECT</p>
+            <p className="text-gray-600">studio@maspace.jp</p>
+          </div>
+      
+        </div>
+      
+        {/* Bottom line */}
+        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-300 text-xs text-gray-500 flex justify-between">
+          <span>© 2026 MA-SPACE STUDIOS.</span>
+          <span>ALL RIGHTS RESERVED.</span>
+        </div>
+      
       </footer>
 
     </div>
