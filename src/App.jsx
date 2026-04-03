@@ -37,19 +37,33 @@ export default function InteriorPortfolio() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-5 z-50 backdrop-blur bg-[#F4F2EE]/70">
 
-      <div className="flex items-center">
-        <img
-          src="/logo.png"
-          alt="INOA"
-          className="h-14 md:h-16 w-auto object-contain"
-        />
-      </div>
-    
-      <button onClick={() => setMenuOpen(true)} className="text-xl md:text-2xl">
-        ☰
-      </button>
-    
-    </header>
+        {/* LOGO */}
+        <div className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="INOA"
+            className="h-12 md:h-14 w-auto object-contain"
+          />
+        </div>
+      
+        {/* DESKTOP MENU */}
+        <nav className="hidden md:flex gap-10 text-xs tracking-[0.25em]">
+          {menuItems.map((item) => (
+            <a key={item.name} href={item.link} className="hover:opacity-60 transition">
+              {item.name}
+            </a>
+          ))}
+        </nav>
+      
+        {/* MOBILE BURGER */}
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="md:hidden text-xl"
+        >
+          ☰
+        </button>
+      
+      </header>
 
       {/* MENU */}
       <AnimatePresence>
@@ -117,37 +131,52 @@ export default function InteriorPortfolio() {
         <h2 className="text-3xl md:text-4xl font-light tracking-tight px-6 md:px-10 mb-12">
           Projektai
         </h2>
-
-        <div className="flex gap-8 px-6 md:px-10 overflow-x-auto pb-10">
-          {projects.map((project, i) => (
-            <div className="w-[240px] md:w-[280px] flex-shrink-0 group">
-
-          <div className="relative w-full aspect-[4/5] overflow-hidden">
-        
-            <img
-              src={project.image}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-        
-            {/* OVERLAY */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-        
-              <p className="text-[10px] tracking-[0.3em] opacity-70">
-                {project.category}
-              </p>
-        
-              <p className="text-sm font-light">
-                {project.title}
-              </p>
-        
+      
+        {/* MOBILE: horizontal scroll */}
+        <div className="flex md:hidden gap-6 px-6 overflow-x-auto pb-6">
+          {projects.map((project) => (
+            <div key={project.title} className="w-[80%] flex-shrink-0">
+              <ProjectCard project={project} />
             </div>
-        
-          </div>
-        
+          ))}
         </div>
+      
+        {/* DESKTOP: 2x2 GRID */}
+        <div className="hidden md:grid grid-cols-2 gap-10 px-10 max-w-6xl mx-auto">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </section>
+
+      function ProjectCard({ project }) {
+        return (
+          <div className="group">
+      
+            <div className="relative w-full aspect-[4/5] overflow-hidden">
+      
+              <img
+                src={project.image}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+      
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+      
+                <p className="text-[10px] tracking-[0.3em] opacity-70">
+                  {project.category}
+                </p>
+      
+                <p className="text-sm font-light">
+                  {project.title}
+                </p>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+        );
+      }
 
       {/* CONTACT */}
       <Section id="contact" title="Siųsti užklausą">
