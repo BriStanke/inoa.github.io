@@ -161,7 +161,7 @@ export default function InteriorPortfolio() {
 
               <img
                 src={project.image}
-                className="w-full h-[420px] object-cover"
+                className="w-full h-[600px] object-cover"
               />
 
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4 text-white">
