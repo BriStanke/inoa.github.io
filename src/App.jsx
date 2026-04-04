@@ -249,7 +249,7 @@ export default function InteriorPortfolio() {
       {/* FOOTER */}
       <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
 
-        <div className="w-full flex flex-col md:flex-row justify-between items-start gap-12">
+        <div className="w-full flex flex-col md:flex-row items-start gap-12">
 
           {/* LEFT */}
           <div className="tracking-[0.25em] text-sm font-light">
@@ -260,7 +260,7 @@ export default function InteriorPortfolio() {
           </div>
 
           {/* RIGHT SIDE GROUP (VIETA + KONTAKTAI together) */}
-          <div className="flex gap-12 md:gap-20 ml-auto text-left">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-20 w-full md:w-auto md:ml-auto text-left">
 
             {/* VIETA */}
             <div className="text-xs md:text-sm">
