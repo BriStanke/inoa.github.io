@@ -128,7 +128,7 @@ export default function InteriorPortfolio() {
                 key={item.name}
                 href={item.link}
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-2xl"
+                className="text-white text-2xl font-light tracking-wide"
               >
                 {item.name}
               </a>
