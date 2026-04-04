@@ -93,7 +93,7 @@ export default function InteriorPortfolio() {
         <img src="/logo.png" alt="INOA" className="h-12 md:h-14" />
 
         {/* DESKTOP MENU (FIXED) */}
-        <nav className="hidden md:flex gap-10 text-sm lg:text-base font-light tracking-[0.12em]">
+        <nav className="hidden md:flex gap-10 text-sm lg:text-base font-light tracking-[0.11em]">
           {menuItems.map((item) => (
             <a 
               key={item.name} 
@@ -265,7 +265,7 @@ export default function InteriorPortfolio() {
             {/* KONTAKTAI */}
             <div className="text-xs md:text-sm">
               <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
-              <p className="text-gray-600">inoa@gmail.com.jp</p>
+              <p className="text-gray-600">inoa@gmail.com</p>
             </div>
           </div>
         </div>
