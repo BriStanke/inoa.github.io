@@ -12,7 +12,7 @@ function Section({ id, title, children }) {
       transition={{ duration: 0.7 }}
       className="max-w-4xl mx-auto px-6 md:px-10 py-24"
     >
-      <h2 className="text-2xl md:text-3xl font-medium mb-6">
+      <h2 className="text-2xl md:text-3xl font-light tracking-wide mb-6">
         {title}
       </h2>
 
@@ -159,7 +159,7 @@ export default function InteriorPortfolio() {
       <section id="projects" className="py-24">
 
         <div className="max-w-4xl mx-auto px-6 md:px-10 mb-10">
-          <h2 className="text-2xl md:text-3xl font-medium">
+        <h2 className="text-2xl md:text-3xl font-light tracking-wide">
             Projektai
           </h2>
         </div>
@@ -169,12 +169,10 @@ export default function InteriorPortfolio() {
           {projects.map((project) => (
             <div key={project.title} className="min-w-[200px]">
               <div className="relative group overflow-hidden">
-
                 <img
                   src={project.image}
                   className="w-full h-[260px] object-cover"
                 />
-
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-3 text-white">
                   <p className="text-[11px] opacity-70">
                     {project.category}
@@ -198,17 +196,13 @@ export default function InteriorPortfolio() {
                 src={project.image}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-        
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">
-        
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">       
                 <p className="text-[11px] tracking-[0.2em] opacity-70">
                   {project.category}
                 </p>
-        
                 <p className="text-lg font-light">
                   {project.title}
-                </p>
-        
+                </p>       
               </div>
         
             </div>
@@ -226,19 +220,16 @@ export default function InteriorPortfolio() {
             placeholder="Vardas"
             className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none"
           />
-
           <input
             type="email"
             placeholder="El. paštas"
             className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none"
           />
-
           <textarea
             placeholder="Žinutė"
             rows="4"
             className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none"
           />
-
           <button className="text-sm mt-4 hover:opacity-60">
             Siųsti →
           </button>
@@ -248,7 +239,6 @@ export default function InteriorPortfolio() {
 
       {/* FOOTER */}
       <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
-
         <div className="w-full flex flex-col md:flex-row items-start gap-12">
 
           {/* LEFT */}
@@ -274,18 +264,19 @@ export default function InteriorPortfolio() {
               <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
               <p className="text-gray-600">inoa@gmail.com.jp</p>
             </div>
-
           </div>
-
         </div>
 
         {/* BOTTOM BAR */}
         <div className="w-full mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-start tracking-[0.2em]">
-          <span>© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.</span>
+        <span>
+          © 2026 INOA INTERJERO DIZAINO STUDIJA.
+          <br className="block md:hidden" />
+          ALL RIGHTS RESERVED.
+        </span>
         </div>
 
       </footer>
-
     </div>
   );
 }
