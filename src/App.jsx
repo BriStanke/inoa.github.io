@@ -275,7 +275,7 @@ export default function InteriorPortfolio() {
         <span>
           © 2026 INOA INTERJERO DIZAINO STUDIJA. 
           <br className="block md:hidden" />
-          ALL RIGHTS RESERVED.
+          ALL RIGHTS RESERVED. 
         </span>
         </div>
 
