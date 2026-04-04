@@ -260,7 +260,7 @@ export default function InteriorPortfolio() {
           </div>
 
           {/* RIGHT SIDE GROUP (VIETA + KONTAKTAI together) */}
-          <div className="flex gap-20 md:gap-32 ml-auto">
+          <div className="flex gap-12 md:gap-20 ml-auto text-left">
 
             {/* VIETA */}
             <div className="text-xs md:text-sm">
@@ -270,7 +270,7 @@ export default function InteriorPortfolio() {
             </div>
 
             {/* KONTAKTAI */}
-            <div className="text-xs md:text-sm text-right">
+            <div className="text-xs md:text-sm">
               <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
               <p className="text-gray-600">inoa@gmail.com.jp</p>
             </div>
