@@ -13,7 +13,7 @@ const T = {
       about: "Apie",
       projects: "Projektai",
       services: "Paslaugos",
-      contact: "Siųsti užklausą",
+      contact: "Kontaktai",
     },
     about: {
       title: "Apie",
@@ -42,18 +42,28 @@ const T = {
       process: {
         title: "Darbo procesas",
         steps: [
-          { num: "01", title: "Konsultacija",    desc: "Susipažįstame su Jūsų poreikiais, erdve ir biudžetu. Aptariame stilistines kryptis ir tikslus." },
-          { num: "02", title: "Koncepcija",      desc: "Kuriame erdvės koncepciją: nuotaikų lentas, erdvių planus, medžiagų ir spalvų paletę." },
-          { num: "03", title: "Dizaino projektas", desc: "Detalizuojame sprendimus: baldų išdėstymą, apšvietimą, medžiagas ir dekoro elementus." },
-          { num: "04", title: "Įgyvendinimas",   desc: "Koordinuojame rangovus ir tiekėjus, prižiūrime darbų eigą, užtikriname kokybę." },
+          { num: "01", title: "Konsultacija",      desc: "Susipažįstame su Jūsų poreikiais, erdve ir biudžetu. Aptariame stilistines kryptis ir tikslus." },
+          { num: "02", title: "Koncepcija",         desc: "Kuriame erdvės koncepciją: nuotaikų lentas, erdvių planus, medžiagų ir spalvų paletę." },
+          { num: "03", title: "Dizaino projektas",  desc: "Detalizuojame sprendimus: baldų išdėstymą, apšvietimą, medžiagas ir dekoro elementus." },
+          { num: "04", title: "Įgyvendinimas",      desc: "Koordinuojame rangovus ir tiekėjus, prižiūrime darbų eigą, užtikriname kokybę." },
         ],
       },
     },
     contact: {
-      title: "Siųsti užklausą",
-      intro: "Turite klausimų ar norite pradėti projektą? Parašykite mums.",
+      title: "Kontaktai",
+      intro: "Turite klausimų ar norite pradėti projektą? Susisiekite su mumis.",
+      // ✏️ EDIT: contact details
+      location: "VIETA",
+      locationLines: ["Vilnius, Lietuva", "Visame pasaulyje pagal susitarimą"],
+      detailsTitle: "KONTAKTAI",
+      email: "inoa@gmail.com",
+      phone: "+370 600 00000",
+      instagram: "@inoa.studio",
+      instagramUrl: "https://instagram.com/inoa.studio",
+      // form labels
+      formTitle: "Parašykite mums",
       name: "Vardas",
-      email: "El. paštas",
+      emailField: "El. paštas",
       message: "Žinutė",
       send: "Siųsti →",
       sending: "Siunčiama...",
@@ -64,20 +74,6 @@ const T = {
       back: "← Grįžti į projektus",
       description: "Aprašymas",
     },
-    footer: {
-      studio: "INOA INTERJERO DIZAINO STUDIJA",
-      tagline: "Minimalistinio interjero dizaino studija.",
-      location: "VIETA",
-      // ✏️ EDIT: location lines
-      locationLines: ["VILNIUS, LIETUVA", "Visame pasaulyje pagal susitarimą"],
-      contact: "KONTAKTAI",
-      // ✏️ EDIT: email, phone, instagram
-      email: "aire.romaskeviciute@gmail.com",
-      phone: "+370 672 59010",
-      instagram: "@inoa.interiors",
-      instagramUrl: "https://instagram.com/inoa.studio",
-      copyright: "© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.",
-    },
   },
   en: {
     tagline: "Interior design studio",
@@ -87,7 +83,7 @@ const T = {
       about: "About",
       projects: "Projects",
       services: "Services",
-      contact: "Get in touch",
+      contact: "Contact",
     },
     about: {
       title: "About",
@@ -114,18 +110,26 @@ const T = {
       process: {
         title: "Our process",
         steps: [
-          { num: "01", title: "Consultation",    desc: "We get to know your needs, space and budget. We discuss stylistic directions and goals." },
-          { num: "02", title: "Concept",         desc: "We develop a spatial concept: mood boards, floor plans, material and colour palette." },
-          { num: "03", title: "Design project",  desc: "We detail the solutions: furniture layout, lighting, materials and decorative elements." },
-          { num: "04", title: "Implementation",  desc: "We coordinate contractors and suppliers, oversee the work process and ensure quality." },
+          { num: "01", title: "Consultation",   desc: "We get to know your needs, space and budget. We discuss stylistic directions and goals." },
+          { num: "02", title: "Concept",        desc: "We develop a spatial concept: mood boards, floor plans, material and colour palette." },
+          { num: "03", title: "Design project", desc: "We detail the solutions: furniture layout, lighting, materials and decorative elements." },
+          { num: "04", title: "Implementation", desc: "We coordinate contractors and suppliers, oversee the work process and ensure quality." },
         ],
       },
     },
     contact: {
-      title: "Get in touch",
-      intro: "Have a question or want to start a project? Write to us.",
+      title: "Contact",
+      intro: "Have a question or want to start a project? Get in touch with us.",
+      location: "LOCATION",
+      locationLines: ["Vilnius, Lithuania", "Worldwide by arrangement"],
+      detailsTitle: "CONTACT",
+      email: "inoa@gmail.com",
+      phone: "+370 600 00000",
+      instagram: "@inoa.studio",
+      instagramUrl: "https://instagram.com/inoa.studio",
+      formTitle: "Send us a message",
       name: "Name",
-      email: "Email",
+      emailField: "Email",
       message: "Message",
       send: "Send →",
       sending: "Sending...",
@@ -136,25 +140,11 @@ const T = {
       back: "← Back to projects",
       description: "Description",
     },
-    footer: {
-      studio: "INOA INTERIOR DESIGN STUDIO",
-      tagline: "Minimalist interior design studio.",
-      location: "LOCATION",
-      locationLines: ["VILNIUS, LITHUANIA", "Worldwide by arrangement"],
-      contact: "CONTACT",
-      email: "aire.romaskeviciute@gmail.com",
-      phone: "+370 672 59010",
-      instagram: "@inoa.interiors",
-      instagramUrl: "https://instagram.com/inoa.studio",
-      copyright: "© 2026 INOA INTERIOR DESIGN STUDIO. ALL RIGHTS RESERVED.",
-    },
   },
 };
 
 /* ══════════════════════════════════════════════
    PROJECT DATA
-   Each project has: title, category, image (cover),
-   gallery (array of extra images), description (lt+en)
    ✏️ EDIT: Fill in descriptions and add gallery images
    ══════════════════════════════════════════════ */
 const PROJECTS = [
@@ -221,9 +211,8 @@ const PROJECTS = [
 ];
 
 /* ══════════════════════════════════════════════
-   SHARED COMPONENTS
+   SHARED SECTION WRAPPER (mobile scroll)
    ══════════════════════════════════════════════ */
-
 function Section({ id, title, children }) {
   return (
     <motion.section
@@ -237,41 +226,6 @@ function Section({ id, title, children }) {
       <h2 className="text-2xl font-light tracking-wide mb-6">{title}</h2>
       {children}
     </motion.section>
-  );
-}
-
-function Footer({ t }) {
-  const f = t.footer;
-  return (
-    <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 pt-6 pb-4">
-      <div className="w-full flex flex-col md:flex-row items-start gap-6">
-        <div className="tracking-[0.25em] text-sm font-light">
-          {f.studio}
-          <p className="mt-2 text-xs text-gray-500 tracking-normal">{f.tagline}</p>
-        </div>
-        <div className="flex flex-col md:flex-row gap-6 md:gap-20 w-full md:w-auto md:ml-auto text-left">
-          <div className="text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-2">{f.location}</p>
-            {f.locationLines.map((l, i) => <p key={i} className="text-gray-600">{l}</p>)}
-          </div>
-          <div className="text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-2">{f.contact}</p>
-            {/* ✏️ EDIT: email */}
-            <p className="text-gray-600">{f.email}</p>
-            {/* ✏️ EDIT: phone number */}
-            <p className="text-gray-600 mt-1">{f.phone}</p>
-            {/* ✏️ EDIT: Instagram handle + URL */}
-            <a href={f.instagramUrl} target="_blank" rel="noopener noreferrer"
-              className="text-gray-600 mt-1 hover:opacity-60 transition-opacity block">
-              {f.instagram}
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="w-full mt-6 pt-4 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-start tracking-[0.2em]">
-        <span>{f.copyright}</span>
-      </div>
-    </footer>
   );
 }
 
@@ -289,32 +243,23 @@ function ProjectDetail({ project, onBack, t, lang }) {
       transition={{ duration: 0.5 }}
       className="w-full"
     >
-      {/* Back button */}
       <div className="px-6 md:px-10 pt-8 pb-4">
-        <button
-          onClick={onBack}
-          className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity"
-        >
+        <button onClick={onBack}
+          className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity">
           {t.project.back}
         </button>
       </div>
-
-      {/* Title + category */}
       <div className="px-6 md:px-10 pb-6">
         <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-1">{project.category}</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-wide">{title}</h2>
       </div>
-
-      {/* Gallery */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2 md:px-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2">
         {project.gallery.map((img, i) => (
           <div key={i} className={`overflow-hidden ${project.gallery.length === 1 ? "md:col-span-2" : ""}`}>
             <img src={img} className="w-full h-[60vw] md:h-[50vh] object-cover" />
           </div>
         ))}
       </div>
-
-      {/* Description */}
       <div className="max-w-2xl px-6 md:px-10 py-10">
         <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-3">{t.project.description.toUpperCase()}</p>
         <p className="text-gray-600 text-sm md:text-base leading-relaxed">{desc}</p>
@@ -329,28 +274,19 @@ function ProjectDetail({ project, onBack, t, lang }) {
    ══════════════════════════════════════════════ */
 function MobileProjects({ projects, onSelect, lang }) {
   const [activeIndex, setActiveIndex] = useState(null);
-
   const handleTap = (i) => {
-    if (activeIndex === i) {
-      // second tap → go to project page
-      onSelect(projects[i]);
-    } else {
-      setActiveIndex(i);
-    }
+    if (activeIndex === i) onSelect(projects[i]);
+    else setActiveIndex(i);
   };
-
   return (
     <div className="flex gap-3 overflow-x-auto px-6 pb-4 snap-x snap-mandatory">
       {projects.map((project, i) => (
-        <div
-          key={i}
+        <div key={i}
           className="relative flex-shrink-0 w-[72vw] snap-start overflow-hidden cursor-pointer"
           onClick={() => handleTap(i)}
         >
-          <img
-            src={project.image}
-            className={`w-full h-[90vw] object-cover transition-transform duration-700 ${activeIndex === i ? "scale-105" : "scale-100"}`}
-          />
+          <img src={project.image}
+            className={`w-full h-[90vw] object-cover transition-transform duration-700 ${activeIndex === i ? "scale-105" : "scale-100"}`} />
           <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white transition-opacity duration-300 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}>
             <p className="text-[10px] opacity-70">{project.category}</p>
             <p className="text-sm mb-1">{lang === "lt" ? project.titleLt : project.titleEn}</p>
@@ -370,24 +306,17 @@ function DesktopHero({ y, t }) {
   const lines = t.hero.split("\n");
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <motion.img
-        src="/main.jpeg"
-        style={{ y }}
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
+      <motion.img src="/main.jpeg" style={{ y }}
+        initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2 }}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+        className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.3 }}
         className="absolute bottom-14 left-14 text-white"
       >
-        {/* ✏️ EDIT: tagline in T object above */}
         <p className="text-xs tracking-[0.35em] mb-3 opacity-80 uppercase">{t.tagline}</p>
-        {/* ✏️ EDIT: hero headline in T object above */}
         <h1 className="text-5xl font-light tracking-wide leading-tight max-w-xl">
           {lines[0]}<br />{lines[1]}
         </h1>
@@ -402,25 +331,25 @@ function DesktopAbout({ t }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="max-w-5xl mx-auto px-10 h-full flex flex-col justify-center"
+      className="h-full flex flex-row"
     >
-      <h2 className="text-3xl font-light tracking-wide mb-10">{a.title}</h2>
-      <div className="flex flex-row gap-12">
+      {/* Designer photo — half screen width, portrait */}
+      {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
+      <div className="w-1/2 flex-shrink-0 h-full overflow-hidden">
+        <img src="/designer.jpeg" alt="Designer"
+          className="w-full h-full object-cover object-center" />
+      </div>
 
-        {/* Designer photo */}
-        {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
-        <div className="flex-shrink-0 w-48 h-60 overflow-hidden">
-          <img src="/designer.jpeg" alt="Designer" className="w-full h-full object-cover" />
-        </div>
-
-        {/* Text */}
-        <div className="flex-1 text-gray-600 text-base leading-relaxed space-y-4 flex flex-col justify-center">
+      {/* Right side — title, text, stats */}
+      <div className="w-1/2 flex flex-col justify-center px-12 py-16 gap-10">
+        <h2 className="text-3xl font-light tracking-wide">{a.title}</h2>
+        <div className="text-gray-600 text-base leading-relaxed space-y-4">
+          {/* ✏️ EDIT: About paragraphs in T object above */}
           <p>{a.p1}</p>
           <p>{a.p2}</p>
         </div>
-
-        {/* Stats */}
-        <div className="flex flex-col gap-6 min-w-[160px] text-sm flex-shrink-0">
+        <div className="flex flex-col gap-5 text-sm">
+          {/* ✏️ EDIT: Stat blocks in T object above */}
           {a.stats.map((s) => (
             <div key={s.label}>
               <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-1">{s.label}</p>
@@ -445,15 +374,12 @@ function DesktopProjects({ projects, onSelect, lang }) {
       </div>
       <div className="grid grid-cols-3 gap-2 pb-40">
         {projects.map((project, i) => (
-          <div
-            key={i}
+          <div key={i}
             className="relative group overflow-hidden h-[70vh] cursor-pointer"
             onClick={() => onSelect(project)}
           >
-            <img
-              src={project.image}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            <img src={project.image}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">
               <p className="text-[11px] tracking-[0.2em] opacity-70">{project.category}</p>
               <p className="text-lg font-light">{lang === "lt" ? project.titleLt : project.titleEn}</p>
@@ -477,9 +403,7 @@ function DesktopServices({ t }) {
       <h2 className="text-3xl font-light tracking-wide pt-10 pb-4">{s.title}</h2>
       {/* ✏️ EDIT: services intro in T object above */}
       <p className="text-gray-500 text-sm mb-10 max-w-xl">{s.intro}</p>
-
       <div className="flex flex-col md:flex-row gap-12 pb-40">
-        {/* Process */}
         <div className="flex-1">
           <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-6">{s.process.title.toUpperCase()}</p>
           <div className="space-y-8">
@@ -495,16 +419,13 @@ function DesktopServices({ t }) {
             ))}
           </div>
         </div>
-
-        {/* Scope */}
         <div className="md:min-w-[220px]">
           <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-6">{s.scope.title.toUpperCase()}</p>
           <ul className="space-y-3">
             {s.scope.items.map((item, i) => (
               // ✏️ EDIT: scope items in T object above
               <li key={i} className="text-sm text-gray-600 font-light flex gap-2">
-                <span className="text-gray-300 flex-shrink-0">—</span>
-                {item}
+                <span className="text-gray-300 flex-shrink-0">—</span>{item}
               </li>
             ))}
           </ul>
@@ -520,32 +441,59 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="max-w-4xl mx-auto px-10 h-full flex flex-col justify-center"
+      className="h-full flex flex-row"
     >
-      <h2 className="text-3xl font-light tracking-wide mb-4">{c.title}</h2>
-      {/* ✏️ EDIT: contact intro in T object above */}
-      <p className="text-gray-500 text-sm mb-8">{c.intro}</p>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
-        <input type="text" placeholder={c.name} required
-          value={formState.name}
-          onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-          className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
-        <input type="email" placeholder={c.email} required
-          value={formState.email}
-          onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-          className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
-        <textarea placeholder={c.message} rows="4" required
-          value={formState.message}
-          onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-          className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
-        <button type="submit"
-          disabled={formStatus === "sending" || formStatus === "sent"}
-          onClick={() => { if (formStatus === "error") setFormStatus(null); }}
-          className="text-sm mt-4 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
-          {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
-        </button>
-        {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
-      </form>
+      {/* Left — contact info */}
+      <div className="w-1/2 flex flex-col justify-center px-16 py-16 border-r border-gray-200">
+        <h2 className="text-3xl font-light tracking-wide mb-8">{c.title}</h2>
+        <p className="text-gray-500 text-sm mb-12 max-w-xs leading-relaxed">{c.intro}</p>
+
+        <div className="flex flex-col gap-8 text-sm">
+          <div>
+            <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{c.location}</p>
+            {/* ✏️ EDIT: location lines in T object above */}
+            {c.locationLines.map((l, i) => (
+              <p key={i} className="text-gray-600 font-light">{l}</p>
+            ))}
+          </div>
+          <div>
+            <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{c.detailsTitle}</p>
+            {/* ✏️ EDIT: email, phone, instagram in T object above */}
+            <p className="text-gray-600 font-light">{c.email}</p>
+            <p className="text-gray-600 font-light mt-1">{c.phone}</p>
+            <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
+              className="text-gray-600 font-light mt-1 hover:opacity-60 transition-opacity block">
+              {c.instagram}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Right — form */}
+      <div className="w-1/2 flex flex-col justify-center px-16 py-16">
+        <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-8">{c.formTitle.toUpperCase()}</p>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
+          <input type="text" placeholder={c.name} required
+            value={formState.name}
+            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+            className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+          <input type="email" placeholder={c.emailField} required
+            value={formState.email}
+            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+            className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+          <textarea placeholder={c.message} rows="4" required
+            value={formState.message}
+            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+            className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
+          <button type="submit"
+            disabled={formStatus === "sending" || formStatus === "sent"}
+            onClick={() => { if (formStatus === "error") setFormStatus(null); }}
+            className="text-sm mt-4 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
+            {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
+          </button>
+          {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
+        </form>
+      </div>
     </motion.div>
   );
 }
@@ -572,9 +520,9 @@ export default function InteriorPortfolio() {
      - YOUR_SERVICE_ID   → Email Services
      - YOUR_TEMPLATE_ID  → Email Templates
   */
-  const EMAILJS_PUBLIC_KEY  = "TWFCArr6N7D8bqFjI";
-  const EMAILJS_SERVICE_ID  = "service_1oxor2f";
-  const EMAILJS_TEMPLATE_ID = "template_j7w2c5c";
+  const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+  const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 
   useEffect(() => {
     if (window.emailjs) window.emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -611,7 +559,6 @@ export default function InteriorPortfolio() {
 
   useEffect(() => { return () => clearTimeout(resetTimer.current); }, []);
 
-  /* ── When project is selected on desktop, show project detail view ── */
   const handleSelectProject = (project) => {
     setSelectedProject(project);
     setDesktopPage("project-detail");
@@ -637,7 +584,6 @@ export default function InteriorPortfolio() {
     { label: t.nav.contact,  href: "#contact" },
   ];
 
-  /* active page for nav highlight — treat project-detail as projects */
   const activePage = desktopPage === "project-detail" ? "projects" : desktopPage;
 
   /* ────────────────────────────────────────────── */
@@ -698,7 +644,6 @@ export default function InteriorPortfolio() {
                 {item.label}
               </a>
             ))}
-            {/* Mobile language toggle */}
             <div className="flex gap-4 text-white text-sm tracking-[0.15em] mt-2">
               <button onClick={() => { setLang("lt"); setMenuOpen(false); }} className={lang === "lt" ? "opacity-100" : "opacity-50"}>LT</button>
               <span className="opacity-30">|</span>
@@ -724,7 +669,7 @@ export default function InteriorPortfolio() {
             )}
 
             {desktopPage === "about" && (
-              <motion.div key="about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto">
+              <motion.div key="about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0">
                 <DesktopAbout t={t} />
               </motion.div>
             )}
@@ -748,7 +693,7 @@ export default function InteriorPortfolio() {
             )}
 
             {desktopPage === "contact" && (
-              <motion.div key="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto">
+              <motion.div key="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0">
                 <DesktopContact t={t} formState={formState} setFormState={setFormState}
                   formStatus={formStatus} setFormStatus={setFormStatus} handleSubmit={handleSubmit} />
               </motion.div>
@@ -756,10 +701,7 @@ export default function InteriorPortfolio() {
 
           </AnimatePresence>
         </div>
-
-        <div className="flex-shrink-0">
-          <Footer t={t} />
-        </div>
+        {/* No footer */}
       </div>
 
       {/* ════════════════════════════════════════════
@@ -767,11 +709,9 @@ export default function InteriorPortfolio() {
           ════════════════════════════════════════════ */}
       <div className="md:hidden">
 
-        {/* Mobile project detail page */}
         {selectedProject ? (
           <div className="pt-[72px]">
             <ProjectDetail project={selectedProject} onBack={() => setSelectedProject(null)} t={t} lang={lang} />
-            <Footer t={t} />
           </div>
         ) : (
           <>
@@ -793,8 +733,8 @@ export default function InteriorPortfolio() {
 
             {/* About */}
             <Section id="about" title={t.about.title}>
-              {/* Designer photo */}
-              <div className="w-full h-64 overflow-hidden mb-6">
+              {/* Designer photo — full width on mobile */}
+              <div className="w-full h-[70vw] overflow-hidden mb-8">
                 <img src="/designer.jpeg" alt="Designer" className="w-full h-full object-cover object-top" />
               </div>
               <div className="flex flex-col gap-6">
@@ -824,7 +764,6 @@ export default function InteriorPortfolio() {
             {/* Services */}
             <Section id="services" title={t.services.title}>
               <p className="text-gray-500 text-sm mb-8 -mt-2">{t.services.intro}</p>
-              {/* Process steps */}
               <div className="space-y-6 mb-10">
                 {t.services.process.steps.map((step) => (
                   <div key={step.num} className="flex gap-4">
@@ -836,7 +775,6 @@ export default function InteriorPortfolio() {
                   </div>
                 ))}
               </div>
-              {/* Scope */}
               <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-4">{t.services.scope.title.toUpperCase()}</p>
               <ul className="space-y-2">
                 {t.services.scope.items.map((item, i) => (
@@ -849,12 +787,34 @@ export default function InteriorPortfolio() {
 
             {/* Contact */}
             <Section id="contact" title={t.contact.title}>
-              <p className="text-gray-500 text-sm mb-8 -mt-2">{t.contact.intro}</p>
+              <p className="text-gray-500 text-sm mb-10 -mt-2">{t.contact.intro}</p>
+
+              {/* Contact details */}
+              <div className="flex flex-col gap-6 mb-12 text-sm">
+                <div>
+                  <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{t.contact.location}</p>
+                  {t.contact.locationLines.map((l, i) => (
+                    <p key={i} className="text-gray-600 font-light">{l}</p>
+                  ))}
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{t.contact.detailsTitle}</p>
+                  <p className="text-gray-600 font-light">{t.contact.email}</p>
+                  <p className="text-gray-600 font-light mt-1">{t.contact.phone}</p>
+                  <a href={t.contact.instagramUrl} target="_blank" rel="noopener noreferrer"
+                    className="text-gray-600 font-light mt-1 hover:opacity-60 transition-opacity block">
+                    {t.contact.instagram}
+                  </a>
+                </div>
+              </div>
+
+              {/* Form */}
+              <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-6">{t.contact.formTitle.toUpperCase()}</p>
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
                 <input type="text" placeholder={t.contact.name} required
                   value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
-                <input type="email" placeholder={t.contact.email} required
+                <input type="email" placeholder={t.contact.emailField} required
                   value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
                 <textarea placeholder={t.contact.message} rows="4" required
@@ -869,8 +829,6 @@ export default function InteriorPortfolio() {
                 {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{t.contact.error}</p>}
               </form>
             </Section>
-
-            <Footer t={t} />
           </>
         )}
       </div>
