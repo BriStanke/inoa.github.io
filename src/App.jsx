@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 /* ─── SECTION WRAPPER ─── */
@@ -28,7 +28,7 @@ function MobileProjects({ projects }) {
     <div className="flex md:hidden gap-3 overflow-x-auto px-6 pb-4 snap-x snap-mandatory">
       {projects.map((project, i) => (
         <div
-          key={project.title + project.image}
+          key={i}
           className="relative flex-shrink-0 w-[72vw] snap-start overflow-hidden"
           onClick={() => setActiveIndex(activeIndex === i ? null : i)}
         >
@@ -90,6 +90,7 @@ export default function InteriorPortfolio() {
       });
       setFormStatus("sent");
       setFormState({ name: "", email: "", message: "" });
+      setTimeout(() => setFormStatus(null), 4000);
     } catch {
       setFormStatus("error");
     }
@@ -129,8 +130,12 @@ export default function InteriorPortfolio() {
           ))}
         </nav>
 
-        <button onClick={() => setMenuOpen(true)} className="md:hidden text-xl">
-          ☰
+        <button onClick={() => setMenuOpen(true)} className="md:hidden p-1" aria-label="Open menu">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="1"  x2="22" y2="1"  stroke="currentColor" strokeWidth="1.5"/>
+            <line x1="0" y1="8"  x2="22" y2="8"  stroke="currentColor" strokeWidth="1.5"/>
+            <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" strokeWidth="1.5"/>
+          </svg>
         </button>
       </header>
 
@@ -141,8 +146,13 @@ export default function InteriorPortfolio() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/60 backdrop-blur-md flex flex-col justify-center items-center gap-8 z-50"
           >
-            <button className="absolute top-6 right-6 text-2xl text-white"
-              onClick={() => setMenuOpen(false)}>✕</button>
+            <button className="absolute top-6 right-6 text-white p-1" aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="1" y1="1" x2="19" y2="19" stroke="currentColor" strokeWidth="1.5"/>
+                <line x1="19" y1="1" x2="1"  y2="19" stroke="currentColor" strokeWidth="1.5"/>
+              </svg>
+            </button>
             {menuItems.map((item) => (
               <a key={item.name} href={item.link}
                 onClick={() => setMenuOpen(false)}
@@ -173,7 +183,7 @@ export default function InteriorPortfolio() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.6 }}
-          className="absolute bottom-12 left-6 md:left-14 text-white"
+          className="absolute bottom-8 pb-safe left-6 md:left-14 text-white"
         >
           {/* ✏️  EDIT: Studio tagline */}
           <p className="text-[10px] md:text-xs tracking-[0.35em] mb-3 opacity-80 uppercase">
@@ -235,8 +245,8 @@ export default function InteriorPortfolio() {
 
         {/* DESKTOP: 3×2 full-width */}
         <div className="hidden md:grid grid-cols-3 gap-2">
-          {projects.map((project) => (
-            <div key={project.title + project.image}
+          {projects.map((project, i) => (
+            <div key={i}
               className="relative group overflow-hidden h-[70vh]">
               <img
                 src={project.image}
@@ -287,7 +297,7 @@ export default function InteriorPortfolio() {
           <button
             type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
-            className="text-sm mt-4 hover:opacity-60 transition-opacity text-left disabled:opacity-40"
+            className="text-sm mt-4 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {formStatus === "sending" ? "Siunčiama..." :
              formStatus === "sent"    ? "Išsiųsta ✓" :
