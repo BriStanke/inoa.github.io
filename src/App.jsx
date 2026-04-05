@@ -32,7 +32,7 @@ function MobileProjects({ projects }) {
           className="relative flex-shrink-0 w-[72vw] snap-start overflow-hidden"
           onClick={() => setActiveIndex(activeIndex === i ? null : i)}
         >
-          <img src={project.image} className="w-full h-[90vw] object-cover" />
+          <img src={project.image} className={`w-full h-[90vw] object-cover transition-transform duration-700 ${activeIndex === i ? "scale-105" : "scale-100"}`} />
           <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white transition-opacity duration-300 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}>
             <p className="text-[10px] opacity-70">{project.category}</p>
             <p className="text-sm">{project.title}</p>
