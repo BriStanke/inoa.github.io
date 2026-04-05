@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 /* ─── MOBILE SECTION WRAPPER (scroll-based, unchanged) ─── */
@@ -249,6 +249,7 @@ export default function InteriorPortfolio() {
   const [desktopPage, setDesktopPage] = useState("home");
   const [formState, setFormState]     = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus]   = useState(null);
+  const resetTimer = useRef(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
 
@@ -289,11 +290,15 @@ export default function InteriorPortfolio() {
       });
       setFormStatus("sent");
       setFormState({ name: "", email: "", message: "" });
-      setTimeout(() => setFormStatus(null), 4000);
+      resetTimer.current = setTimeout(() => setFormStatus(null), 4000);
     } catch {
       setFormStatus("error");
     }
   };
+
+  useEffect(() => {
+    return () => clearTimeout(resetTimer.current);
+  }, []);
 
   const desktopMenuItems = [
     { name: "Pagrindinis",     page: "home" },
