@@ -119,7 +119,7 @@ export default function InteriorPortfolio() {
 
       {/* ── HEADER ── */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 z-50 backdrop-blur bg-[#F4F2EE]/70">
-        <img src="/logo.png" alt="INOA" className="h-12 md:h-14" />
+        <a href="#"><img src="/logo.png" alt="INOA" className="h-12 md:h-14" /></a>
 
         <nav className="hidden md:flex gap-10 text-sm lg:text-base font-light tracking-[0.1em]">
           {menuItems.map((item) => (
