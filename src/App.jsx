@@ -228,7 +228,7 @@ function Footer() {
           <div className="text-xs md:text-sm">
             <p className="tracking-[0.25em] mb-2">KONTAKTAI</p>
             {/* ✏️ EDIT: Contact email */}
-            <p className="text-gray-600">inoa@gmail.com</p>
+            <p className="text-gray-600">aire.romaskeviciute@gmail.com</p>
           </div>
         </div>
       </div>
