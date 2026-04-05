@@ -73,7 +73,7 @@ const T = {
       contact: "KONTAKTAI",
       // ✏️ EDIT: email, phone, instagram
       email: "aire.romaskeviciute@gmail.com",
-      phone: "+370 600 00000",
+      phone: "+370 672 59010",
       instagram: "@inoa.interiors",
       instagramUrl: "https://instagram.com/inoa.studio",
       copyright: "© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.",
@@ -143,7 +143,7 @@ const T = {
       locationLines: ["VILNIUS, LITHUANIA", "Worldwide by arrangement"],
       contact: "CONTACT",
       email: "aire.romaskeviciute@gmail.com",
-      phone: "+370 600 00000",
+      phone: "+370 672 59010",
       instagram: "@inoa.interiors",
       instagramUrl: "https://instagram.com/inoa.studio",
       copyright: "© 2026 INOA INTERIOR DESIGN STUDIO. ALL RIGHTS RESERVED.",
