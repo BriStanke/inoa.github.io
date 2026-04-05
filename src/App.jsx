@@ -129,14 +129,14 @@ function DesktopProjects({ projects }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6 }}
-      className="h-full flex flex-col"
+      className="w-full"
     >
       <div className="px-10 pt-10 pb-6">
         <h2 className="text-3xl font-light tracking-wide">Projektai</h2>
       </div>
-      <div className="flex-1 grid grid-cols-3 gap-2 overflow-hidden">
+      <div className="grid grid-cols-3 gap-2">
         {projects.map((project, i) => (
-          <div key={i} className="relative group overflow-hidden">
+          <div key={i} className="relative group overflow-hidden h-[70vh]">
             <img
               src={project.image}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -210,7 +210,7 @@ function DesktopContact({ formState, setFormState, formStatus, setFormStatus, ha
 /* ─── SHARED FOOTER ─── */
 function Footer() {
   return (
-    <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 py-20">
+    <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 pt-10 pb-6">
       <div className="w-full flex flex-col md:flex-row items-start gap-12">
         <div className="tracking-[0.25em] text-sm font-light">
           INOA INTERJERO DIZAINO STUDIO
@@ -412,7 +412,7 @@ export default function InteriorPortfolio() {
               <motion.div key="projects"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="absolute inset-0"
+                className="absolute inset-0 overflow-y-auto"
               >
                 <DesktopProjects projects={projects} />
               </motion.div>
