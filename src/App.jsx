@@ -134,7 +134,7 @@ function DesktopProjects({ projects }) {
       <div className="px-10 pt-10 pb-6">
         <h2 className="text-3xl font-light tracking-wide">Projektai</h2>
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-2 pb-40">
         {projects.map((project, i) => (
           <div key={i} className="relative group overflow-hidden h-[70vh]">
             <img
