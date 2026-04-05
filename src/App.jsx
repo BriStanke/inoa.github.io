@@ -80,13 +80,16 @@ export default function InteriorPortfolio() {
   /* ── Send form ── */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!window.emailjs) return;
+    if (!window.emailjs) {
+      setFormStatus("error");
+      return;
+    }
     setFormStatus("sending");
     try {
       await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name:    formState.name,
-        from_email:   formState.email,
-        message:      formState.message,
+        from_name:  formState.name,
+        from_email: formState.email,
+        message:    formState.message,
       });
       setFormStatus("sent");
       setFormState({ name: "", email: "", message: "" });
@@ -297,6 +300,7 @@ export default function InteriorPortfolio() {
           <button
             type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
+            onClick={() => { if (formStatus === "error") setFormStatus(null); }}
             className="text-sm mt-4 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {formStatus === "sending" ? "Siunčiama..." :
