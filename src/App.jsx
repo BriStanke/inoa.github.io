@@ -210,29 +210,29 @@ function DesktopContact({ formState, setFormState, formStatus, setFormStatus, ha
 /* ─── SHARED FOOTER ─── */
 function Footer() {
   return (
-    <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 pt-10 pb-6">
-      <div className="w-full flex flex-col md:flex-row items-start gap-12">
+    <footer className="w-full bg-[#F7F3F0] text-black px-6 md:px-10 pt-6 pb-4">
+      <div className="w-full flex flex-col md:flex-row items-start gap-6">
         <div className="tracking-[0.25em] text-sm font-light">
           INOA INTERJERO DIZAINO STUDIO
-          <p className="mt-4 text-xs text-gray-500 tracking-normal">
+          <p className="mt-2 text-xs text-gray-500 tracking-normal">
             Minimalistinio interjero dizaino studija.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 md:gap-20 w-full md:w-auto md:ml-auto text-left">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-20 w-full md:w-auto md:ml-auto text-left">
           <div className="text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-4">VIETA</p>
+            <p className="tracking-[0.25em] mb-2">VIETA</p>
             {/* ✏️ EDIT: Location lines */}
             <p className="text-gray-600">VILNIUS, LIETUVA</p>
             <p className="text-gray-600">Visame pasaulyje pagal susitarimą</p>
           </div>
           <div className="text-xs md:text-sm">
-            <p className="tracking-[0.25em] mb-4">KONTAKTAI</p>
+            <p className="tracking-[0.25em] mb-2">KONTAKTAI</p>
             {/* ✏️ EDIT: Contact email */}
             <p className="text-gray-600">inoa@gmail.com</p>
           </div>
         </div>
       </div>
-      <div className="w-full mt-12 pt-6 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-start tracking-[0.2em]">
+      <div className="w-full mt-6 pt-4 border-t border-gray-300 text-[10px] md:text-xs text-gray-400 flex justify-start tracking-[0.2em]">
         <span>
           © 2026 INOA INTERJERO DIZAINO STUDIJA.
           <br className="block md:hidden" />
