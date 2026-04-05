@@ -733,9 +733,9 @@ export default function InteriorPortfolio() {
 
             {/* About */}
             <Section id="about" title={t.about.title}>
-              {/* Designer photo — full width on mobile */}
-              <div className="w-full h-[70vw] overflow-hidden mb-8">
-                <img src="/designer.jpeg" alt="Designer" className="w-full h-full object-cover object-top" />
+              {/* Designer photo — full image visible on mobile */}
+              <div className="w-full overflow-hidden mb-8">
+                <img src="/designer.jpeg" alt="Designer" className="w-full h-auto object-contain" />
               </div>
               <div className="flex flex-col gap-6">
                 <div className="text-gray-600 text-sm leading-relaxed space-y-4">
