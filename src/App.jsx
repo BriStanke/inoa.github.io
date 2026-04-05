@@ -410,7 +410,7 @@ function DesktopAbout({ t }) {
         {/* Designer photo */}
         {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
         <div className="flex-shrink-0 w-48 h-60 overflow-hidden">
-          <img src="public/designer.jpeg" alt="Designer" className="w-full h-full object-cover" />
+          <img src="/designer.jpeg" alt="Designer" className="w-full h-full object-cover" />
         </div>
 
         {/* Text */}
