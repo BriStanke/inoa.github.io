@@ -20,6 +20,29 @@ function Section({ id, title, children }) {
   );
 }
 
+/* ─── MOBILE PROJECTS ─── */
+function MobileProjects({ projects }) {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  return (
+    <div className="flex md:hidden gap-3 overflow-x-auto px-6 pb-4 snap-x snap-mandatory">
+      {projects.map((project, i) => (
+        <div
+          key={project.title + project.image}
+          className="relative flex-shrink-0 w-[72vw] snap-start overflow-hidden"
+          onClick={() => setActiveIndex(activeIndex === i ? null : i)}
+        >
+          <img src={project.image} className="w-full h-[90vw] object-cover" />
+          <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white transition-opacity duration-300 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}>
+            <p className="text-[10px] opacity-70">{project.category}</p>
+            <p className="text-sm">{project.title}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /* ─── MAIN ─── */
 export default function InteriorPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -207,22 +230,8 @@ export default function InteriorPortfolio() {
           <h2 className="text-2xl md:text-3xl font-light tracking-wide">Projektai</h2>
         </div>
 
-        {/* MOBILE: horizontal scroll, larger cards */}
-        <div className="flex md:hidden gap-3 overflow-x-auto px-6 pb-4 snap-x snap-mandatory">
-          {projects.map((project) => (
-            <div key={project.title + project.image}
-              className="relative flex-shrink-0 w-[72vw] snap-start overflow-hidden">
-              <img
-                src={project.image}
-                className="w-full h-[90vw] object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-active:opacity-100 transition flex flex-col justify-end p-4 text-white">
-                <p className="text-[10px] opacity-70">{project.category}</p>
-                <p className="text-sm">{project.title}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* MOBILE: horizontal scroll, larger cards, tap-to-reveal */}
+        <MobileProjects projects={projects} />
 
         {/* DESKTOP: 3×2 full-width */}
         <div className="hidden md:grid grid-cols-3 gap-2">
