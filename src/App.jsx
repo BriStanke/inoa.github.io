@@ -72,9 +72,9 @@ const T = {
       locationLines: ["VILNIUS, LIETUVA", "Visame pasaulyje pagal susitarimą"],
       contact: "KONTAKTAI",
       // ✏️ EDIT: email, phone, instagram
-      email: "inoa@gmail.com",
+      email: "aire.romaskeviciute@gmail.com",
       phone: "+370 600 00000",
-      instagram: "@inoa.studio",
+      instagram: "@inoa.interiors",
       instagramUrl: "https://instagram.com/inoa.studio",
       copyright: "© 2026 INOA INTERJERO DIZAINO STUDIJA. ALL RIGHTS RESERVED.",
     },
@@ -142,9 +142,9 @@ const T = {
       location: "LOCATION",
       locationLines: ["VILNIUS, LITHUANIA", "Worldwide by arrangement"],
       contact: "CONTACT",
-      email: "inoa@gmail.com",
+      email: "aire.romaskeviciute@gmail.com",
       phone: "+370 600 00000",
-      instagram: "@inoa.studio",
+      instagram: "@inoa.interiors",
       instagramUrl: "https://instagram.com/inoa.studio",
       copyright: "© 2026 INOA INTERIOR DESIGN STUDIO. ALL RIGHTS RESERVED.",
     },
@@ -410,7 +410,7 @@ function DesktopAbout({ t }) {
         {/* Designer photo */}
         {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
         <div className="flex-shrink-0 w-48 h-60 overflow-hidden">
-          <img src="/designer.jpeg" alt="Designer" className="w-full h-full object-cover" />
+          <img src="public/designer.jpeg" alt="Designer" className="w-full h-full object-cover" />
         </div>
 
         {/* Text */}
