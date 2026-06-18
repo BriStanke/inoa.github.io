@@ -250,8 +250,8 @@ function ProjectDetail({ project, onBack, t, lang }) {
         </button>
       </div>
       <div className="px-6 md:px-10 pb-6">
-        <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-1">{project.category}</p>
-        <h2 className="text-2xl md:text-3xl font-light tracking-wide">{title}</h2>
+        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{project.category}</p>
+        <h2 className="text-2xl md:font-bold tracking-wide">{title}</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2">
         {project.gallery.map((img, i) => (
@@ -261,8 +261,8 @@ function ProjectDetail({ project, onBack, t, lang }) {
         ))}
       </div>
       <div className="max-w-2xl px-6 md:px-10 py-10">
-        <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-3">{t.project.description.toUpperCase()}</p>
-        <p className="text-gray-600 text-sm md:text-base leading-relaxed">{desc}</p>
+        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-3">{t.project.description.toUpperCase()}</p>
+        <p className="text-[#6A584C] text-sm md:text-base leading-relaxed">{desc}</p>
       </div>
       {/* ✏️ EDIT: Add more gallery images to project.gallery array in PROJECTS data above */}
     </motion.div>
@@ -317,7 +317,7 @@ function DesktopHero({ y, t }) {
         className="absolute bottom-14 left-14 text-white"
       >
         <p className="text-xs tracking-[0.35em] mb-3 opacity-80 uppercase">{t.tagline}</p>
-        <h1 className="text-5xl font-light tracking-wide leading-tight max-w-xl">
+        <h1 className="text-5xl font-bold tracking-wide leading-tight max-w-xl">
           {lines[0]}<br />{lines[1]}
         </h1>
       </motion.div>
@@ -342,8 +342,8 @@ function DesktopAbout({ t }) {
 
       {/* Right side — title, text, stats */}
       <div className="w-1/2 flex flex-col justify-center px-12 py-16 gap-10">
-        <h2 className="text-3xl font-light tracking-wide">{a.title}</h2>
-        <div className="text-gray-600 text-base leading-relaxed space-y-4">
+        <h2 className="text-3xl font-bold tracking-wide">{a.title}</h2>
+        <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
           {/* ✏️ EDIT: About paragraphs in T object above */}
           <p>{a.p1}</p>
           <p>{a.p2}</p>
@@ -352,7 +352,7 @@ function DesktopAbout({ t }) {
           {/* ✏️ EDIT: Stat blocks in T object above */}
           {a.stats.map((s) => (
             <div key={s.label}>
-              <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-1">{s.label}</p>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
               <p className="font-light">{s.value}</p>
             </div>
           ))}
@@ -370,7 +370,7 @@ function DesktopProjects({ projects, onSelect, lang }) {
       className="w-full"
     >
       <div className="px-10 pt-10 pb-6">
-        <h2 className="text-3xl font-light tracking-wide">{lang === "lt" ? "Projektai" : "Projects"}</h2>
+        <h2 className="text-3xl font-bold tracking-wide">{lang === "lt" ? "Projektai" : "Projects"}</h2>
       </div>
       <div className="grid grid-cols-3 gap-2 pb-40">
         {projects.map((project, i) => (
@@ -400,32 +400,32 @@ function DesktopServices({ t }) {
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
       className="max-w-4xl mx-auto px-10 w-full overflow-y-auto"
     >
-      <h2 className="text-3xl font-light tracking-wide pt-10 pb-4">{s.title}</h2>
+      <h2 className="text-3xl font-bold tracking-wide pt-10 pb-4">{s.title}</h2>
       {/* ✏️ EDIT: services intro in T object above */}
-      <p className="text-gray-500 text-sm mb-10 max-w-xl">{s.intro}</p>
+      <p className="text-[#6A584C] text-sm mb-10 max-w-xl">{s.intro}</p>
       <div className="flex flex-col md:flex-row gap-12 pb-40">
         <div className="flex-1">
-          <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-6">{s.process.title.toUpperCase()}</p>
+          <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{s.process.title.toUpperCase()}</p>
           <div className="space-y-8">
             {s.process.steps.map((step) => (
               <div key={step.num} className="flex gap-6">
-                <span className="text-[10px] tracking-[0.2em] text-gray-300 mt-1 flex-shrink-0">{step.num}</span>
+                <span className="text-[10px] tracking-[0.2em] text-[#978A7E] mt-1 flex-shrink-0">{step.num}</span>
                 <div>
                   <p className="text-sm font-light mb-1">{step.title}</p>
                   {/* ✏️ EDIT: step descriptions in T object above */}
-                  <p className="text-xs text-gray-500 leading-relaxed">{step.desc}</p>
+                  <p className="text-xs text-[#6A584C] leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
         <div className="md:min-w-[220px]">
-          <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-6">{s.scope.title.toUpperCase()}</p>
+          <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{s.scope.title.toUpperCase()}</p>
           <ul className="space-y-3">
             {s.scope.items.map((item, i) => (
               // ✏️ EDIT: scope items in T object above
-              <li key={i} className="text-sm text-gray-600 font-light flex gap-2">
-                <span className="text-gray-300 flex-shrink-0">—</span>{item}
+              <li key={i} className="text-sm text-[#6A584C] font-light flex gap-2">
+                <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
               </li>
             ))}
           </ul>
@@ -445,24 +445,24 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
     >
       {/* Left — contact info */}
       <div className="w-1/2 flex flex-col justify-center px-16 py-16 border-r border-gray-200">
-        <h2 className="text-3xl font-light tracking-wide mb-8">{c.title}</h2>
-        <p className="text-gray-500 text-sm mb-12 max-w-xs leading-relaxed">{c.intro}</p>
+        <h2 className="text-3xl font-bold tracking-wide mb-8">{c.title}</h2>
+        <p className="text-[#6A584C] text-sm mb-12 max-w-xs leading-relaxed">{c.intro}</p>
 
         <div className="flex flex-col gap-8 text-sm">
           <div>
-            <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{c.location}</p>
+            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
             {/* ✏️ EDIT: location lines in T object above */}
             {c.locationLines.map((l, i) => (
-              <p key={i} className="text-gray-600 font-light">{l}</p>
+              <p key={i} className="text-[#6A584C] font-light">{l}</p>
             ))}
           </div>
           <div>
-            <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{c.detailsTitle}</p>
+            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
             {/* ✏️ EDIT: email, phone, instagram in T object above */}
-            <p className="text-gray-600 font-light">{c.email}</p>
-            <p className="text-gray-600 font-light mt-1">{c.phone}</p>
+            <p className="text-[#6A584C] font-light">{c.email}</p>
+            <p className="text-[#6A584C] font-light mt-1">{c.phone}</p>
             <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
-              className="text-gray-600 font-light mt-1 hover:opacity-60 transition-opacity block">
+              className="text-[#6A584C] font-light mt-1 hover:opacity-60 transition-opacity block">
               {c.instagram}
             </a>
           </div>
@@ -471,20 +471,20 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
 
       {/* Right — form */}
       <div className="w-1/2 flex flex-col justify-center px-16 py-16">
-        <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-8">{c.formTitle.toUpperCase()}</p>
+        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-8">{c.formTitle.toUpperCase()}</p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
           <input type="text" placeholder={c.name} required
             value={formState.name}
             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
           <input type="email" placeholder={c.emailField} required
             value={formState.email}
             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
           <textarea placeholder={c.message} rows="4" required
             value={formState.message}
             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
           <button type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
             onClick={() => { if (formStatus === "error") setFormStatus(null); }}
@@ -588,10 +588,10 @@ export default function InteriorPortfolio() {
 
   /* ────────────────────────────────────────────── */
   return (
-    <div className="bg-[#F7F3F0] text-black overflow-x-hidden">
+    <div className="bg-[#E8E6E0] text-[#23140B] overflow-x-hidden">
 
       {/* ── SHARED HEADER ── */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 z-50 backdrop-blur bg-[#F4F2EE]/70">
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 z-50 backdrop-blur bg-[#ECEAE4]/70">
         <a href="#" onClick={(e) => { e.preventDefault(); setDesktopPage("home"); setSelectedProject(null); }}>
           <img src="/logo.png" alt="INOA" className="h-12 md:h-14" />
         </a>
@@ -607,9 +607,9 @@ export default function InteriorPortfolio() {
             ))}
           </nav>
           {/* Language toggle */}
-          <div className="flex gap-2 text-xs tracking-[0.15em] font-light border-l border-gray-300 pl-6">
+          <div className="flex gap-2 text-xs tracking-[0.15em] font-light border-l border-[#D8D3C9] pl-6">
             <button onClick={() => setLang("lt")} className={`transition-opacity ${lang === "lt" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}>LT</button>
-            <span className="text-gray-300">|</span>
+            <span className="text-[#978A7E]">|</span>
             <button onClick={() => setLang("en")} className={`transition-opacity ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}>EN</button>
           </div>
         </div>
@@ -725,7 +725,7 @@ export default function InteriorPortfolio() {
                 transition={{ duration: 1.1, delay: 0.6 }}
                 className="absolute bottom-8 pb-safe left-6 text-white">
                 <p className="text-[10px] tracking-[0.35em] mb-3 opacity-80 uppercase">{t.tagline}</p>
-                <h1 className="text-3xl font-light tracking-wide leading-tight max-w-sm">
+                <h1 className="text-3xl font-bold tracking-wide leading-tight max-w-sm">
                   {t.hero.split("\n")[0]}<br />{t.hero.split("\n")[1]}
                 </h1>
               </motion.div>
@@ -738,14 +738,14 @@ export default function InteriorPortfolio() {
                 <img src="/designer.jpeg" alt="Designer" className="w-full h-auto object-contain" />
               </div>
               <div className="flex flex-col gap-6">
-                <div className="text-gray-600 text-sm leading-relaxed space-y-4">
+                <div className="text-[#6A584C] text-sm leading-relaxed space-y-4">
                   <p>{t.about.p1}</p>
                   <p>{t.about.p2}</p>
                 </div>
                 <div className="flex flex-col gap-4 text-sm">
                   {t.about.stats.map((s) => (
                     <div key={s.label}>
-                      <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-1">{s.label}</p>
+                      <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
                       <p className="font-light">{s.value}</p>
                     </div>
                   ))}
@@ -763,23 +763,23 @@ export default function InteriorPortfolio() {
 
             {/* Services */}
             <Section id="services" title={t.services.title}>
-              <p className="text-gray-500 text-sm mb-8 -mt-2">{t.services.intro}</p>
+              <p className="text-[#6A584C] text-sm mb-8 -mt-2">{t.services.intro}</p>
               <div className="space-y-6 mb-10">
                 {t.services.process.steps.map((step) => (
                   <div key={step.num} className="flex gap-4">
-                    <span className="text-[10px] tracking-[0.2em] text-gray-300 mt-1 flex-shrink-0">{step.num}</span>
+                    <span className="text-[10px] tracking-[0.2em] text-[#978A7E] mt-1 flex-shrink-0">{step.num}</span>
                     <div>
                       <p className="text-sm font-light mb-1">{step.title}</p>
-                      <p className="text-xs text-gray-500 leading-relaxed">{step.desc}</p>
+                      <p className="text-xs text-[#6A584C] leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-4">{t.services.scope.title.toUpperCase()}</p>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-4">{t.services.scope.title.toUpperCase()}</p>
               <ul className="space-y-2">
                 {t.services.scope.items.map((item, i) => (
-                  <li key={i} className="text-sm text-gray-600 font-light flex gap-2">
-                    <span className="text-gray-300 flex-shrink-0">—</span>{item}
+                  <li key={i} className="text-sm text-[#6A584C] font-light flex gap-2">
+                    <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
                   </li>
                 ))}
               </ul>
@@ -787,39 +787,39 @@ export default function InteriorPortfolio() {
 
             {/* Contact */}
             <Section id="contact" title={t.contact.title}>
-              <p className="text-gray-500 text-sm mb-10 -mt-2">{t.contact.intro}</p>
+              <p className="text-[#6A584C] text-sm mb-10 -mt-2">{t.contact.intro}</p>
 
               {/* Contact details */}
               <div className="flex flex-col gap-6 mb-12 text-sm">
                 <div>
-                  <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{t.contact.location}</p>
+                  <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{t.contact.location}</p>
                   {t.contact.locationLines.map((l, i) => (
-                    <p key={i} className="text-gray-600 font-light">{l}</p>
+                    <p key={i} className="text-[#6A584C] font-light">{l}</p>
                   ))}
                 </div>
                 <div>
-                  <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-2">{t.contact.detailsTitle}</p>
-                  <p className="text-gray-600 font-light">{t.contact.email}</p>
-                  <p className="text-gray-600 font-light mt-1">{t.contact.phone}</p>
+                  <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{t.contact.detailsTitle}</p>
+                  <p className="text-[#6A584C] font-light">{t.contact.email}</p>
+                  <p className="text-[#6A584C] font-light mt-1">{t.contact.phone}</p>
                   <a href={t.contact.instagramUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-gray-600 font-light mt-1 hover:opacity-60 transition-opacity block">
+                    className="text-[#6A584C] font-light mt-1 hover:opacity-60 transition-opacity block">
                     {t.contact.instagram}
                   </a>
                 </div>
               </div>
 
               {/* Form */}
-              <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-6">{t.contact.formTitle.toUpperCase()}</p>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{t.contact.formTitle.toUpperCase()}</p>
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
                 <input type="text" placeholder={t.contact.name} required
                   value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
                 <input type="email" placeholder={t.contact.emailField} required
                   value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
                 <textarea placeholder={t.contact.message} rows="4" required
                   value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="border-b border-gray-300 bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
                 <button type="submit"
                   disabled={formStatus === "sending" || formStatus === "sent"}
                   onClick={() => { if (formStatus === "error") setFormStatus(null); }}
