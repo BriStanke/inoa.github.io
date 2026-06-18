@@ -223,7 +223,7 @@ function Section({ id, title, children }) {
       transition={{ duration: 0.7 }}
       className="max-w-4xl mx-auto px-6 py-24"
     >
-      <h2 className="text-2xl font-light tracking-wide mb-6">{title}</h2>
+      <h2 className="text-2xl font-bold tracking-wide mb-6">{title}</h2>
       {children}
     </motion.section>
   );
@@ -245,13 +245,13 @@ function ProjectDetail({ project, onBack, t, lang }) {
     >
       <div className="px-6 md:px-10 pt-8 pb-4">
         <button onClick={onBack}
-          className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity">
+          className="text-sm font-normal tracking-wide hover:opacity-60 transition-opacity">
           {t.project.back}
         </button>
       </div>
       <div className="px-6 md:px-10 pb-6">
         <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{project.category}</p>
-        <h2 className="text-2xl md:font-bold tracking-wide">{title}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-wide">{title}</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2">
         {project.gallery.map((img, i) => (
@@ -353,7 +353,7 @@ function DesktopAbout({ t }) {
           {a.stats.map((s) => (
             <div key={s.label}>
               <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
-              <p className="font-light">{s.value}</p>
+              <p className="font-normal">{s.value}</p>
             </div>
           ))}
         </div>
@@ -382,7 +382,7 @@ function DesktopProjects({ projects, onSelect, lang }) {
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">
               <p className="text-[11px] tracking-[0.2em] opacity-70">{project.category}</p>
-              <p className="text-lg font-light">{lang === "lt" ? project.titleLt : project.titleEn}</p>
+              <p className="text-lg font-normal">{lang === "lt" ? project.titleLt : project.titleEn}</p>
               <p className="text-xs opacity-60 mt-1 tracking-wide">View project →</p>
             </div>
           </div>
@@ -411,7 +411,7 @@ function DesktopServices({ t }) {
               <div key={step.num} className="flex gap-6">
                 <span className="text-[10px] tracking-[0.2em] text-[#978A7E] mt-1 flex-shrink-0">{step.num}</span>
                 <div>
-                  <p className="text-sm font-light mb-1">{step.title}</p>
+                  <p className="text-sm font-normal mb-1">{step.title}</p>
                   {/* ✏️ EDIT: step descriptions in T object above */}
                   <p className="text-xs text-[#6A584C] leading-relaxed">{step.desc}</p>
                 </div>
@@ -424,7 +424,7 @@ function DesktopServices({ t }) {
           <ul className="space-y-3">
             {s.scope.items.map((item, i) => (
               // ✏️ EDIT: scope items in T object above
-              <li key={i} className="text-sm text-[#6A584C] font-light flex gap-2">
+              <li key={i} className="text-sm text-[#6A584C] font-normal flex gap-2">
                 <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
               </li>
             ))}
@@ -444,7 +444,7 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
       className="h-full flex flex-row"
     >
       {/* Left — contact info */}
-      <div className="w-1/2 flex flex-col justify-center px-16 py-16 border-r border-gray-200">
+      <div className="w-1/2 flex flex-col justify-center px-16 py-16 border-r border-[#D8D3C9]">
         <h2 className="text-3xl font-bold tracking-wide mb-8">{c.title}</h2>
         <p className="text-[#6A584C] text-sm mb-12 max-w-xs leading-relaxed">{c.intro}</p>
 
@@ -453,16 +453,16 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
             <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
             {/* ✏️ EDIT: location lines in T object above */}
             {c.locationLines.map((l, i) => (
-              <p key={i} className="text-[#6A584C] font-light">{l}</p>
+              <p key={i} className="text-[#6A584C] font-normal">{l}</p>
             ))}
           </div>
           <div>
             <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
             {/* ✏️ EDIT: email, phone, instagram in T object above */}
-            <p className="text-[#6A584C] font-light">{c.email}</p>
-            <p className="text-[#6A584C] font-light mt-1">{c.phone}</p>
+            <p className="text-[#6A584C] font-normal">{c.email}</p>
+            <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
             <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
-              className="text-[#6A584C] font-light mt-1 hover:opacity-60 transition-opacity block">
+              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity block">
               {c.instagram}
             </a>
           </div>
@@ -476,15 +476,15 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           <input type="text" placeholder={c.name} required
             value={formState.name}
             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
           <input type="email" placeholder={c.emailField} required
             value={formState.email}
             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
           <textarea placeholder={c.message} rows="4" required
             value={formState.message}
             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-[#23140B] transition-colors" />
           <button type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
             onClick={() => { if (formStatus === "error") setFormStatus(null); }}
@@ -597,7 +597,7 @@ export default function InteriorPortfolio() {
         </a>
 
         <div className="hidden md:flex items-center gap-10">
-          <nav className="flex gap-10 text-sm lg:text-base font-light tracking-[0.1em]">
+          <nav className="flex gap-10 text-sm lg:text-base font-normal tracking-[0.1em]">
             {desktopMenuItems.map((item) => (
               <button key={item.key}
                 onClick={() => { setDesktopPage(item.key); setSelectedProject(null); }}
@@ -607,7 +607,7 @@ export default function InteriorPortfolio() {
             ))}
           </nav>
           {/* Language toggle */}
-          <div className="flex gap-2 text-xs tracking-[0.15em] font-light border-l border-[#D8D3C9] pl-6">
+          <div className="flex gap-2 text-xs tracking-[0.15em] font-normal border-l border-[#D8D3C9] pl-6">
             <button onClick={() => setLang("lt")} className={`transition-opacity ${lang === "lt" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}>LT</button>
             <span className="text-[#978A7E]">|</span>
             <button onClick={() => setLang("en")} className={`transition-opacity ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}>EN</button>
@@ -640,7 +640,7 @@ export default function InteriorPortfolio() {
             {mobileMenuLinks.map((item) => (
               <a key={item.label} href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-2xl font-light tracking-wide">
+                className="text-white text-2xl font-normal tracking-wide">
                 {item.label}
               </a>
             ))}
@@ -746,7 +746,7 @@ export default function InteriorPortfolio() {
                   {t.about.stats.map((s) => (
                     <div key={s.label}>
                       <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
-                      <p className="font-light">{s.value}</p>
+                      <p className="font-normal">{s.value}</p>
                     </div>
                   ))}
                 </div>
@@ -756,7 +756,7 @@ export default function InteriorPortfolio() {
             {/* Projects */}
             <section id="projects" className="py-24">
               <div className="px-6 mb-10">
-                <h2 className="text-2xl font-light tracking-wide">{t.nav.projects}</h2>
+                <h2 className="text-2xl font-bold tracking-wide">{t.nav.projects}</h2>
               </div>
               <MobileProjects projects={PROJECTS} onSelect={(p) => setSelectedProject(p)} lang={lang} />
             </section>
@@ -769,7 +769,7 @@ export default function InteriorPortfolio() {
                   <div key={step.num} className="flex gap-4">
                     <span className="text-[10px] tracking-[0.2em] text-[#978A7E] mt-1 flex-shrink-0">{step.num}</span>
                     <div>
-                      <p className="text-sm font-light mb-1">{step.title}</p>
+                      <p className="text-sm font-normal mb-1">{step.title}</p>
                       <p className="text-xs text-[#6A584C] leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
@@ -778,7 +778,7 @@ export default function InteriorPortfolio() {
               <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-4">{t.services.scope.title.toUpperCase()}</p>
               <ul className="space-y-2">
                 {t.services.scope.items.map((item, i) => (
-                  <li key={i} className="text-sm text-[#6A584C] font-light flex gap-2">
+                  <li key={i} className="text-sm text-[#6A584C] font-normal flex gap-2">
                     <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
                   </li>
                 ))}
@@ -794,15 +794,15 @@ export default function InteriorPortfolio() {
                 <div>
                   <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{t.contact.location}</p>
                   {t.contact.locationLines.map((l, i) => (
-                    <p key={i} className="text-[#6A584C] font-light">{l}</p>
+                    <p key={i} className="text-[#6A584C] font-normal">{l}</p>
                   ))}
                 </div>
                 <div>
                   <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{t.contact.detailsTitle}</p>
-                  <p className="text-[#6A584C] font-light">{t.contact.email}</p>
-                  <p className="text-[#6A584C] font-light mt-1">{t.contact.phone}</p>
+                  <p className="text-[#6A584C] font-normal">{t.contact.email}</p>
+                  <p className="text-[#6A584C] font-normal mt-1">{t.contact.phone}</p>
                   <a href={t.contact.instagramUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-[#6A584C] font-light mt-1 hover:opacity-60 transition-opacity block">
+                    className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity block">
                     {t.contact.instagram}
                   </a>
                 </div>
@@ -813,13 +813,13 @@ export default function InteriorPortfolio() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
                 <input type="text" placeholder={t.contact.name} required
                   value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
                 <input type="email" placeholder={t.contact.emailField} required
                   value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-black transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
                 <textarea placeholder={t.contact.message} rows="4" required
                   value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-black transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-[#23140B] transition-colors" />
                 <button type="submit"
                   disabled={formStatus === "sending" || formStatus === "sent"}
                   onClick={() => { if (formStatus === "error") setFormStatus(null); }}
