@@ -327,11 +327,11 @@ function MobileProjects({ projects, onSelect, lang, t }) {
 
 function DesktopHero({ y, t }) {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[#E8E6E0]">
+    <div className="relative w-full h-full overflow-hidden">
       <motion.img src="/main.jpeg" style={{ y }}
         initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2 }}
-        className="absolute inset-0 w-full h-full object-contain" />
+        className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
       <motion.div
         initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
@@ -355,9 +355,9 @@ function DesktopAbout({ t }) {
     >
       {/* Designer photo — half screen width, portrait */}
       {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
-      <div className="w-1/2 flex-shrink-0 h-full overflow-hidden bg-[#E8E6E0]">
+      <div className="w-1/2 flex-shrink-0 h-full overflow-hidden">
         <img src="/designer.jpeg" alt="Designer"
-          className="w-full h-full object-contain object-center" />
+          className="w-full h-full object-cover object-center" />
       </div>
 
       {/* Right side — title, text, stats */}
