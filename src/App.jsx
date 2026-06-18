@@ -7,7 +7,6 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 const T = {
   lt: {
     tagline: "Interjero dizaino studija",
-    hero: "Ramybė per\nformą ir šviesą",
     nav: {
       home: "Pagrindinis",
       about: "Apie",
@@ -73,11 +72,11 @@ const T = {
     project: {
       back: "← Grįžti į projektus",
       description: "Aprašymas",
+      viewProject: "Žiūrėti projektą",
     },
   },
   en: {
     tagline: "Interior design studio",
-    hero: "Stillness through\nform and light",
     nav: {
       home: "Home",
       about: "About",
@@ -139,6 +138,7 @@ const T = {
     project: {
       back: "← Back to projects",
       description: "Description",
+      viewProject: "View project",
     },
   },
 };
@@ -152,7 +152,8 @@ const PROJECTS = [
     id: "vonios-erdve-1",
     titleLt: "Vonios erdvė",
     titleEn: "Bathroom space",
-    category: "GYVENAMASIS / RESIDENTIAL",
+    categoryLt: "GYVENAMASIS",
+    categoryEn: "RESIDENTIAL",
     image: "/01.photo.jpg",
     gallery: ["/01.photo.jpg"],
     descLt: "Minimalistinė vonios erdvė, kurioje dominuoja natūralaus akmens tekstūros ir subtili šviesa. Projektas sukurtas siekiant suteikti ramybės ir prabangos jausmą kasdienėje aplinkoje.",
@@ -162,7 +163,8 @@ const PROJECTS = [
     id: "virtuves-erdve",
     titleLt: "Virtuvės erdvė",
     titleEn: "Kitchen space",
-    category: "GYVENAMASIS / RESIDENTIAL",
+    categoryLt: "GYVENAMASIS",
+    categoryEn: "RESIDENTIAL",
     image: "/02.photo.jpg",
     gallery: ["/02.photo.jpg"],
     descLt: "Atviros virtuvės dizainas, integruojantis funkcionalumą ir estetiką. Medžio ir betono derinys sukuria šiltą, tačiau modernų charakterį.",
@@ -172,7 +174,8 @@ const PROJECTS = [
     id: "miegamojo-erdve",
     titleLt: "Miegamojo erdvė",
     titleEn: "Bedroom space",
-    category: "GYVENAMASIS / RESIDENTIAL",
+    categoryLt: "GYVENAMASIS",
+    categoryEn: "RESIDENTIAL",
     image: "/03.photo.jpg",
     gallery: ["/03.photo.jpg"],
     descLt: "Ramios spalvų paletės miegamasis, sukurtas poilsiui ir atsipalaidavimui. Natūralūs audiniai ir minimalistiniai baldai formuoja harmoningą aplinką.",
@@ -182,7 +185,8 @@ const PROJECTS = [
     id: "vonios-erdve-2",
     titleLt: "Vonios erdvė",
     titleEn: "Bathroom space",
-    category: "GYVENAMASIS / RESIDENTIAL",
+    categoryLt: "GYVENAMASIS",
+    categoryEn: "RESIDENTIAL",
     image: "/04.photo.jpg",
     gallery: ["/04.photo.jpg"],
     descLt: "Erdvi vonia su laisvai stovinčia vonia kaip centrine kompozicijos ašimi. Šviesūs tonai ir geometrinės plytelės suteikia erdvei klasikinį elegantiškumą.",
@@ -192,7 +196,8 @@ const PROJECTS = [
     id: "sienu-plyteles",
     titleLt: "Vonios sienų plytelės",
     titleEn: "Bathroom wall tiles",
-    category: "ARTCRAFT Calce",
+    categoryLt: "ARTCRAFT Calce",
+    categoryEn: "ARTCRAFT Calce",
     image: "/05.photo.jpg",
     gallery: ["/05.photo.jpg"],
     descLt: "Rankų darbo kalkių plytelės ARTCRAFT Calce kolekcijos. Subtili faktūra ir matinis paviršius sukuria tikrą ir gyvą plytelių charakterį.",
@@ -202,7 +207,8 @@ const PROJECTS = [
     id: "grindų-plyteles",
     titleLt: "Vonios grindų plytelės",
     titleEn: "Bathroom floor tiles",
-    category: "BITS&PIECES PEARL GRAY",
+    categoryLt: "BITS&PIECES PEARL GRAY",
+    categoryEn: "BITS&PIECES PEARL GRAY",
     image: "/06.photo.jpg",
     gallery: ["/06.photo.jpg"],
     descLt: "BITS&PIECES Pearl Gray grindų plytelės. Subtilus perlinis atspalvis ir mozaikinis raštas suteikia erdvei rafinuotą pojūtį.",
@@ -230,6 +236,21 @@ function Section({ id, title, children }) {
 }
 
 /* ══════════════════════════════════════════════
+   INSTAGRAM ICON — minimal line glyph, inherits text colour
+   ══════════════════════════════════════════════ */
+function InstagramIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+      className={className} aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+/* ══════════════════════════════════════════════
    PROJECT DETAIL PAGE
    ══════════════════════════════════════════════ */
 function ProjectDetail({ project, onBack, t, lang }) {
@@ -250,7 +271,7 @@ function ProjectDetail({ project, onBack, t, lang }) {
         </button>
       </div>
       <div className="px-6 md:px-10 pb-6">
-        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{project.category}</p>
+        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{lang === "lt" ? project.categoryLt : project.categoryEn}</p>
         <h2 className="text-2xl md:text-3xl font-bold tracking-wide">{title}</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2">
@@ -288,7 +309,7 @@ function MobileProjects({ projects, onSelect, lang }) {
           <img src={project.image}
             className={`w-full h-[90vw] object-cover transition-transform duration-700 ${activeIndex === i ? "scale-105" : "scale-100"}`} />
           <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white transition-opacity duration-300 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}>
-            <p className="text-[10px] opacity-70">{project.category}</p>
+            <p className="text-[10px] opacity-70">{lang === "lt" ? project.categoryLt : project.categoryEn}</p>
             <p className="text-sm mb-1">{lang === "lt" ? project.titleLt : project.titleEn}</p>
             <p className="text-[10px] opacity-60 tracking-wide">Spausti dar kartą →</p>
           </div>
@@ -303,7 +324,6 @@ function MobileProjects({ projects, onSelect, lang }) {
    ══════════════════════════════════════════════ */
 
 function DesktopHero({ y, t }) {
-  const lines = t.hero.split("\n");
   return (
     <div className="relative w-full h-full overflow-hidden">
       <motion.img src="/main.jpeg" style={{ y }}
@@ -316,10 +336,8 @@ function DesktopHero({ y, t }) {
         transition={{ duration: 1.1, delay: 0.3 }}
         className="absolute bottom-14 left-14 text-white"
       >
-        <p className="text-xs tracking-[0.35em] mb-3 opacity-80 uppercase">{t.tagline}</p>
-        <h1 className="text-5xl font-bold tracking-wide leading-tight max-w-xl">
-          {lines[0]}<br />{lines[1]}
-        </h1>
+        {/* ✏️ EDIT: tagline text in T object above */}
+        <p className="text-xs tracking-[0.35em] opacity-80 uppercase">{t.tagline}</p>
       </motion.div>
     </div>
   );
@@ -362,7 +380,7 @@ function DesktopAbout({ t }) {
   );
 }
 
-function DesktopProjects({ projects, onSelect, lang }) {
+function DesktopProjects({ projects, onSelect, lang, t }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -381,9 +399,9 @@ function DesktopProjects({ projects, onSelect, lang }) {
             <img src={project.image}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">
-              <p className="text-[11px] tracking-[0.2em] opacity-70">{project.category}</p>
+              <p className="text-[11px] tracking-[0.2em] opacity-70">{lang === "lt" ? project.categoryLt : project.categoryEn}</p>
               <p className="text-lg font-normal">{lang === "lt" ? project.titleLt : project.titleEn}</p>
-              <p className="text-xs opacity-60 mt-1 tracking-wide">View project →</p>
+              <p className="text-xs opacity-60 mt-1 tracking-wide">{t.project.viewProject} →</p>
             </div>
           </div>
         ))}
@@ -462,7 +480,8 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
             <p className="text-[#6A584C] font-normal">{c.email}</p>
             <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
             <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
-              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity block">
+              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity inline-flex items-center gap-2">
+              <InstagramIcon />
               {c.instagram}
             </a>
           </div>
@@ -657,8 +676,9 @@ export default function InteriorPortfolio() {
           DESKTOP — fixed viewport, page swap
           ════════════════════════════════════════════ */}
       <div className="hidden md:flex flex-col" style={{ height: "100dvh" }}>
-        <div className="flex-shrink-0 h-[72px]" />
-
+        {/* Header spacer removed so the home hero and About images reach the very top,
+            behind the translucent header. Pages that should stay clear of the header
+            below carry their own pt-[72px]. */}
         <div className="flex-1 overflow-hidden relative">
           <AnimatePresence mode="wait">
 
@@ -675,25 +695,25 @@ export default function InteriorPortfolio() {
             )}
 
             {desktopPage === "projects" && (
-              <motion.div key="projects" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto">
-                <DesktopProjects projects={PROJECTS} onSelect={handleSelectProject} lang={lang} />
+              <motion.div key="projects" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto pt-[72px]">
+                <DesktopProjects projects={PROJECTS} onSelect={handleSelectProject} lang={lang} t={t} />
               </motion.div>
             )}
 
             {desktopPage === "project-detail" && selectedProject && (
-              <motion.div key="project-detail" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto">
+              <motion.div key="project-detail" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto pt-[72px]">
                 <ProjectDetail project={selectedProject} onBack={handleBackToProjects} t={t} lang={lang} />
               </motion.div>
             )}
 
             {desktopPage === "services" && (
-              <motion.div key="services" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto">
+              <motion.div key="services" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto pt-[72px]">
                 <DesktopServices t={t} />
               </motion.div>
             )}
 
             {desktopPage === "contact" && (
-              <motion.div key="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0">
+              <motion.div key="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 pt-[72px]">
                 <DesktopContact t={t} formState={formState} setFormState={setFormState}
                   formStatus={formStatus} setFormStatus={setFormStatus} handleSubmit={handleSubmit} />
               </motion.div>
@@ -724,10 +744,8 @@ export default function InteriorPortfolio() {
               <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.6 }}
                 className="absolute bottom-8 pb-safe left-6 text-white">
-                <p className="text-[10px] tracking-[0.35em] mb-3 opacity-80 uppercase">{t.tagline}</p>
-                <h1 className="text-3xl font-bold tracking-wide leading-tight max-w-sm">
-                  {t.hero.split("\n")[0]}<br />{t.hero.split("\n")[1]}
-                </h1>
+                {/* ✏️ EDIT: tagline text in T object above */}
+                <p className="text-[10px] tracking-[0.35em] opacity-80 uppercase">{t.tagline}</p>
               </motion.div>
             </section>
 
@@ -802,7 +820,8 @@ export default function InteriorPortfolio() {
                   <p className="text-[#6A584C] font-normal">{t.contact.email}</p>
                   <p className="text-[#6A584C] font-normal mt-1">{t.contact.phone}</p>
                   <a href={t.contact.instagramUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity block">
+                    className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity inline-flex items-center gap-2">
+                    <InstagramIcon />
                     {t.contact.instagram}
                   </a>
                 </div>
