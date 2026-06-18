@@ -476,15 +476,15 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           <input type="text" placeholder={c.name} required
             value={formState.name}
             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
           <input type="email" placeholder={c.emailField} required
             value={formState.email}
             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
           <textarea placeholder={c.message} rows="4" required
             value={formState.message}
             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-[#23140B] transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] resize-none focus:border-[#23140B] transition-colors" />
           <button type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
             onClick={() => { if (formStatus === "error") setFormStatus(null); }}
@@ -813,13 +813,13 @@ export default function InteriorPortfolio() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
                 <input type="text" placeholder={t.contact.name} required
                   value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
                 <input type="email" placeholder={t.contact.emailField} required
                   value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none focus:border-[#23140B] transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
                 <textarea placeholder={t.contact.message} rows="4" required
                   value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none resize-none focus:border-[#23140B] transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] resize-none focus:border-[#23140B] transition-colors" />
                 <button type="submit"
                   disabled={formStatus === "sending" || formStatus === "sent"}
                   onClick={() => { if (formStatus === "error") setFormStatus(null); }}
