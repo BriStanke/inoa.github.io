@@ -55,10 +55,10 @@ const T = {
       location: "VIETA",
       locationLines: ["Vilnius, Lietuva", "Visame pasaulyje pagal susitarimą"],
       detailsTitle: "KONTAKTAI",
-      email: "inoa.aire@gmail.com",
-      phone: "+370 672 59010",
-      instagram: "@inoa.interiors",
-      instagramUrl: "https://www.instagram.com/inoa.interiors/",
+      email: "inoa@gmail.com",
+      phone: "+370 600 00000",
+      instagram: "@inoa.studio",
+      instagramUrl: "https://instagram.com/inoa.studio",
       // form labels
       formTitle: "Parašykite mums",
       name: "Vardas",
@@ -73,6 +73,7 @@ const T = {
       back: "← Grįžti į projektus",
       description: "Aprašymas",
       viewProject: "Žiūrėti projektą",
+      tapAgain: "Spausti dar kartą",
     },
   },
   en: {
@@ -122,10 +123,10 @@ const T = {
       location: "LOCATION",
       locationLines: ["Vilnius, Lithuania", "Worldwide by arrangement"],
       detailsTitle: "CONTACT",
-      email: "inoa.aire@gmail.com",
-      phone: "+370 672 59010",
-      instagram: "@inoa.interiors",
-      instagramUrl: "https://www.instagram.com/inoa.interiors/",
+      email: "inoa@gmail.com",
+      phone: "+370 600 00000",
+      instagram: "@inoa.studio",
+      instagramUrl: "https://instagram.com/inoa.studio",
       formTitle: "Send us a message",
       name: "Name",
       emailField: "Email",
@@ -139,6 +140,7 @@ const T = {
       back: "← Back to projects",
       description: "Description",
       viewProject: "View project",
+      tapAgain: "Tap again",
     },
   },
 };
@@ -293,7 +295,7 @@ function ProjectDetail({ project, onBack, t, lang }) {
 /* ══════════════════════════════════════════════
    MOBILE PROJECTS
    ══════════════════════════════════════════════ */
-function MobileProjects({ projects, onSelect, lang }) {
+function MobileProjects({ projects, onSelect, lang, t }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const handleTap = (i) => {
     if (activeIndex === i) onSelect(projects[i]);
@@ -311,7 +313,7 @@ function MobileProjects({ projects, onSelect, lang }) {
           <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white transition-opacity duration-300 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}>
             <p className="text-[10px] opacity-70">{lang === "lt" ? project.categoryLt : project.categoryEn}</p>
             <p className="text-sm mb-1">{lang === "lt" ? project.titleLt : project.titleEn}</p>
-            <p className="text-[10px] opacity-60 tracking-wide">Spausti dar kartą →</p>
+            <p className="text-[10px] opacity-60 tracking-wide">{t.project.tapAgain} →</p>
           </div>
         </div>
       ))}
@@ -325,11 +327,11 @@ function MobileProjects({ projects, onSelect, lang }) {
 
 function DesktopHero({ y, t }) {
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden bg-[#E8E6E0]">
       <motion.img src="/main.jpeg" style={{ y }}
         initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2 }}
-        className="absolute inset-0 w-full h-full object-cover" />
+        className="absolute inset-0 w-full h-full object-contain" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
       <motion.div
         initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
@@ -353,9 +355,9 @@ function DesktopAbout({ t }) {
     >
       {/* Designer photo — half screen width, portrait */}
       {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
-      <div className="w-1/2 flex-shrink-0 h-full overflow-hidden">
+      <div className="w-1/2 flex-shrink-0 h-full overflow-hidden bg-[#E8E6E0]">
         <img src="/designer.jpeg" alt="Designer"
-          className="w-full h-full object-cover object-center" />
+          className="w-full h-full object-contain object-center" />
       </div>
 
       {/* Right side — title, text, stats */}
@@ -776,7 +778,7 @@ export default function InteriorPortfolio() {
               <div className="px-6 mb-10">
                 <h2 className="text-2xl font-bold tracking-wide">{t.nav.projects}</h2>
               </div>
-              <MobileProjects projects={PROJECTS} onSelect={(p) => setSelectedProject(p)} lang={lang} />
+              <MobileProjects projects={PROJECTS} onSelect={(p) => setSelectedProject(p)} lang={lang} t={t} />
             </section>
 
             {/* Services */}
