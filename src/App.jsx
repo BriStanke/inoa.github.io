@@ -624,9 +624,9 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
     >
       {/* Left — contact info (top) + full-bleed photo (bottom). Fixed height, no scroll. */}
       <div className="w-1/2 flex flex-col border-r border-[#D8D3C9] overflow-hidden">
-        <div className="flex-shrink-0 px-16 pt-16">
+        <div className="flex-shrink-0 px-16 pt-8">
           <h2 className="text-3xl font-bold tracking-wide mb-6">{c.title}</h2>
-          <p className="text-[#6A584C] text-sm mb-8 max-w-xs leading-relaxed">{c.intro}</p>
+          <p className="text-[#6A584C] text-sm mb-8 leading-relaxed">{c.intro}</p>
 
           <div className="flex flex-col gap-6 text-sm">
             <div>
