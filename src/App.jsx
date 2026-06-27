@@ -16,9 +16,22 @@ const T = {
     },
     about: {
       title: "Apie",
-      // ✏️ EDIT: About paragraphs
-      p1: "Kuriame ramius, apgalvotus interjerus, įkvėptus japoniško minimalizmo. Kiekviena erdvė sutelkta į savo esmę – šviesą, tekstūrą ir pusiausvyrą.",
-      p2: "Dirbame su privačiais ir komerciniais klientais Vilniuje ir visame pasaulyje, kurdami erdves, kurios yra ne tik gražios, bet ir jautrios gyvenimo ritmui.",
+      // ✏️ EDIT: About — Mano istorija (heading + paragraphs)
+      storyTitle: "Mano istorija",
+      story: [
+        "Interjero dizainerės kelią pasirinkau dar būdama dešimtoje klasėje. Jau tada žinojau, kad noriu kurti erdves, tačiau tik vėliau supratau, kodėl tai man taip svarbu.",
+        "Tam tikri gyvenimo etapai paskatino pažvelgti giliau į savo profesiją ir užduoti sau klausimą – kokią vertę iš tikrųjų kuriu žmogui? Tada supratau, kad mane visada labiausiai domino ne pats interjeras, o žmogus, kuris jame gyvena, dirba, kuria ir ilsisi.",
+        "Šis suvokimas dar labiau sustiprino mano ryšį su interjero dizainu. Pasirinkau sąmoningą kelią nuolat augti, gilinti žinias ir ieškoti sprendimų, kurie kuria ne tik estetinę vertę, bet ir gerina žmogaus kasdienę patirtį. Tikiu, kad erdvės mus veikia kur kas labiau, nei dažnai pastebime, todėl kiekvieną projektą matau kaip galimybę prisidėti prie geresnės gyvenimo kokybės.",
+      ],
+      // ✏️ EDIT: About — INOA filosofija (heading + intro + paragraphs)
+      philosophyTitle: "INOA filosofija",
+      philosophyIntro: "INOA – tai prasmingas dizainas žmogaus gyvenimo ritmui.",
+      philosophy: [
+        "Tikiu, kad gerai sukurta erdvė gali įgalinti žmogų veikti. Ji gali padėti pailsėti po intensyvios dienos, susikaupti darbui, kūrybai ar tapti vieta prasmingiems susitikimams ir bendravimui.",
+        "Man interjeras nėra tik estetikos klausimas. Tai sistema, kurioje kiekvienas sprendimas turi įtakos žmogaus savijautai. Kartais net vienas netinkamai suplanuotas elementas gali kasdien kelti nepatogumų, o gerai apgalvoti sprendimai gali nepastebimai kurti daugiau komforto, aiškumo ir ramybės.",
+        "Todėl kiekvieno projekto pradžioje siekiu pažinti žmogų – jo įpročius, rutiną, ritualus, poreikius ir gyvenimo būdą. Tik supratus, kaip žmogus gyvena, galima sukurti erdvę, kuri iš tikrųjų jam tarnauja.",
+        "Tinkamai parinktos medžiagos, spalvos, šviesa ir funkcionalūs sprendimai susijungia į vientisą visumą, kuri tampa autentišku konkretaus žmogaus ar verslo atspindžiu.",
+      ],
       stats: [
         { label: "PATIRTIS",  value: "7+ metai" },
         { label: "PROJEKTAI", value: "50+ erdvių" },
@@ -55,10 +68,13 @@ const T = {
       location: "VIETA",
       locationLines: ["Vilnius, Lietuva", "Visame pasaulyje pagal susitarimą"],
       detailsTitle: "KONTAKTAI",
+      contactName: "Airė Romaškevičiūtė",
       email: "inoa.aire@gmail.com",
       phone: "+370 672 59010",
-      instagram: "@inoa.interiors",
+      instagram: "inoa.interiors",
       instagramUrl: "https://www.instagram.com/inoa.interiors/",
+      facebook: "INOA.interiors",
+      facebookUrl: "https://www.facebook.com/profile.php?id=61575323777448",
       // form labels
       formTitle: "Parašykite mums",
       name: "Vardas",
@@ -87,8 +103,22 @@ const T = {
     },
     about: {
       title: "About",
-      p1: "We create calm, considered interiors inspired by Japanese minimalism. Every space is distilled to its essence — light, texture, and balance.",
-      p2: "We work with private and commercial clients in Vilnius and worldwide, creating spaces that are not only beautiful but attuned to the rhythm of life.",
+      // ✏️ EDIT: About — My story (heading + paragraphs). Translation — please review.
+      storyTitle: "My story",
+      story: [
+        "I chose the path of an interior designer back in tenth grade. Even then I knew I wanted to create spaces, but only later did I understand why it mattered to me so much.",
+        "Certain chapters of life led me to look more deeply at my profession and ask myself a question — what value am I truly creating for a person? That is when I realised that what always interested me most was not the interior itself, but the person who lives, works, creates and rests within it.",
+        "This understanding deepened my connection to interior design even further. I chose a conscious path of constant growth — to keep learning and to seek solutions that create not only aesthetic value, but also improve a person's everyday experience. I believe that spaces affect us far more than we often notice, so I see every project as an opportunity to contribute to a better quality of life.",
+      ],
+      // ✏️ EDIT: About — INOA philosophy (heading + intro + paragraphs). Translation — please review.
+      philosophyTitle: "INOA philosophy",
+      philosophyIntro: "INOA is meaningful design for the rhythm of human life.",
+      philosophy: [
+        "I believe that a well-designed space can empower a person to act. It can help them rest after an intense day, focus on work or creativity, or become a place for meaningful gatherings and connection.",
+        "For me, an interior is not merely a question of aesthetics. It is a system in which every decision affects how a person feels. Sometimes even a single poorly planned element can cause daily discomfort, while well-considered solutions can quietly create more comfort, clarity and calm.",
+        "That is why, at the start of every project, I seek to know the person — their habits, routine, rituals, needs and way of life. Only by understanding how someone lives can you create a space that truly serves them.",
+        "Carefully chosen materials, colours, light and functional solutions come together into a single whole that becomes an authentic reflection of a particular person or business.",
+      ],
       stats: [
         { label: "EXPERIENCE", value: "7+ years" },
         { label: "PROJECTS",   value: "50+ spaces" },
@@ -123,10 +153,13 @@ const T = {
       location: "LOCATION",
       locationLines: ["Vilnius, Lithuania", "Worldwide by arrangement"],
       detailsTitle: "CONTACT",
+      contactName: "Airė Romaškevičiūtė",
       email: "inoa.aire@gmail.com",
       phone: "+370 672 59010",
-      instagram: "@inoa.interiors",
+      instagram: "inoa.interiors",
       instagramUrl: "https://www.instagram.com/inoa.interiors/",
+      facebook: "INOA.interiors",
+      facebookUrl: "https://www.facebook.com/profile.php?id=61575323777448",
       formTitle: "Send us a message",
       name: "Name",
       emailField: "Email",
@@ -253,6 +286,20 @@ function InstagramIcon({ className = "" }) {
 }
 
 /* ══════════════════════════════════════════════
+   FACEBOOK ICON — minimal line glyph, matches Instagram style
+   ══════════════════════════════════════════════ */
+function FacebookIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+      className={className} aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <path d="M14 8.2h-1.3a1.7 1.7 0 0 0-1.7 1.7V16 M10.3 11.6h3.4" />
+    </svg>
+  );
+}
+
+/* ══════════════════════════════════════════════
    PROJECT DETAIL PAGE
    ══════════════════════════════════════════════ */
 function ProjectDetail({ project, onBack, t, lang }) {
@@ -348,34 +395,53 @@ function DesktopHero({ y, t }) {
 function DesktopAbout({ t }) {
   const a = t.about;
   return (
+    // Opacity-only fade (no transform) so the sticky photo below keeps working.
     <motion.div
-      initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="h-full flex flex-row"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }} transition={{ duration: 0.6 }}
+      className="h-full overflow-y-auto"
     >
-      {/* Designer photo — half screen width, portrait */}
-      {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
-      <div className="w-1/2 flex-shrink-0 h-full overflow-hidden">
-        <img src="/designer.jpeg" alt="Designer"
-          className="w-full h-full object-cover object-center" />
-      </div>
-
-      {/* Right side — title, text, stats */}
-      <div className="w-1/2 flex flex-col justify-center px-12 py-16 gap-10">
-        <h2 className="text-3xl font-bold tracking-wide">{a.title}</h2>
-        <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
-          {/* ✏️ EDIT: About paragraphs in T object above */}
-          <p>{a.p1}</p>
-          <p>{a.p2}</p>
+      <div className="flex flex-row min-h-full">
+        {/* Designer photo — left half, pinned in view while the text scrolls */}
+        {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
+        <div className="w-1/2 flex-shrink-0">
+          <div className="sticky top-0 h-screen overflow-hidden">
+            <img src="/designer.jpeg" alt="Designer"
+              className="w-full h-full object-cover object-center" />
+          </div>
         </div>
-        <div className="flex flex-col gap-5 text-sm">
-          {/* ✏️ EDIT: Stat blocks in T object above */}
-          {a.stats.map((s) => (
-            <div key={s.label}>
-              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
-              <p className="font-normal">{s.value}</p>
+
+        {/* Right side — scrolling text */}
+        <div className="w-1/2 px-12 pt-[100px] pb-24 flex flex-col gap-14">
+          {/* Mano istorija */}
+          <div>
+            {/* ✏️ EDIT: story title + paragraphs in T object above */}
+            <h2 className="text-3xl font-bold tracking-wide mb-6">{a.storyTitle}</h2>
+            <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
+              {a.story.map((p, i) => <p key={i}>{p}</p>)}
             </div>
-          ))}
+          </div>
+
+          {/* INOA filosofija */}
+          <div>
+            {/* ✏️ EDIT: philosophy title + intro + paragraphs in T object above */}
+            <h2 className="text-3xl font-bold tracking-wide mb-6">{a.philosophyTitle}</h2>
+            <p className="text-[#23140B] text-lg font-bold leading-relaxed mb-6">{a.philosophyIntro}</p>
+            <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
+              {a.philosophy.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="flex flex-col gap-5 text-sm border-t border-[#D8D3C9] pt-10">
+            {/* ✏️ EDIT: stat blocks in T object above */}
+            {a.stats.map((s) => (
+              <div key={s.label}>
+                <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
+                <p className="font-normal">{s.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -463,30 +529,45 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
       className="h-full flex flex-row"
     >
-      {/* Left — contact info */}
-      <div className="w-1/2 flex flex-col justify-center px-16 py-16 border-r border-[#D8D3C9]">
-        <h2 className="text-3xl font-bold tracking-wide mb-8">{c.title}</h2>
-        <p className="text-[#6A584C] text-sm mb-12 max-w-xs leading-relaxed">{c.intro}</p>
+      {/* Left — contact info (top) + photo (bottom). Fixed height, no scroll. */}
+      <div className="w-1/2 flex flex-col px-16 pt-16 pb-12 border-r border-[#D8D3C9] overflow-hidden">
+        <div className="flex-shrink-0">
+          <h2 className="text-3xl font-bold tracking-wide mb-6">{c.title}</h2>
+          <p className="text-[#6A584C] text-sm mb-8 max-w-xs leading-relaxed">{c.intro}</p>
 
-        <div className="flex flex-col gap-8 text-sm">
-          <div>
-            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
-            {/* ✏️ EDIT: location lines in T object above */}
-            {c.locationLines.map((l, i) => (
-              <p key={i} className="text-[#6A584C] font-normal">{l}</p>
-            ))}
+          <div className="flex flex-col gap-6 text-sm">
+            <div>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
+              {/* ✏️ EDIT: location lines in T object above */}
+              {c.locationLines.map((l, i) => (
+                <p key={i} className="text-[#6A584C] font-normal">{l}</p>
+              ))}
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
+              {/* ✏️ EDIT: name, email, phone, instagram, facebook in T object above */}
+              <p className="text-[#6A584C] font-normal">{c.contactName}</p>
+              <p className="text-[#6A584C] font-normal mt-1">{c.email}</p>
+              <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
+              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
+                className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+                <InstagramIcon />
+                {c.instagram}
+              </a>
+              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer"
+                className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+                <FacebookIcon />
+                {c.facebook}
+              </a>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
-            {/* ✏️ EDIT: email, phone, instagram in T object above */}
-            <p className="text-[#6A584C] font-normal">{c.email}</p>
-            <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
-            <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
-              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity inline-flex items-center gap-2">
-              <InstagramIcon />
-              {c.instagram}
-            </a>
-          </div>
+        </div>
+
+        {/* Photo anchored bottom-left, aligned with the contact column */}
+        {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
+        <div className="flex-1 min-h-0 flex items-end pt-10">
+          <img src="/kontaktai.jpeg" alt=""
+            className="w-full max-h-full object-cover" />
         </div>
       </div>
 
@@ -497,15 +578,15 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           <input type="text" placeholder={c.name} required
             value={formState.name}
             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
           <input type="email" placeholder={c.emailField} required
             value={formState.email}
             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
           <textarea placeholder={c.message} rows="4" required
             value={formState.message}
             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] resize-none focus:border-[#23140B] transition-colors" />
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
           <button type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
             onClick={() => { if (formStatus === "error") setFormStatus(null); }}
@@ -739,7 +820,8 @@ export default function InteriorPortfolio() {
           <>
             {/* Hero */}
             <section className="h-screen w-full relative overflow-hidden">
-              <motion.img src="/main.jpeg" style={{ y }}
+              {/* Pinned to top — no parallax so the image doesn't drift on first scroll */}
+              <motion.img src="/main.jpeg"
                 initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
@@ -752,26 +834,42 @@ export default function InteriorPortfolio() {
             </section>
 
             {/* About */}
-            <Section id="about" title={t.about.title}>
+            <motion.section id="about"
+              initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="max-w-4xl mx-auto px-6 py-24">
               {/* Designer photo — full image visible on mobile */}
-              <div className="w-full overflow-hidden mb-8">
+              {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
+              <div className="w-full overflow-hidden mb-10">
                 <img src="/designer.jpeg" alt="Designer" className="w-full h-auto object-contain" />
               </div>
-              <div className="flex flex-col gap-6">
-                <div className="text-[#6A584C] text-sm leading-relaxed space-y-4">
-                  <p>{t.about.p1}</p>
-                  <p>{t.about.p2}</p>
-                </div>
-                <div className="flex flex-col gap-4 text-sm">
-                  {t.about.stats.map((s) => (
-                    <div key={s.label}>
-                      <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
-                      <p className="font-normal">{s.value}</p>
-                    </div>
-                  ))}
-                </div>
+
+              {/* Mano istorija */}
+              {/* ✏️ EDIT: story title + paragraphs in T object above */}
+              <h2 className="text-2xl font-bold tracking-wide mb-5">{t.about.storyTitle}</h2>
+              <div className="text-[#6A584C] text-sm leading-relaxed space-y-4 mb-12">
+                {t.about.story.map((p, i) => <p key={i}>{p}</p>)}
               </div>
-            </Section>
+
+              {/* INOA filosofija */}
+              {/* ✏️ EDIT: philosophy title + intro + paragraphs in T object above */}
+              <h2 className="text-2xl font-bold tracking-wide mb-5">{t.about.philosophyTitle}</h2>
+              <p className="text-[#23140B] text-base font-bold leading-relaxed mb-5">{t.about.philosophyIntro}</p>
+              <div className="text-[#6A584C] text-sm leading-relaxed space-y-4 mb-12">
+                {t.about.philosophy.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+
+              {/* Stats */}
+              <div className="flex flex-col gap-4 text-sm border-t border-[#D8D3C9] pt-8">
+                {/* ✏️ EDIT: stat blocks in T object above */}
+                {t.about.stats.map((s) => (
+                  <div key={s.label}>
+                    <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-1">{s.label}</p>
+                    <p className="font-normal">{s.value}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
 
             {/* Projects */}
             <section id="projects" className="py-24">
@@ -819,12 +917,19 @@ export default function InteriorPortfolio() {
                 </div>
                 <div>
                   <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{t.contact.detailsTitle}</p>
-                  <p className="text-[#6A584C] font-normal">{t.contact.email}</p>
+                  {/* ✏️ EDIT: name, email, phone, instagram, facebook in T object above */}
+                  <p className="text-[#6A584C] font-normal">{t.contact.contactName}</p>
+                  <p className="text-[#6A584C] font-normal mt-1">{t.contact.email}</p>
                   <p className="text-[#6A584C] font-normal mt-1">{t.contact.phone}</p>
                   <a href={t.contact.instagramUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity inline-flex items-center gap-2">
+                    className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
                     <InstagramIcon />
                     {t.contact.instagram}
+                  </a>
+                  <a href={t.contact.facebookUrl} target="_blank" rel="noopener noreferrer"
+                    className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+                    <FacebookIcon />
+                    {t.contact.facebook}
                   </a>
                 </div>
               </div>
@@ -834,13 +939,13 @@ export default function InteriorPortfolio() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
                 <input type="text" placeholder={t.contact.name} required
                   value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
                 <input type="email" placeholder={t.contact.emailField} required
                   value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] focus:border-[#23140B] transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
                 <textarea placeholder={t.contact.message} rows="4" required
                   value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#978A7E] resize-none focus:border-[#23140B] transition-colors" />
+                  className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
                 <button type="submit"
                   disabled={formStatus === "sending" || formStatus === "sent"}
                   onClick={() => { if (formStatus === "error") setFormStatus(null); }}
