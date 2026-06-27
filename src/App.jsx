@@ -41,6 +41,58 @@ const T = {
     services: {
       title: "Paslaugos",
       intro: "Dirbame su gyvenamaisiais ir komerciniais objektais. Kiekvienas projektas yra individualus – nuo pirmosios konsultacijos iki galutinio rezultato.",
+      packageTitle: "PILNAS INTERJERO PROJEKTAS",
+      // ✏️ EDIT: full project stages (number, title, bullet points)
+      stages: [
+        {
+          num: "01",
+          title: "Interjero konceptas",
+          items: [
+            "Konsultacija",
+            "Susipažįstame su Jūsų poreikiais, erdve ir biudžetu. Aptariame stilistines kryptis ir tikslus",
+            "Interjero koncepcijos MOODBOARD",
+            "2D baldų išdėstymo planas",
+            "3D modelis su realistiškomis vizualizacijomis",
+            "Objekto išmatavimas",
+          ],
+        },
+        {
+          num: "02",
+          title: "Techninis darbo projektas (TDP)",
+          items: [
+            "Baldų išdėstymo planas",
+            "Vizualizacijos",
+            "Pertvarų planas",
+            "Durų specifikacija",
+            "Elektros planas su išklotinėmis",
+            "Santechnikos planas su išklotinėmis",
+            "Santechnikos prietaisų parinktys (žiniaraštis)",
+            "Grindų dangų planas",
+            "Sienų apdailos planas su išklotinėmis",
+            "Lubų planas",
+            "Apšvietimo planas su parinktimis",
+            "Ventiliacijos taškų pririšimų derinimas su įmone atliekančia šiuos darbus (SVARBU: ventiliacijos taškai įtakoja lubų ir apšvietimo planą)",
+          ],
+        },
+        {
+          num: "03",
+          title: "Baldų projektas",
+          items: [
+            "Projektuojami nestandartiniai užsakomi baldai, renkamos apdailos medžiagos.",
+            "Renkami standartiniai baldai (kėdės, stalai, kavos staliukai, kilimai, paveikslai, lovos, sofos, užuolaidos, žaliuzės, veidrodžiai, kabyklos ir kt.). Pridedamos nuorodos kur galima įsigyti produktus.",
+          ],
+        },
+        {
+          num: "04",
+          title: "Autorinė priežiūra",
+          items: [
+            "Statybų darbų priežiūra atvykstant į vietą ar nuotoliu.",
+            "Intensyviai vykstant darbams rekomenduojama 1 vizitas per savaitę.",
+            "Visuose projektuose atliekame derinimą su projekte dalyvaujančiais kitais projektuotojais – šildymo, vėdinimo, elektros, santechnikos, kompiuterijos ir kitais specialistais",
+            "Autorinė priežiūra apima iškilusių klausimų sprendimą, reikiamų brėžinių paruošimą ir pakomentavimą meistrams.",
+          ],
+        },
+      ],
       scope: {
         title: "Projektų apimtis",
         // ✏️ EDIT: scope lines
@@ -49,15 +101,6 @@ const T = {
           "Komercinės erdvės: biurai, restoranai, viešbučiai",
           "Dalinė rekonstrukcija ir atnaujinimas",
           "Konsultacijos ir koncepcijų kūrimas",
-        ],
-      },
-      process: {
-        title: "Darbo procesas",
-        steps: [
-          { num: "01", title: "Konsultacija",      desc: "Susipažįstame su Jūsų poreikiais, erdve ir biudžetu. Aptariame stilistines kryptis ir tikslus." },
-          { num: "02", title: "Koncepcija",         desc: "Kuriame erdvės koncepciją: nuotaikų lentas, erdvių planus, medžiagų ir spalvų paletę." },
-          { num: "03", title: "Dizaino projektas",  desc: "Detalizuojame sprendimus: baldų išdėstymą, apšvietimą, medžiagas ir dekoro elementus." },
-          { num: "04", title: "Įgyvendinimas",      desc: "Koordinuojame rangovus ir tiekėjus, prižiūrime darbų eigą, užtikriname kokybę." },
         ],
       },
     },
@@ -128,6 +171,58 @@ const T = {
     services: {
       title: "Services",
       intro: "We work with residential and commercial projects. Every project is individual — from the first consultation to the final result.",
+      packageTitle: "FULL INTERIOR PROJECT",
+      // ✏️ EDIT: full project stages. Translation — please review.
+      stages: [
+        {
+          num: "01",
+          title: "Interior concept",
+          items: [
+            "Consultation",
+            "We get to know your needs, space and budget. We discuss stylistic directions and goals",
+            "Interior concept MOODBOARD",
+            "2D furniture layout plan",
+            "3D model with realistic visualisations",
+            "On-site measurement of the space",
+          ],
+        },
+        {
+          num: "02",
+          title: "Technical working project (TDP)",
+          items: [
+            "Furniture layout plan",
+            "Visualisations",
+            "Partition plan",
+            "Door specification",
+            "Electrical plan with elevations",
+            "Plumbing plan with elevations",
+            "Plumbing fixture selection (schedule)",
+            "Floor finishes plan",
+            "Wall finishes plan with elevations",
+            "Ceiling plan",
+            "Lighting plan with options",
+            "Coordination of ventilation point connections with the company carrying out these works (IMPORTANT: ventilation points affect the ceiling and lighting plan)",
+          ],
+        },
+        {
+          num: "03",
+          title: "Furniture project",
+          items: [
+            "Design of custom, made-to-order furniture and selection of finishing materials.",
+            "Selection of standard furniture (chairs, tables, coffee tables, rugs, artwork, beds, sofas, curtains, blinds, mirrors, coat racks, etc.). Links to where the products can be purchased are included.",
+          ],
+        },
+        {
+          num: "04",
+          title: "Author's supervision",
+          items: [
+            "Supervision of construction works on site or remotely.",
+            "During intensive works, one visit per week is recommended.",
+            "On every project we coordinate with the other designers involved — heating, ventilation, electrical, plumbing, IT and other specialists",
+            "Author's supervision covers resolving questions as they arise, preparing the necessary drawings and explaining them to the contractors.",
+          ],
+        },
+      ],
       scope: {
         title: "Project scope",
         items: [
@@ -135,15 +230,6 @@ const T = {
           "Commercial spaces: offices, restaurants, hotels",
           "Partial renovation and refresh",
           "Consultations and concept development",
-        ],
-      },
-      process: {
-        title: "Our process",
-        steps: [
-          { num: "01", title: "Consultation",   desc: "We get to know your needs, space and budget. We discuss stylistic directions and goals." },
-          { num: "02", title: "Concept",        desc: "We develop a spatial concept: mood boards, floor plans, material and colour palette." },
-          { num: "03", title: "Design project", desc: "We detail the solutions: furniture layout, lighting, materials and decorative elements." },
-          { num: "04", title: "Implementation", desc: "We coordinate contractors and suppliers, oversee the work process and ensure quality." },
         ],
       },
     },
@@ -484,38 +570,45 @@ function DesktopServices({ t }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="max-w-4xl mx-auto px-10 w-full overflow-y-auto"
+      className="max-w-5xl mx-auto px-10 w-full overflow-y-auto"
     >
       <h2 className="text-3xl font-bold tracking-wide pt-10 pb-4">{s.title}</h2>
       {/* ✏️ EDIT: services intro in T object above */}
-      <p className="text-[#6A584C] text-sm mb-10 max-w-xl">{s.intro}</p>
-      <div className="flex flex-col md:flex-row gap-12 pb-40">
-        <div className="flex-1">
-          <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{s.process.title.toUpperCase()}</p>
-          <div className="space-y-8">
-            {s.process.steps.map((step) => (
-              <div key={step.num} className="flex gap-6">
-                <span className="text-[10px] tracking-[0.2em] text-[#978A7E] mt-1 flex-shrink-0">{step.num}</span>
-                <div>
-                  <p className="text-sm font-normal mb-1">{step.title}</p>
-                  {/* ✏️ EDIT: step descriptions in T object above */}
-                  <p className="text-xs text-[#6A584C] leading-relaxed">{step.desc}</p>
-                </div>
-              </div>
-            ))}
+      <p className="text-[#6A584C] text-sm mb-12 max-w-xl">{s.intro}</p>
+
+      {/* Full interior project package */}
+      {/* ✏️ EDIT: package title + stages in T object above */}
+      <p className="text-xs tracking-[0.3em] text-[#23140B] font-bold mb-10">{s.packageTitle}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12 mb-16">
+        {s.stages.map((stage) => (
+          <div key={stage.num}>
+            <div className="flex items-baseline gap-4 mb-4">
+              <span className="text-[11px] tracking-[0.2em] text-[#978A7E]">{stage.num}</span>
+              <h3 className="text-base font-bold tracking-wide">{stage.title}</h3>
+            </div>
+            <ul className="space-y-2 pl-9">
+              {stage.items.map((it, i) => (
+                <li key={i} className="text-xs text-[#6A584C] leading-relaxed flex gap-2">
+                  <span className="text-[#978A7E] flex-shrink-0">—</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        <div className="md:min-w-[220px]">
-          <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{s.scope.title.toUpperCase()}</p>
-          <ul className="space-y-3">
-            {s.scope.items.map((item, i) => (
-              // ✏️ EDIT: scope items in T object above
-              <li key={i} className="text-sm text-[#6A584C] font-normal flex gap-2">
-                <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        ))}
+      </div>
+
+      {/* Project scope */}
+      <div className="pb-40">
+        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{s.scope.title.toUpperCase()}</p>
+        <ul className="space-y-3 max-w-xl">
+          {/* ✏️ EDIT: scope items in T object above */}
+          {s.scope.items.map((item, i) => (
+            <li key={i} className="text-sm text-[#6A584C] font-normal flex gap-2">
+              <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
+            </li>
+          ))}
+        </ul>
       </div>
     </motion.div>
   );
@@ -529,9 +622,9 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
       className="h-full flex flex-row"
     >
-      {/* Left — contact info (top) + photo (bottom). Fixed height, no scroll. */}
-      <div className="w-1/2 flex flex-col px-16 pt-16 pb-12 border-r border-[#D8D3C9] overflow-hidden">
-        <div className="flex-shrink-0">
+      {/* Left — contact info (top) + full-bleed photo (bottom). Fixed height, no scroll. */}
+      <div className="w-1/2 flex flex-col border-r border-[#D8D3C9] overflow-hidden">
+        <div className="flex-shrink-0 px-16 pt-16">
           <h2 className="text-3xl font-bold tracking-wide mb-6">{c.title}</h2>
           <p className="text-[#6A584C] text-sm mb-8 max-w-xs leading-relaxed">{c.intro}</p>
 
@@ -563,11 +656,11 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           </div>
         </div>
 
-        {/* Photo anchored bottom-left, aligned with the contact column */}
+        {/* Photo — fills the bottom of the left half, edge to edge, down to the page bottom */}
         {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
-        <div className="flex-1 min-h-0 flex items-end pt-10">
+        <div className="flex-1 min-h-0 pt-10">
           <img src="/kontaktai.jpeg" alt=""
-            className="w-full max-h-full object-cover" />
+            className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -881,18 +974,31 @@ export default function InteriorPortfolio() {
 
             {/* Services */}
             <Section id="services" title={t.services.title}>
-              <p className="text-[#6A584C] text-sm mb-8 -mt-2">{t.services.intro}</p>
-              <div className="space-y-6 mb-10">
-                {t.services.process.steps.map((step) => (
-                  <div key={step.num} className="flex gap-4">
-                    <span className="text-[10px] tracking-[0.2em] text-[#978A7E] mt-1 flex-shrink-0">{step.num}</span>
-                    <div>
-                      <p className="text-sm font-normal mb-1">{step.title}</p>
-                      <p className="text-xs text-[#6A584C] leading-relaxed">{step.desc}</p>
+              <p className="text-[#6A584C] text-sm mb-10 -mt-2">{t.services.intro}</p>
+
+              {/* Full interior project package */}
+              {/* ✏️ EDIT: package title + stages in T object above */}
+              <p className="text-xs tracking-[0.3em] text-[#23140B] font-bold mb-8">{t.services.packageTitle}</p>
+              <div className="space-y-10 mb-12">
+                {t.services.stages.map((stage) => (
+                  <div key={stage.num}>
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-[10px] tracking-[0.2em] text-[#978A7E]">{stage.num}</span>
+                      <h3 className="text-sm font-bold tracking-wide">{stage.title}</h3>
                     </div>
+                    <ul className="space-y-2 pl-7">
+                      {stage.items.map((it, i) => (
+                        <li key={i} className="text-xs text-[#6A584C] leading-relaxed flex gap-2">
+                          <span className="text-[#978A7E] flex-shrink-0">—</span>
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
+
+              {/* Project scope */}
               <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-4">{t.services.scope.title.toUpperCase()}</p>
               <ul className="space-y-2">
                 {t.services.scope.items.map((item, i) => (
