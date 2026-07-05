@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /* ══════════════════════════════════════════════
    TRANSLATIONS
@@ -912,23 +911,30 @@ export default function InteriorPortfolio() {
           </div>
         ) : (
           <>
-            {/* Hero */}
-            <section className="h-[100svh] w-full relative overflow-hidden">
-              {/* h-[100svh] = small-viewport height, so the hero fits the visible screen
-                  while the browser toolbar is showing. With plain h-screen (100vh) the
-                  image was taller than the viewport on load, so the first swipe only
-                  collapsed the address bar instead of scrolling the page. */}
+            {/* Hero — LOCKED. The image is position:fixed, so it never scrolls;
+                the content below scrolls up over it. A fixed layer can't be
+                "caught" by the first swipe the way an in-flow full-height
+                section could. */}
+            {/* ✏️ EDIT: hero image is at public/main.jpeg */}
+            <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
               <motion.img src="/main.jpeg"
                 initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.2 }} className="absolute inset-0 w-full h-full object-cover" />
+                transition={{ duration: 1.2 }} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
+            </div>
+
+            {/* One-screen transparent spacer over the locked hero, carrying the tagline */}
+            <section className="relative z-10 h-[100svh]">
               <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.6 }}
-                className="absolute bottom-8 pb-safe left-6 text-white">
+                className="absolute bottom-8 left-6 text-white">
                 {/* ✏️ EDIT: tagline text in T object above */}
                 <p className="text-[10px] tracking-[0.35em] opacity-80 uppercase">{t.tagline}</p>
               </motion.div>
             </section>
+
+            {/* Content scrolls up over the locked hero — opaque background covers it */}
+            <div className="relative z-10 bg-[#E8E6E0]">
 
             {/* About */}
             <motion.section id="about"
@@ -1065,6 +1071,7 @@ export default function InteriorPortfolio() {
                 {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{t.contact.error}</p>}
               </form>
             </Section>
+            </div>
           </>
         )}
       </div>
