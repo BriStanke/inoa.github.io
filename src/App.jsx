@@ -912,8 +912,11 @@ export default function InteriorPortfolio() {
         ) : (
           <>
             {/* Hero */}
-            <section className="h-screen w-full relative overflow-hidden">
-              {/* Pinned to top — no parallax so the image doesn't drift on first scroll */}
+            <section className="h-[100svh] w-full relative overflow-hidden">
+              {/* h-[100svh] = small-viewport height, so the hero fits the visible screen
+                  while the browser toolbar is showing. With plain h-screen (100vh) the
+                  image was taller than the viewport on load, so the first swipe only
+                  collapsed the address bar instead of scrolling the page. */}
               <motion.img src="/main.jpeg"
                 initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }} className="absolute inset-0 w-full h-full object-cover" />
