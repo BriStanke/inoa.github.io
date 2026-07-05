@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /* ══════════════════════════════════════════════
    TRANSLATIONS
