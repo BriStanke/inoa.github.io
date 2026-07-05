@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 /* ══════════════════════════════════════════════
    TRANSLATIONS
@@ -1077,6 +1077,7 @@ export default function InteriorPortfolio() {
         )}
       </div>
 
+      <SpeedInsights />
     </div>
   );
 }
