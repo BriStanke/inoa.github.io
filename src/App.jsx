@@ -17,6 +17,8 @@ const T = {
     },
     about: {
       title: "Apie",
+      // ✏️ EDIT: About — dizainerės nuotraukos aprašymas (alt tekstas ekrano skaitytuvams / Google)
+      photoAlt: "Interjero dizainerė Airė Romaškevičiūtė",
       // ✏️ EDIT: About — Mano istorija (heading + paragraphs)
       storyTitle: "Mano istorija",
       story: [
@@ -147,6 +149,8 @@ const T = {
     },
     about: {
       title: "About",
+      // ✏️ EDIT: About — designer photo description (alt text for screen readers / Google)
+      photoAlt: "Interior designer Airė Romaškevičiūtė",
       // ✏️ EDIT: About — My story (heading + paragraphs). Translation — please review.
       storyTitle: "My story",
       story: [
@@ -413,7 +417,8 @@ function ProjectDetail({ project, onBack, t, lang }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2">
         {project.gallery.map((img, i) => (
           <div key={i} className={`overflow-hidden ${project.gallery.length === 1 ? "md:col-span-2" : ""}`}>
-            <img src={img} className="w-full h-[60vw] md:h-[50vh] object-cover" />
+            <img src={img} alt={`${title} ${i + 1}`} loading="lazy" decoding="async"
+              className="w-full h-[60vw] md:h-[50vh] object-cover" />
           </div>
         ))}
       </div>
@@ -438,11 +443,13 @@ function MobileProjects({ projects, onSelect, lang, t }) {
   return (
     <div className="flex gap-3 overflow-x-auto px-6 pb-4 snap-x snap-mandatory">
       {projects.map((project, i) => (
-        <div key={i}
+        <div key={project.id}
           className="relative flex-shrink-0 w-[72vw] snap-start overflow-hidden cursor-pointer"
           onClick={() => handleTap(i)}
         >
           <img src={project.image}
+            alt={lang === "lt" ? project.titleLt : project.titleEn}
+            loading="lazy" decoding="async"
             className={`w-full h-[90vw] object-cover transition-transform duration-700 ${activeIndex === i ? "scale-105" : "scale-100"}`} />
           <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white transition-opacity duration-300 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}>
             <p className="text-[10px] opacity-70">{lang === "lt" ? project.categoryLt : project.categoryEn}</p>
@@ -462,7 +469,7 @@ function MobileProjects({ projects, onSelect, lang, t }) {
 function DesktopHero({ y, t }) {
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <motion.img src="/main.jpeg" style={{ y }}
+      <motion.img src="/main.jpeg" alt="" style={{ y }}
         initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2 }}
         className="absolute inset-0 w-full h-full object-cover" />
@@ -493,7 +500,7 @@ function DesktopAbout({ t }) {
         {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
         <div className="w-1/2 flex-shrink-0">
           <div className="sticky top-0 h-screen overflow-hidden">
-            <img src="/designer.jpeg" alt="Designer"
+            <img src="/designer.jpeg" alt={a.photoAlt}
               className="w-full h-full object-cover object-center" />
           </div>
         </div>
@@ -543,15 +550,17 @@ function DesktopProjects({ projects, onSelect, lang, t }) {
       className="w-full"
     >
       <div className="px-10 pt-10 pb-6">
-        <h2 className="text-3xl font-bold tracking-wide">{lang === "lt" ? "Projektai" : "Projects"}</h2>
+        <h2 className="text-3xl font-bold tracking-wide">{t.nav.projects}</h2>
       </div>
       <div className="grid grid-cols-3 gap-2 pb-40">
-        {projects.map((project, i) => (
-          <div key={i}
+        {projects.map((project) => (
+          <div key={project.id}
             className="relative group overflow-hidden h-[70vh] cursor-pointer"
             onClick={() => onSelect(project)}
           >
             <img src={project.image}
+              alt={lang === "lt" ? project.titleLt : project.titleEn}
+              loading="lazy" decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white">
               <p className="text-[11px] tracking-[0.2em] opacity-70">{lang === "lt" ? project.categoryLt : project.categoryEn}</p>
@@ -571,7 +580,7 @@ function DesktopServices({ t }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="max-w-5xl mx-auto px-10 w-full overflow-y-auto"
+      className="max-w-5xl mx-auto px-10 w-full"
     >
       <h2 className="text-3xl font-bold tracking-wide pt-10 pb-4">{s.title}</h2>
       {/* ✏️ EDIT: services intro in T object above */}
@@ -710,6 +719,9 @@ export default function InteriorPortfolio() {
 
   const t = T[lang];
 
+  /* ── Keep <html lang> in sync with the language toggle (SEO + screen readers) ── */
+  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+
   /* ── EmailJS config ──
      Replace these three values with your own from emailjs.com:
      - YOUR_PUBLIC_KEY   → Account > API Keys
@@ -731,13 +743,22 @@ export default function InteriorPortfolio() {
     let rafId;
     const raf = (time) => { lenis.raf(time); rafId = requestAnimationFrame(raf); };
     rafId = requestAnimationFrame(raf);
-    return () => cancelAnimationFrame(rafId);
+    return () => { cancelAnimationFrame(rafId); lenis.destroy(); };
   }, []);
 
   /* ── Send form ── */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!window.emailjs) { setFormStatus("error"); return; }
+    /* Until real EmailJS keys are in place, fall back to the visitor's own
+       mail app instead of showing an error. This branch disables itself
+       automatically once YOUR_PUBLIC_KEY is replaced with a real key. */
+    if (!window.emailjs || EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+      window.location.href =
+        `mailto:${t.contact.email}` +
+        `?subject=${encodeURIComponent("INOA — " + formState.name)}` +
+        `&body=${encodeURIComponent(formState.message + "\n\n" + formState.name + " · " + formState.email)}`;
+      return;
+    }
     setFormStatus("sending");
     try {
       await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
@@ -754,6 +775,9 @@ export default function InteriorPortfolio() {
   };
 
   useEffect(() => { return () => clearTimeout(resetTimer.current); }, []);
+
+  /* ── Mobile: start project detail at the top (page swap otherwise keeps the old scroll position) ── */
+  useEffect(() => { if (selectedProject) window.scrollTo(0, 0); }, [selectedProject]);
 
   const handleSelectProject = (project) => {
     setSelectedProject(project);
@@ -835,7 +859,18 @@ export default function InteriorPortfolio() {
             </button>
             {mobileMenuLinks.map((item) => (
               <a key={item.label} href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  /* If a project detail is open, the anchor targets aren't mounted —
+                     close the detail first, then scroll once the sections render. */
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  setSelectedProject(null);
+                  const id = item.href.replace("#", "");
+                  setTimeout(() => {
+                    if (!id) { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+                    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                  }, 60);
+                }}
                 className="text-white text-2xl font-normal tracking-wide">
                 {item.label}
               </a>
@@ -918,7 +953,7 @@ export default function InteriorPortfolio() {
                 section could. */}
             {/* ✏️ EDIT: hero image is at public/main.jpeg */}
             <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-              <motion.img src="/main.jpeg"
+              <motion.img src="/main.jpeg" alt=""
                 initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
@@ -945,7 +980,7 @@ export default function InteriorPortfolio() {
               {/* Designer photo — full image visible on mobile */}
               {/* ✏️ EDIT: designer photo is at public/designer.jpeg */}
               <div className="w-full overflow-hidden mb-10">
-                <img src="/designer.jpeg" alt="Designer" className="w-full h-auto object-contain" />
+                <img src="/designer.jpeg" alt={t.about.photoAlt} className="w-full h-auto object-contain" />
               </div>
 
               {/* Mano istorija */}
