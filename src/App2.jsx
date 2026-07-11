@@ -12,8 +12,6 @@ const T = {
       home: "Pagrindinis",
       about: "Apie",
       projects: "Projektai",
-      // ✏️ EDIT: naujo "Medžiagos" (mood board) puslapio pavadinimas meniu
-      materials: "Medžiagos",
       services: "Paslaugos",
       contact: "Kontaktai",
     },
@@ -146,8 +144,6 @@ const T = {
       home: "Home",
       about: "About",
       projects: "Projects",
-      // ✏️ EDIT: name of the new "Materials" (mood board) page in the menu. Translation — please review.
-      materials: "Materials",
       services: "Services",
       contact: "Contact",
     },
@@ -345,209 +341,6 @@ const PROJECTS = [
     descEn: "BITS&PIECES Pearl Gray floor tiles. The subtle pearlescent tone and mosaic pattern give the space a refined feel.",
   },
 ];
-
-/* ══════════════════════════════════════════════
-   MOOD BOARD DATA — "Materials" page
-   ✏️ EDIT: Each board is one palette shown as full-height
-   vertical stripes. Change hex colours and labels freely —
-   just keep labelLt/labelEn pairs together. Boards rotate
-   automatically every 3 seconds.
-   Brand book colours: #E8E6E0, #E8ECEC, #E8E2D9, #D0DCE3, #23140B
-   ══════════════════════════════════════════════ */
-const MOODBOARDS = [
-  {
-    id: "wood-floor",
-    nameLt: "Medinės grindys",
-    nameEn: "Wood floor", // Translation — please review
-    swatches: [
-      { hex: "#D9C9B2", labelLt: "Balintas ąžuolas",  labelEn: "White oak" },
-      { hex: "#C2A382", labelLt: "Natūralus ąžuolas", labelEn: "Natural oak" },
-      { hex: "#9C7B58", labelLt: "Medaus ąžuolas",    labelEn: "Honey oak" },
-      { hex: "#6E4F37", labelLt: "Rūkytas ąžuolas",   labelEn: "Smoked oak" },
-      { hex: "#3E2B1E", labelLt: "Riešutmedis",       labelEn: "Walnut" },
-    ],
-  },
-  {
-    id: "tiles",
-    nameLt: "Plytelės",
-    nameEn: "Tiles", // Translation — please review
-    swatches: [
-      { hex: "#ECEAE4", labelLt: "Kalkinis tinkas",      labelEn: "Lime plaster" },
-      { hex: "#D8D3C9", labelLt: "Smiltainis",           labelEn: "Sandstone" },
-      { hex: "#C4BCAD", labelLt: "Travertinas",          labelEn: "Travertine" },
-      { hex: "#A8ADA9", labelLt: "Glazūruotos plytelės", labelEn: "Glazed tiles" },
-      { hex: "#D0DCE3", labelLt: "Perlo pilka",          labelEn: "Pearl grey" },
-    ],
-  },
-  {
-    id: "brand-colours",
-    nameLt: "Spalvų palyginimas",
-    nameEn: "Colour comparison", // Translation — please review
-    swatches: [
-      { hex: "#E8E6E0", labelLt: "Šilta balta",  labelEn: "Warm white" },
-      { hex: "#E8ECEC", labelLt: "Vėsi balta",   labelEn: "Cool white" },
-      { hex: "#E8E2D9", labelLt: "Popierius",    labelEn: "Paper" },
-      { hex: "#D0DCE3", labelLt: "Rūko mėlyna",  labelEn: "Mist blue" },
-      { hex: "#23140B", labelLt: "Tamsi ruda",   labelEn: "Dark umber" },
-    ],
-  },
-];
-
-/* ══════════════════════════════════════════════
-   PAPER GRAIN — subtle inline-SVG noise so the site
-   background and the palette stripes read like paper,
-   not flat digital colour (see brand book texture).
-   ══════════════════════════════════════════════ */
-const PAPER_GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E\")";
-
-/* Perceived-lightness check so swatch labels stay readable on any colour */
-function isDarkHex(hex) {
-  const n = hex.replace("#", "");
-  const r = parseInt(n.slice(0, 2), 16);
-  const g = parseInt(n.slice(2, 4), 16);
-  const b = parseInt(n.slice(4, 6), 16);
-  return 0.299 * r + 0.587 * g + 0.114 * b < 140;
-}
-
-/* ══════════════════════════════════════════════
-   DAPPLED LIGHT — soft light-spot shadows drifting
-   slowly across the page (like sunlight through
-   leaves on a plaster wall).
-   ══════════════════════════════════════════════ */
-function DappledLight() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          width: "55vmax", height: "55vmax", top: "-18%", left: "-12%",
-          background: "radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 62%)",
-          filter: "blur(28px)", mixBlendMode: "soft-light",
-        }}
-        animate={{ x: ["0%", "38%", "12%", "0%"], y: ["0%", "22%", "48%", "0%"] }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          width: "45vmax", height: "45vmax", bottom: "-15%", right: "-10%",
-          background: "radial-gradient(circle, rgba(35,20,11,0.16) 0%, rgba(35,20,11,0) 60%)",
-          filter: "blur(34px)", mixBlendMode: "multiply",
-        }}
-        animate={{ x: ["0%", "-30%", "-8%", "0%"], y: ["0%", "-35%", "-12%", "0%"] }}
-        transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          width: "28vmax", height: "28vmax", top: "30%", left: "40%",
-          background: "radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 65%)",
-          filter: "blur(24px)", mixBlendMode: "soft-light",
-        }}
-        animate={{ x: ["0%", "-45%", "25%", "0%"], y: ["0%", "30%", "-25%", "0%"] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
-  );
-}
-
-/* ══════════════════════════════════════════════
-   MATERIAL STRIPES — the "Materials" mood board.
-   Full-height vertical palette stripes. Every 3 s the
-   current palette flips away to the right and the next
-   one slides in from the left, stripe by stripe.
-   Slide 0 is an INOA title card with drifting light
-   spots (see brand book / inoa_shadow reference).
-   Fills whatever parent it is placed in — used by both
-   the desktop page and the mobile section.
-   ══════════════════════════════════════════════ */
-const boardVariants = {
-  initial: {},
-  enter: { transition: { staggerChildren: 0.08 } },
-  exit:  { transition: { staggerChildren: 0.06 } },
-};
-
-const stripeVariants = {
-  initial: { x: "-110%", opacity: 0, rotateY: 0 },
-  enter: {
-    x: 0, opacity: 1, rotateY: 0,
-    transition: { duration: 0.55, ease: [0.32, 0.72, 0, 1] },
-  },
-  exit: {
-    rotateY: 90, opacity: 0,
-    transition: { duration: 0.45, ease: "easeIn" },
-  },
-};
-
-function MaterialStripes({ lang }) {
-  const [idx, setIdx] = useState(0);
-  const total = MOODBOARDS.length + 1; // slide 0 is the INOA title card
-
-  useEffect(() => {
-    const id = setInterval(() => setIdx((i) => (i + 1) % total), 3000);
-    return () => clearInterval(id);
-  }, [total]);
-
-  const board = idx === 0 ? null : MOODBOARDS[idx - 1];
-
-  return (
-    <div className="relative w-full h-full overflow-hidden bg-[#E8E2D9]">
-      <AnimatePresence mode="wait">
-        {board === null ? (
-          /* INOA title card — wordmark on paper with moving light spots */
-          <motion.div key="inoa-title"
-            variants={boardVariants} initial="initial" animate="enter" exit="exit"
-            className="absolute inset-0">
-            <motion.div variants={stripeVariants}
-              style={{ transformPerspective: 1200, transformOrigin: "right center" }}
-              className="w-full h-full flex items-center justify-center bg-[#E8E2D9]">
-              <p className="text-[#23140B] text-3xl md:text-5xl tracking-[0.55em] pl-[0.55em] font-normal select-none">
-                INOA
-              </p>
-            </motion.div>
-          </motion.div>
-        ) : (
-          /* Palette board — one full-height stripe per swatch */
-          <motion.div key={board.id}
-            variants={boardVariants} initial="initial" animate="enter" exit="exit"
-            className="absolute inset-0 flex">
-            {board.swatches.map((s) => (
-              <motion.div key={s.hex + s.labelEn} variants={stripeVariants}
-                style={{ backgroundColor: s.hex, transformPerspective: 1200, transformOrigin: "right center" }}
-                className="relative flex-1 h-full">
-                <p className={`absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] md:text-[10px] tracking-[0.25em] uppercase [writing-mode:vertical-rl] md:[writing-mode:horizontal-tb]
-                  ${isDarkHex(s.hex) ? "text-[#E8E6E0]" : "text-[#23140B]"}`}>
-                  {lang === "lt" ? s.labelLt : s.labelEn}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Board name — small printed-mood-board caption */}
-      <div className="absolute top-20 left-6 md:left-10 z-10">
-        <AnimatePresence mode="wait">
-          {board && (
-            <motion.p key={board.id}
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className={`text-[10px] tracking-[0.3em] uppercase ${isDarkHex(board.swatches[0].hex) ? "text-[#E8E6E0]" : "text-[#23140B]"}`}>
-              {lang === "lt" ? board.nameLt : board.nameEn}
-            </motion.p>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Moving light-spot shadows over the samples */}
-      <DappledLight />
-
-      {/* Paper grain so the colours read as printed samples */}
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: PAPER_GRAIN }} />
-    </div>
-  );
-}
 
 /* ══════════════════════════════════════════════
    SHARED SECTION WRAPPER (mobile scroll)
@@ -996,30 +789,26 @@ export default function InteriorPortfolio() {
   };
 
   const desktopMenuItems = [
-    { key: "home",      label: t.nav.home },
-    { key: "about",     label: t.nav.about },
-    { key: "projects",  label: t.nav.projects },
-    { key: "materials", label: t.nav.materials },
-    { key: "services",  label: t.nav.services },
-    { key: "contact",   label: t.nav.contact },
+    { key: "home",     label: t.nav.home },
+    { key: "about",    label: t.nav.about },
+    { key: "projects", label: t.nav.projects },
+    { key: "services", label: t.nav.services },
+    { key: "contact",  label: t.nav.contact },
   ];
 
   const mobileMenuLinks = [
-    { label: t.nav.home,      href: "#" },
-    { label: t.nav.about,     href: "#about" },
-    { label: t.nav.projects,  href: "#projects" },
-    { label: t.nav.materials, href: "#materials" },
-    { label: t.nav.services,  href: "#services" },
-    { label: t.nav.contact,   href: "#contact" },
+    { label: t.nav.home,     href: "#" },
+    { label: t.nav.about,    href: "#about" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.services, href: "#services" },
+    { label: t.nav.contact,  href: "#contact" },
   ];
 
   const activePage = desktopPage === "project-detail" ? "projects" : desktopPage;
 
   /* ────────────────────────────────────────────── */
   return (
-    <div className="bg-[#E8E6E0] text-[#23140B] overflow-x-hidden"
-      style={{ backgroundImage: PAPER_GRAIN }}>
-      {/* Subtle paper texture over the brand background — see inoa_paper reference */}
+    <div className="bg-[#E8E6E0] text-[#23140B] overflow-x-hidden">
 
       {/* ── SHARED HEADER ── */}
       <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 z-50 backdrop-blur bg-[#ECEAE4]/70">
@@ -1129,14 +918,6 @@ export default function InteriorPortfolio() {
               </motion.div>
             )}
 
-            {desktopPage === "materials" && (
-              <motion.div key="materials" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0">
-                {/* Intentionally full-bleed (no pt-[72px]) — the stripes run edge to
-                    edge behind the translucent header, like the home hero. */}
-                <MaterialStripes lang={lang} />
-              </motion.div>
-            )}
-
             {desktopPage === "services" && (
               <motion.div key="services" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 overflow-y-auto pt-[72px]">
                 <DesktopServices t={t} />
@@ -1227,17 +1008,6 @@ export default function InteriorPortfolio() {
                 <h2 className="text-2xl font-bold tracking-wide">{t.nav.projects}</h2>
               </div>
               <MobileProjects projects={PROJECTS} onSelect={(p) => setSelectedProject(p)} lang={lang} t={t} />
-            </section>
-
-            {/* Materials / mood board */}
-            <section id="materials" className="py-24">
-              <div className="px-6 mb-10">
-                <h2 className="text-2xl font-bold tracking-wide">{t.nav.materials}</h2>
-              </div>
-              {/* ✏️ EDIT: palettes live in the MOODBOARDS array above */}
-              <div className="h-[100svh] w-full">
-                <MaterialStripes lang={lang} />
-              </div>
             </section>
 
             {/* Services */}
