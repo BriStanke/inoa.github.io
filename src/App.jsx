@@ -1095,11 +1095,20 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="h-full grid grid-cols-2 grid-rows-2"
+      className="h-full grid grid-cols-12"
     >
-      {/* ── Top-left quarter — contact details, centred inside their quarter ── */}
-      <div className="flex flex-col justify-center px-16 border-r border-b border-[#23140B]/15 overflow-hidden">
-        <div className="flex flex-col gap-6 text-sm">
+      {/* ── Left — the photo, full height, edge to edge. It anchors the page,
+             so nothing else has to fill space. ── */}
+      {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
+      <div className="col-span-5 h-full overflow-hidden border-r border-[#23140B]/15">
+        <img src="/kontaktai.jpeg" alt=""
+          className="w-full h-full object-cover" />
+      </div>
+
+      {/* ── Right — details above, form below, the whole block centred ── */}
+      <div className="col-span-7 h-full flex flex-col justify-center px-14 lg:px-20 py-10 overflow-y-auto">
+        {/* Details — two short columns, so they read as one band across the page */}
+        <div className="grid grid-cols-2 gap-10 text-sm pb-8 border-b border-[#23140B]/15">
           <div>
             <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
             {/* ✏️ EDIT: location lines in T object above */}
@@ -1125,12 +1134,10 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
             </a>
           </div>
         </div>
-      </div>
 
-      {/* ── Top-right quarter — the form. The intro line sits above it. ── */}
-      <div className="flex flex-col justify-center px-16 border-b border-[#23140B]/15 overflow-hidden">
+        {/* Form — the intro line sits above it */}
         {/* ✏️ EDIT: contact intro in T object above */}
-        <p className="text-[#6A584C] text-sm leading-relaxed mb-6 max-w-md">{c.intro}</p>
+        <p className="text-[#6A584C] text-sm leading-relaxed mt-8 mb-6 max-w-md">{c.intro}</p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md">
           <input type="text" placeholder={c.name} required
             value={formState.name}
@@ -1152,16 +1159,6 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           </button>
           {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
         </form>
-      </div>
-
-      {/* ── Bottom-left quarter — left open, so the photo reads as one plate ── */}
-      <div className="border-r border-[#23140B]/15" />
-
-      {/* ── Bottom-right quarter — the photo, filling exactly one quarter ── */}
-      {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
-      <div className="overflow-hidden">
-        <img src="/kontaktai.jpeg" alt=""
-          className="w-full h-full object-cover" />
       </div>
     </motion.div>
   );
