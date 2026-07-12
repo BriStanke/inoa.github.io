@@ -614,9 +614,11 @@ function FloorPlanDay({ t }) {
               Sits further left, opening a clear gap to the workspace. */}
           <motion.g animate={{ opacity: roomOpacity(2) }} transition={{ duration: 1.2 }}
             stroke={INK} strokeWidth="1.4" fill="none">
-            {/* Rug */}
+            {/* Rug — fades in rather than ink-drawing: the pathLength
+                animation overwrites strokeDasharray, which would erase
+                the dashed pattern and render the rug as a solid line. */}
             <motion.rect x="48" y="292" width="268" height="104" rx="2"
-              strokeDasharray="3 7" strokeWidth="1" {...inkStroke(19, reduce)} />
+              strokeDasharray="3 7" strokeWidth="1" {...inkFade(1.9, reduce)} />
             {/* Sofa */}
             <motion.rect x="62" y="308" width="168" height="56" rx="10" {...inkStroke(20, reduce)} />
             <motion.path d="M118 308 V364 M174 308 V364" {...inkStroke(21, reduce)} strokeWidth="1" />
@@ -668,8 +670,10 @@ function FloorPlanDay({ t }) {
         </svg>
       </div>
 
-      {/* Day caption — the clock beneath the plan */}
-      <div className="h-6 mt-3 flex items-center justify-center overflow-hidden" aria-live="polite">
+      {/* Day caption — the clock beneath the plan.
+          Deliberately NOT aria-live: it cycles every 6 s forever,
+          which would make screen readers announce it endlessly. */}
+      <div className="h-6 mt-3 flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.p key={day}
             initial={reduce ? { opacity: 1 } : { opacity: 0, y: 8 }}
@@ -773,7 +777,7 @@ function MaterialStrip({ lang, t }) {
 /* ══════════════════════════════════════════════
    SHARED SECTION WRAPPER (mobile scroll)
    ══════════════════════════════════════════════ */
-function Section({ id, title, num, children }) {
+function Section({ id, children }) {
   return (
     <motion.section
       id={id}
@@ -783,8 +787,6 @@ function Section({ id, title, num, children }) {
       transition={{ duration: 0.7 }}
       className="max-w-4xl mx-auto px-6 py-24"
     >
-      {num && <p className="text-[10px] tracking-[0.4em] text-[#978A7E] mb-2">{num}</p>}
-      {title && <h2 className="text-3xl font-bold tracking-tight mb-6">{title}</h2>}
       {children}
     </motion.section>
   );
@@ -1210,7 +1212,11 @@ export default function InteriorPortfolio() {
   const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 
   useEffect(() => {
-    if (window.emailjs) window.emailjs.init(EMAILJS_PUBLIC_KEY);
+    /* Same placeholder guard as handleSubmit below — initialising with
+       "YOUR_PUBLIC_KEY" only produces EmailJS console warnings. */
+    if (window.emailjs && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+      window.emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
   }, []);
 
   /* ── Lenis smooth scroll ── */
