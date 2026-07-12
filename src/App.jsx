@@ -64,16 +64,6 @@ const T = {
         "Todėl kiekvieno projekto pradžioje siekiu pažinti žmogų – jo įpročius, rutiną, ritualus, poreikius ir gyvenimo būdą. Tik supratus, kaip žmogus gyvena, galima sukurti erdvę, kuri iš tikrųjų jam tarnauja.",
         "Tinkamai parinktos medžiagos, spalvos, šviesa ir funkcionalūs sprendimai susijungia į vientisą visumą, kuri tampa autentišku konkretaus žmogaus ar verslo atspindžiu.",
       ],
-      // ✏️ EDIT: About — statistika (rodoma kaip brėžinio matmenų linijos)
-      stats: [
-        { label: "PATIRTIS",  value: "7+ metai" },
-        { label: "PROJEKTAI", value: "50+ erdvių" },
-        { label: "VIETA",     value: "Vilnius & visas pasaulis" },
-      ],
-    },
-    projects: {
-      // ✏️ EDIT: Projektai — mažas užrašas virš projektų sąrašo
-      indexLabel: "Projektų žiniaraštis",
     },
     materials: {
       // ✏️ EDIT: Medžiagos — sekcijos pavadinimas ir įžanga
@@ -81,7 +71,6 @@ const T = {
       intro: "Pavyzdžiai nuo darbo stalo — medis, akmuo ir firminės spalvos, iš kurių gimsta INOA erdvės.",
     },
     services: {
-      title: "Paslaugos",
       intro: "Dirbame su gyvenamaisiais ir komerciniais objektais. Kiekvienas projektas yra individualus – nuo pirmosios konsultacijos iki galutinio rezultato.",
       packageTitle: "PILNAS INTERJERO PROJEKTAS",
       // ✏️ EDIT: full project stages (number, title, bullet points)
@@ -135,19 +124,8 @@ const T = {
           ],
         },
       ],
-      scope: {
-        title: "Projektų apimtis",
-        // ✏️ EDIT: scope lines
-        items: [
-          "Gyvenamieji butai ir namai nuo 40 m²",
-          "Komercinės erdvės: biurai, restoranai, viešbučiai",
-          "Dalinė rekonstrukcija ir atnaujinimas",
-          "Konsultacijos ir koncepcijų kūrimas",
-        ],
-      },
     },
     contact: {
-      title: "Kontaktai",
       intro: "Turite klausimų ar norite pradėti projektą? Susisiekite su mumis.",
       // ✏️ EDIT: contact details
       location: "VIETA",
@@ -235,16 +213,6 @@ const T = {
         "That is why, at the start of every project, I seek to know the person — their habits, routine, rituals, needs and way of life. Only by understanding how someone lives can you create a space that truly serves them.",
         "Carefully chosen materials, colours, light and functional solutions come together into a single whole that becomes an authentic reflection of a particular person or business.",
       ],
-      // ✏️ EDIT: About — stats (shown as drawing dimension lines)
-      stats: [
-        { label: "EXPERIENCE", value: "7+ years" },
-        { label: "PROJECTS",   value: "50+ spaces" },
-        { label: "LOCATION",   value: "Vilnius & worldwide" },
-      ],
-    },
-    projects: {
-      // ✏️ EDIT: Projects — small label above the project list. Translation — please review.
-      indexLabel: "Project schedule",
     },
     materials: {
       // ✏️ EDIT: Materials — section title and intro. Translation — please review.
@@ -252,7 +220,6 @@ const T = {
       intro: "Samples from the working table — wood, stone and the brand colours that INOA spaces are built from.",
     },
     services: {
-      title: "Services",
       intro: "We work with residential and commercial projects. Every project is individual — from the first consultation to the final result.",
       packageTitle: "FULL INTERIOR PROJECT",
       // ✏️ EDIT: full project stages. Translation — please review.
@@ -306,18 +273,8 @@ const T = {
           ],
         },
       ],
-      scope: {
-        title: "Project scope",
-        items: [
-          "Residential apartments and houses from 40 m²",
-          "Commercial spaces: offices, restaurants, hotels",
-          "Partial renovation and refresh",
-          "Consultations and concept development",
-        ],
-      },
     },
     contact: {
-      title: "Contact",
       intro: "Have a question or want to start a project? Get in touch with us.",
       location: "LOCATION",
       locationLines: ["Vilnius, Lithuania", "Worldwide by arrangement"],
@@ -746,25 +703,6 @@ function TitleBlock({ t, className = "" }) {
 }
 
 /* ══════════════════════════════════════════════
-   DIMENSION LINE — stats measured like a drawing:
-   ⊢────── 7+ metai ──────⊣
-   ══════════════════════════════════════════════ */
-function DimLine({ label, value }) {
-  return (
-    <div>
-      <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{label}</p>
-      <div className="flex items-center gap-4">
-        <span aria-hidden="true" className="relative flex-1 h-px bg-[#978A7E]/60
-          before:content-[''] before:absolute before:left-0 before:-top-[5px] before:h-[11px] before:w-px before:bg-[#978A7E]/60" />
-        <p className="font-normal whitespace-nowrap">{value}</p>
-        <span aria-hidden="true" className="relative flex-1 h-px bg-[#978A7E]/60
-          after:content-[''] after:absolute after:right-0 after:-top-[5px] after:h-[11px] after:w-px after:bg-[#978A7E]/60" />
-      </div>
-    </div>
-  );
-}
-
-/* ══════════════════════════════════════════════
    STAGE MARK — the circled detail callout architects
    put on drawings: stage number above the line, the
    total sheet count below.
@@ -833,7 +771,7 @@ function Section({ id, title, num, children }) {
       className="max-w-4xl mx-auto px-6 py-24"
     >
       {num && <p className="text-[10px] tracking-[0.4em] text-[#978A7E] mb-2">{num}</p>}
-      <h2 className="text-3xl font-bold tracking-tight mb-6">{title}</h2>
+      {title && <h2 className="text-3xl font-bold tracking-tight mb-6">{title}</h2>}
       {children}
     </motion.section>
   );
@@ -1023,7 +961,7 @@ function DesktopAbout({ t }) {
           {/* Mano istorija */}
           <div>
             {/* ✏️ EDIT: story title + paragraphs in T object above */}
-            <h2 className="text-4xl font-bold tracking-tight mb-8">{a.storyTitle}</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-8">{a.storyTitle}</h2>
             <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
               {a.story.map((p, i) => <p key={i}>{p}</p>)}
             </div>
@@ -1032,19 +970,11 @@ function DesktopAbout({ t }) {
           {/* INOA filosofija */}
           <div>
             {/* ✏️ EDIT: philosophy title + intro + paragraphs in T object above */}
-            <h2 className="text-4xl font-bold tracking-tight mb-8">{a.philosophyTitle}</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-8">{a.philosophyTitle}</h2>
             <p className="text-[#23140B] text-lg font-bold leading-relaxed mb-6">{a.philosophyIntro}</p>
             <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
               {a.philosophy.map((p, i) => <p key={i}>{p}</p>)}
             </div>
-          </div>
-
-          {/* Stats — measured like a drawing */}
-          <div className="flex flex-col gap-7 text-sm border-t border-[#23140B]/15 pt-10">
-            {/* ✏️ EDIT: stat blocks in T object above */}
-            {a.stats.map((s) => (
-              <DimLine key={s.label} label={s.label} value={s.value} />
-            ))}
           </div>
         </div>
       </div>
@@ -1060,8 +990,6 @@ function DesktopProjects({ projects, onSelect, lang, t }) {
       className="w-full"
     >
       <div className="px-10 lg:px-14 pt-10 pb-10 border-b border-[#23140B]/15">
-        {/* ✏️ EDIT: projects index label in T object above */}
-        <p className="text-[10px] tracking-[0.4em] text-[#978A7E] uppercase mb-3">{t.projects.indexLabel}</p>
         <h2 className="text-4xl font-bold tracking-tight">{t.nav.projects}</h2>
       </div>
 
@@ -1127,16 +1055,13 @@ function DesktopServices({ t }) {
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
       className="max-w-5xl mx-auto px-10 w-full"
     >
-      <div className="pt-10 pb-4">
-        <h2 className="text-4xl font-bold tracking-tight">{s.title}</h2>
-      </div>
       {/* ✏️ EDIT: services intro in T object above */}
-      <p className="text-[#6A584C] text-sm mb-14 max-w-xl">{s.intro}</p>
+      <p className="text-[#6A584C] text-sm pt-8 mb-10 max-w-xl">{s.intro}</p>
 
       {/* Full interior project package */}
       {/* ✏️ EDIT: package title + stages in T object above */}
-      <p className="text-xs tracking-[0.3em] text-[#23140B] font-bold mb-12">{s.packageTitle}</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-14 mb-20">
+      <p className="text-xs tracking-[0.3em] text-[#23140B] font-bold mb-10">{s.packageTitle}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12 pb-16">
         {s.stages.map((stage) => (
           <div key={stage.num} className="flex gap-6">
             {/* The circled callout, like a detail reference on a drawing */}
@@ -1155,19 +1080,6 @@ function DesktopServices({ t }) {
           </div>
         ))}
       </div>
-
-      {/* Project scope */}
-      <div className="pb-40 border-t border-[#23140B]/15 pt-10">
-        <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-6">{s.scope.title.toUpperCase()}</p>
-        <ul className="space-y-3 max-w-xl">
-          {/* ✏️ EDIT: scope items in T object above */}
-          {s.scope.items.map((item, i) => (
-            <li key={i} className="text-sm text-[#6A584C] font-normal flex gap-2">
-              <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
-            </li>
-          ))}
-        </ul>
-      </div>
     </motion.div>
   );
 }
@@ -1183,7 +1095,6 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
       {/* Left — contact info (top) + full-bleed photo (bottom). Fixed height, no scroll. */}
       <div className="w-1/2 flex flex-col border-r border-[#23140B]/15 overflow-hidden">
         <div className="flex-shrink-0 px-16 pt-8">
-          <h2 className="text-4xl font-bold tracking-tight mb-6">{c.title}</h2>
           <p className="text-[#6A584C] text-sm mb-8 leading-relaxed">{c.intro}</p>
 
           <div className="flex flex-col gap-6 text-sm">
@@ -1540,33 +1451,23 @@ export default function InteriorPortfolio() {
 
               {/* Mano istorija */}
               {/* ✏️ EDIT: story title + paragraphs in T object above */}
-              <h2 className="text-3xl font-bold tracking-tight mb-6">{t.about.storyTitle}</h2>
+              <h2 className="text-xl font-bold tracking-tight mb-6">{t.about.storyTitle}</h2>
               <div className="text-[#6A584C] text-sm leading-relaxed space-y-4 mb-12">
                 {t.about.story.map((p, i) => <p key={i}>{p}</p>)}
               </div>
 
               {/* INOA filosofija */}
               {/* ✏️ EDIT: philosophy title + intro + paragraphs in T object above */}
-              <h2 className="text-3xl font-bold tracking-tight mb-6">{t.about.philosophyTitle}</h2>
+              <h2 className="text-xl font-bold tracking-tight mb-6">{t.about.philosophyTitle}</h2>
               <p className="text-[#23140B] text-base font-bold leading-relaxed mb-5">{t.about.philosophyIntro}</p>
-              <div className="text-[#6A584C] text-sm leading-relaxed space-y-4 mb-12">
+              <div className="text-[#6A584C] text-sm leading-relaxed space-y-4">
                 {t.about.philosophy.map((p, i) => <p key={i}>{p}</p>)}
-              </div>
-
-              {/* Stats — measured like a drawing */}
-              <div className="flex flex-col gap-6 text-sm border-t border-[#23140B]/15 pt-8">
-                {/* ✏️ EDIT: stat blocks in T object above */}
-                {t.about.stats.map((s) => (
-                  <DimLine key={s.label} label={s.label} value={s.value} />
-                ))}
               </div>
             </motion.section>
 
             {/* Projects */}
             <section id="projects" className="py-24">
               <div className="px-6 mb-10">
-                {/* ✏️ EDIT: projects index label in T object above */}
-                <p className="text-[10px] tracking-[0.4em] text-[#978A7E] uppercase mb-2">{t.projects.indexLabel}</p>
                 <h2 className="text-3xl font-bold tracking-tight">{t.nav.projects}</h2>
               </div>
               <MobileProjects projects={PROJECTS} onSelect={(p) => setSelectedProject(p)} lang={lang} t={t} />
@@ -1578,13 +1479,13 @@ export default function InteriorPortfolio() {
             </section>
 
             {/* Services */}
-            <Section id="services" title={t.services.title}>
-              <p className="text-[#6A584C] text-sm mb-10 -mt-2">{t.services.intro}</p>
+            <Section id="services">
+              <p className="text-[#6A584C] text-sm mb-10">{t.services.intro}</p>
 
               {/* Full interior project package */}
               {/* ✏️ EDIT: package title + stages in T object above */}
               <p className="text-xs tracking-[0.3em] text-[#23140B] font-bold mb-10">{t.services.packageTitle}</p>
-              <div className="space-y-12 mb-12">
+              <div className="space-y-12">
                 {t.services.stages.map((stage) => (
                   <div key={stage.num} className="flex gap-5">
                     <StageMark num={stage.num} />
@@ -1602,23 +1503,11 @@ export default function InteriorPortfolio() {
                   </div>
                 ))}
               </div>
-
-              {/* Project scope */}
-              <div className="border-t border-[#23140B]/15 pt-8">
-                <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-4">{t.services.scope.title.toUpperCase()}</p>
-                <ul className="space-y-2">
-                  {t.services.scope.items.map((item, i) => (
-                    <li key={i} className="text-sm text-[#6A584C] font-normal flex gap-2">
-                      <span className="text-[#978A7E] flex-shrink-0">—</span>{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </Section>
 
             {/* Contact */}
-            <Section id="contact" title={t.contact.title}>
-              <p className="text-[#6A584C] text-sm mb-10 -mt-2">{t.contact.intro}</p>
+            <Section id="contact">
+              <p className="text-[#6A584C] text-sm mb-10">{t.contact.intro}</p>
 
               {/* Contact details */}
               <div className="flex flex-col gap-6 mb-12 text-sm">
