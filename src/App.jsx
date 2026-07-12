@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -530,6 +530,10 @@ function FloorPlanDay({ t }) {
   const reduce = useReducedMotion();
   /* Reduced motion: hold the evening (living room) frame */
   const [day, setDay] = useState(reduce ? 2 : 0);
+  /* This component renders twice (desktop + mobile layouts are both
+     in the DOM) — the gradient id must be unique per instance, or
+     url(#…) resolves into the hidden copy and the light won't paint. */
+  const gradientId = `${useId().replace(/:/g, "")}-daylight`;
 
   useEffect(() => {
     if (reduce) return;
@@ -559,7 +563,7 @@ function FloorPlanDay({ t }) {
         <svg viewBox="0 0 720 520" className="w-full h-full" role="img" aria-label={t.hero.planTitle}
           style={{ overflow: "visible" }}>
           <defs>
-            <radialGradient id="daylight">
+            <radialGradient id={gradientId}>
               {/* Warm daylight — intentional exception to the six UI colours,
                   same warm-light value the brand's shadow reference uses */}
               <stop offset="0%"  stopColor="#F6EFE1" stopOpacity="0.95" />
@@ -568,16 +572,19 @@ function FloorPlanDay({ t }) {
             </radialGradient>
           </defs>
 
-          {/* ── Daylight patch, travelling through the home ── */}
-          <motion.g
-            initial={false}
-            animate={{ x: station.x, y: station.y, opacity: 1 }}
-            transition={reduce ? { duration: 0 } : { x: { duration: 2.4, ease: "easeInOut" }, y: { duration: 2.4, ease: "easeInOut" } }}>
-            <motion.circle r="92" fill="url(#daylight)"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: reduce ? 0 : 3.2, duration: 1.2 }} />
-          </motion.g>
+          {/* ── Daylight patch, travelling through the home ──
+              cx/cy are animated as SVG attributes (viewBox units);
+              transform-based x/y on SVG groups is unreliable. */}
+          <motion.circle r="92" fill={`url(#${gradientId})`}
+            initial={reduce
+              ? { cx: station.x, cy: station.y, opacity: 1 }
+              : { cx: DAY_STATIONS[0].x, cy: DAY_STATIONS[0].y, opacity: 0 }}
+            animate={{ cx: station.x, cy: station.y, opacity: 1 }}
+            transition={reduce ? { duration: 0 } : {
+              cx: { duration: 2.4, ease: "easeInOut" },
+              cy: { duration: 2.4, ease: "easeInOut" },
+              opacity: { delay: 3.2, duration: 1.2 },
+            }} />
 
           {/* ── Walls ── */}
           <g stroke={INK} strokeWidth="2.5" fill="none" strokeLinecap="square">
