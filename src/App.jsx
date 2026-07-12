@@ -451,7 +451,7 @@ const PAPER_GRAIN =
    (kitchen table, desk, sofa, bed — plan coordinates) */
 const DAY_STATIONS = [
   { x: 175, y: 138 },
-  { x: 354, y: 250 },
+  { x: 370, y: 250 },
   { x: 160, y: 338 },
   { x: 608, y: 352 },
 ];
@@ -597,16 +597,17 @@ function FloorPlanDay({ t }) {
           </motion.g>
 
           {/* ── Workspace (midday) ──
-              Kept clear of the bedroom wall (x=430) so the desk and its
-              label never sit on top of the wall line. */}
+              Desk, lamp and chair are centred on x=372, the same axis as the
+              DARBO VIETA label below them, and stay clear of the bedroom wall
+              (x=430). */}
           <motion.g animate={{ opacity: roomOpacity(1) }} transition={{ duration: 1.2 }}
             stroke={INK} strokeWidth="1.4" fill="none">
             {/* Desk */}
-            <motion.rect x="314" y="228" width="84" height="36" rx="2" {...inkStroke(17, reduce)} />
+            <motion.rect x="330" y="228" width="84" height="36" rx="2" {...inkStroke(17, reduce)} />
             {/* Task lamp */}
-            <motion.circle cx="328" cy="240" r="5" {...inkStroke(18, reduce)} />
+            <motion.circle cx="344" cy="240" r="5" {...inkStroke(18, reduce)} />
             {/* Chair */}
-            <motion.circle cx="356" cy="290" r="12" {...inkStroke(18, reduce)} />
+            <motion.circle cx="372" cy="290" r="12" {...inkStroke(18, reduce)} />
           </motion.g>
 
           {/* ── Living room (evening) ──
