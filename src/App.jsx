@@ -404,8 +404,10 @@ const MOODBOARDS = [
                   everything sits on paper (brand book texture).
    WOOD_GRAIN   : vertical grain streaks, tinted dark umber,
                   laid over each wood swatch colour.
-   DAPPLE       : organic leaf-shadow blobs (thresholded
-                  turbulence), used for the moving light spots.
+   DAPPLE_LIGHT : one large seamless image of soft LIGHT
+                  spots (thresholded turbulence) — sun coming
+                  through a plant onto a shadowed wall. Drawn
+                  once, never tiled, so there are no seams.
    ══════════════════════════════════════════════ */
 const PAPER_GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E\")";
@@ -413,8 +415,8 @@ const PAPER_GRAIN =
 const WOOD_GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35 0.018' numOctaves='4' seed='8' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0.9 0.9 0 -1.05' result='m'/%3E%3CfeFlood flood-color='%232A1B0E' result='c'/%3E%3CfeComposite in='c' in2='m' operator='in'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E\")";
 
-const DAPPLE =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='d' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' seed='17' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 1.4 1.4 0 -2.1' result='m'/%3E%3CfeGaussianBlur in='m' stdDeviation='5' result='b'/%3E%3CfeFlood flood-color='%232A1C10' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E\")";
+const DAPPLE_LIGHT =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='1400'%3E%3Cfilter id='dl' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.009' numOctaves='4' seed='7' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.0 2.0 2.0 0 -3.2' result='m'/%3E%3CfeGaussianBlur in='m' stdDeviation='7' result='b'/%3E%3CfeFlood flood-color='%23F6EFE1' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23dl)'/%3E%3C/svg%3E\")";
 
 /* Grout-only tile patterns — dark joints on transparent, so any
    base colour shows through */
@@ -486,34 +488,38 @@ function isDarkHex(hex) {
 }
 
 /* ══════════════════════════════════════════════
-   DAPPLED LIGHT — leaf-like shadows drifting slowly
-   across the page, plus a warm sun patch. Clearly
-   visible over the INOA title card (strong), softened
-   over the material boards.
+   DAPPLED LIGHT — the wall sits in shadow (darker ground);
+   sparse warm light spots break through a plant and drift
+   very slowly, as if the sun itself is moving. One single
+   seamless texture — no tiling, no seams. Full strength on
+   the INOA title card, faint over the material boards.
    ══════════════════════════════════════════════ */
 function DappledLight({ strong = false }) {
   return (
     <motion.div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true"
-      animate={{ opacity: strong ? 1 : 0.35 }} transition={{ duration: 0.8 }}>
-      {/* foliage shadow — large clusters */}
+      animate={{ opacity: strong ? 1 : 0.25 }} transition={{ duration: 0.8 }}>
+      {/* light through the leaves — one image, sun-slow drift */}
       <motion.div className="absolute"
-        style={{ inset: "-25%", backgroundImage: DAPPLE, backgroundSize: "680px 680px",
-          mixBlendMode: "multiply", opacity: 0.5 }}
-        animate={{ x: ["0%", "3.5%", "-2.5%", "0%"], y: ["0%", "-2.5%", "3%", "0%"], rotate: [0, 1.2, -0.8, 0], scale: [1, 1.05, 1, 1] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} />
-      {/* foliage shadow — smaller leaves, counter-drift */}
-      <motion.div className="absolute"
-        style={{ inset: "-25%", backgroundImage: DAPPLE, backgroundSize: "430px 430px",
-          mixBlendMode: "multiply", opacity: 0.3 }}
-        animate={{ x: ["0%", "-3%", "2%", "0%"], y: ["0%", "2.5%", "-2%", "0%"], rotate: [8, 9.5, 7, 8] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }} />
-      {/* warm sun patch */}
+        style={{
+          inset: "-30%",
+          backgroundImage: DAPPLE_LIGHT,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          mixBlendMode: "screen",
+          opacity: 0.85,
+        }}
+        animate={{ x: ["-2.5%", "2.5%"], y: ["-1.5%", "2%"], scale: [1, 1.07] }}
+        transition={{ duration: 55, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }} />
+      {/* the sun patch itself, drifting across even more slowly */}
       <motion.div className="absolute rounded-full"
-        style={{ width: "60vmax", height: "60vmax", top: "-20%", left: "-10%",
-          background: "radial-gradient(circle, rgba(255,252,244,0.9) 0%, rgba(255,252,244,0) 60%)",
-          mixBlendMode: "soft-light", filter: "blur(20px)" }}
-        animate={{ x: ["0%", "30%", "8%", "0%"], y: ["0%", "18%", "40%", "0%"] }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }} />
+        style={{
+          width: "70vmax", height: "70vmax", top: "-25%", left: "-15%",
+          background: "radial-gradient(circle, rgba(246,239,225,0.5) 0%, rgba(246,239,225,0) 60%)",
+          mixBlendMode: "screen", filter: "blur(24px)",
+        }}
+        animate={{ x: ["0%", "26%"], y: ["0%", "18%"] }}
+        transition={{ duration: 80, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }} />
     </motion.div>
   );
 }
@@ -566,13 +572,13 @@ function MaterialStripes({ lang, t }) {
 
       <AnimatePresence mode="wait">
         {board === null ? (
-          /* INOA title card — wordmark on paper under moving leaf shadows */
+          /* INOA title card — shadowed wall, sun breaking through a plant */
           <motion.div key="inoa-title"
             variants={boardVariants} initial="initial" animate="enter" exit="exit"
             className="absolute inset-0">
             <motion.div variants={stripeVariants}
               style={{ transformPerspective: 1200, transformOrigin: "right center" }}
-              className="w-full h-full flex items-center justify-center bg-[#E8E2D9]">
+              className="w-full h-full flex items-center justify-center bg-[#C9BEAC]">
               <p className="text-[#23140B] text-3xl md:text-5xl tracking-[0.55em] pl-[0.55em] font-normal select-none">
                 INOA
               </p>
