@@ -647,7 +647,10 @@ function FloorPlanDay({ t }) {
             style={{ textTransform: "uppercase", fontFamily: "inherit" }}>
             <text x="175" y="198">{rooms.kitchen}</text>
             <text x="610" y="128">{rooms.bath}</text>
-            <text x="356" y="322">{rooms.desk}</text>
+            {/* Sits in the clear gap between the rug edge (x≈316) and the
+                bedroom wall (x=430) — roughly 90 units wide, so this label
+                has little room to move either way. */}
+            <text x="372" y="322">{rooms.desk}</text>
             <text x="146" y="392">{rooms.living}</text>
             <text x="556" y="462">{rooms.bedroom}</text>
           </motion.g>
@@ -1108,58 +1111,69 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           className="w-full h-full object-cover" />
       </div>
 
-      {/* ── Right — form above, details below, the whole block centred ── */}
-      <div className="col-span-7 h-full flex flex-col justify-center px-14 lg:px-20 py-10 overflow-y-auto">
-        {/* Form — the intro line sits above it */}
-        {/* ✏️ EDIT: contact intro in T object above */}
-        <p className="text-[#6A584C] text-sm leading-relaxed mb-6 max-w-md">{c.intro}</p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md pb-8 border-b border-[#23140B]/15">
-          <input type="text" placeholder={c.name} required
-            value={formState.name}
-            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
-          <input type="email" placeholder={c.emailField} required
-            value={formState.email}
-            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
-          <textarea placeholder={c.message} rows="3" required
-            value={formState.message}
-            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
-          <button type="submit"
-            disabled={formStatus === "sending" || formStatus === "sent"}
-            onClick={() => { if (formStatus === "error") setFormStatus(null); }}
-            className="text-sm mt-2 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
-            {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
-          </button>
-          {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
-        </form>
+      {/* ── Right — form in the upper half, details in the lower half,
+             each block centred inside its own half ── */}
+      <div className="col-span-7 h-full flex flex-col px-14 lg:px-20 py-10 overflow-y-auto">
 
-        {/* Details — two short columns, so they read as one band across the page */}
-        <div className="grid grid-cols-2 gap-10 text-sm mt-8">
-          <div>
-            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
-            {/* ✏️ EDIT: location lines in T object above */}
-            {c.locationLines.map((l, i) => (
-              <p key={i} className="text-[#6A584C] font-normal">{l}</p>
-            ))}
+        {/* Upper half — the form. The intro line sits above it. */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-full max-w-md mx-auto">
+            {/* ✏️ EDIT: contact intro in T object above */}
+            <p className="text-[#978A7E] text-sm leading-relaxed mb-6">{c.intro}</p>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <input type="text" placeholder={c.name} required
+                value={formState.name}
+                onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
+              <input type="email" placeholder={c.emailField} required
+                value={formState.email}
+                onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
+              <textarea placeholder={c.message} rows="3" required
+                value={formState.message}
+                onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
+              <button type="submit"
+                disabled={formStatus === "sending" || formStatus === "sent"}
+                onClick={() => { if (formStatus === "error") setFormStatus(null); }}
+                className="text-sm mt-2 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
+                {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
+              </button>
+              {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
+            </form>
           </div>
-          <div>
-            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
-            {/* ✏️ EDIT: name, email, phone, instagram, facebook in T object above */}
-            <p className="text-[#6A584C] font-normal">{c.contactName}</p>
-            <p className="text-[#6A584C] font-normal mt-1">{c.email}</p>
-            <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
-            <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
-              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
-              <InstagramIcon />
-              {c.instagram}
-            </a>
-            <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer"
-              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
-              <FacebookIcon />
-              {c.facebook}
-            </a>
+        </div>
+
+        {/* The rule between them — runs the full width of the column */}
+        <div aria-hidden="true" className="w-full border-t border-[#23140B]/15 my-8" />
+
+        {/* Lower half — details, two short columns */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-full max-w-md mx-auto grid grid-cols-2 gap-10 text-sm">
+            <div>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
+              {/* ✏️ EDIT: location lines in T object above */}
+              {c.locationLines.map((l, i) => (
+                <p key={i} className="text-[#6A584C] font-normal">{l}</p>
+              ))}
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
+              {/* ✏️ EDIT: name, email, phone, instagram, facebook in T object above */}
+              <p className="text-[#6A584C] font-normal">{c.contactName}</p>
+              <p className="text-[#6A584C] font-normal mt-1">{c.email}</p>
+              <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
+              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
+                className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+                <InstagramIcon />
+                {c.instagram}
+              </a>
+              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer"
+                className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+                <FacebookIcon />
+                {c.facebook}
+              </a>
+            </div>
           </div>
         </div>
       </div>
