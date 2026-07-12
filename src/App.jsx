@@ -458,6 +458,11 @@ const DAY_STATIONS = [
 
 const DAY_SEGMENT_MS = 6000; // one part of the day
 
+/* ✏️ EDIT: colour of the travelling sunlight patch on the plan.
+   Brighter / warmer than the old value so it stays visible against the
+   paper background. Lighter = subtler, more golden = stronger. */
+const DAYLIGHT = "#FFE7A6";
+
 /* Ink-on animation for one plan stroke */
 function inkStroke(order, reduce) {
   if (reduce) return { initial: { pathLength: 1, opacity: 1 }, animate: { pathLength: 1, opacity: 1 } };
@@ -519,11 +524,14 @@ function FloorPlanDay({ t }) {
           style={{ overflow: "visible" }}>
           <defs>
             <radialGradient id={gradientId}>
-              {/* Warm daylight — intentional exception to the six UI colours,
-                  same warm-light value the brand's shadow reference uses */}
-              <stop offset="0%"  stopColor="#F6EFE1" stopOpacity="0.95" />
-              <stop offset="55%" stopColor="#F6EFE1" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#F6EFE1" stopOpacity="0" />
+              {/* Warm daylight — intentional exception to the six UI colours.
+                  ✏️ EDIT: DAYLIGHT above sets how warm the sunlight patch is;
+                  the three stops below set how strong it is at the centre,
+                  mid-way, and where it fades out. */}
+              <stop offset="0%"  stopColor={DAYLIGHT} stopOpacity="1" />
+              <stop offset="45%" stopColor={DAYLIGHT} stopOpacity="0.8" />
+              <stop offset="75%" stopColor={DAYLIGHT} stopOpacity="0.4" />
+              <stop offset="100%" stopColor={DAYLIGHT} stopOpacity="0" />
             </radialGradient>
           </defs>
 
@@ -955,12 +963,12 @@ function DesktopAbout({ t }) {
         </div>
 
         {/* Right side — scrolling text */}
-        <div className="w-1/2 px-12 lg:px-16 pt-[110px] pb-24 flex flex-col gap-16">
+        <div className="w-1/2 px-12 lg:px-16 pt-[92px] pb-12 flex flex-col gap-8">
           {/* Mano istorija */}
           <div>
             {/* ✏️ EDIT: story title + paragraphs in T object above */}
-            <h2 className="text-2xl font-bold tracking-tight mb-8">{a.storyTitle}</h2>
-            <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight mb-4">{a.storyTitle}</h2>
+            <div className="text-[#6A584C] text-sm leading-relaxed space-y-3">
               {a.story.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </div>
@@ -968,9 +976,9 @@ function DesktopAbout({ t }) {
           {/* INOA filosofija */}
           <div>
             {/* ✏️ EDIT: philosophy title + intro + paragraphs in T object above */}
-            <h2 className="text-2xl font-bold tracking-tight mb-8">{a.philosophyTitle}</h2>
-            <p className="text-[#23140B] text-lg font-bold leading-relaxed mb-6">{a.philosophyIntro}</p>
-            <div className="text-[#6A584C] text-base leading-relaxed space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight mb-4">{a.philosophyTitle}</h2>
+            <p className="text-[#23140B] text-base font-bold leading-relaxed mb-3">{a.philosophyIntro}</p>
+            <div className="text-[#6A584C] text-sm leading-relaxed space-y-3">
               {a.philosophy.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </div>
@@ -1051,30 +1059,29 @@ function DesktopServices({ t }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="max-w-5xl mx-auto px-10 w-full"
+      className="max-w-7xl mx-auto px-10 w-full"
     >
       {/* ✏️ EDIT: services intro in T object above */}
       <p className="text-[#6A584C] text-sm pt-8 mb-10 max-w-xl">{s.intro}</p>
 
-      {/* Full interior project package */}
+      {/* Full interior project package — the four stages read left to right
+          across one row, like sheets pinned side by side on the board. */}
       {/* ✏️ EDIT: package title + stages in T object above */}
       <p className="text-xs tracking-[0.3em] text-[#23140B] font-bold mb-10">{s.packageTitle}</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12 pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 lg:gap-x-10 gap-y-12 pb-16">
         {s.stages.map((stage) => (
-          <div key={stage.num} className="flex gap-6">
+          <div key={stage.num} className="flex flex-col">
             {/* The circled callout, like a detail reference on a drawing */}
             <StageMark num={stage.num} />
-            <div>
-              <h3 className="text-base font-bold tracking-tight mb-4 mt-2">{stage.title}</h3>
-              <ul className="space-y-2">
-                {stage.items.map((it, i) => (
-                  <li key={i} className="text-xs text-[#6A584C] leading-relaxed flex gap-2">
-                    <span className="text-[#978A7E] flex-shrink-0">—</span>
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <h3 className="text-base font-bold tracking-tight mb-4 mt-4">{stage.title}</h3>
+            <ul className="space-y-2">
+              {stage.items.map((it, i) => (
+                <li key={i} className="text-xs text-[#6A584C] leading-relaxed flex gap-2">
+                  <span className="text-[#978A7E] flex-shrink-0">—</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
