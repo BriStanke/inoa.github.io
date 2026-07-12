@@ -345,43 +345,43 @@ const PROJECTS = [
 /* ══════════════════════════════════════════════
    MOOD BOARD DATA — the home page ("Pagrindinis")
    ✏️ EDIT: Each board is one palette shown as full-height
-   vertical stripes of real material. Change hex colours and
-   labels freely — just keep labelLt/labelEn pairs together.
-   "pattern" controls how the material is drawn:
-     "wood"   – vertical wood grain on the base colour
-     "square" – square ceramic mosaic
-     "slat"   – narrow vertical finger tiles (Japanese)
-     "brick"  – offset subway tiles
-     "hex"    – hexagon mosaic
-     "penny"  – round penny tiles
+   vertical stripes of real material. Every "img" is an actual
+   photograph cropped from INOA's own project visualizations —
+   the files live in public/materials/. To swap a sample,
+   replace the jpg (any tall crop works) or change the path.
+   If an img is missing, the stripe gracefully falls back to
+   the drawn "pattern" on the base "hex" colour:
+     "wood"   – vertical wood grain     "square" – square mosaic
+     "slat"   – vertical finger tiles   "brick"  – subway tiles
+     "hex"    – hexagon mosaic          "penny"  – penny rounds
      "plain"  – flat painted paper swatch
-   Boards rotate automatically every 3 seconds; a tap/click
-   skips to the next one.
+   Keep labelLt/labelEn pairs together. Boards rotate every
+   3 seconds; a tap/click skips to the next one.
    Brand book colours: #E8E6E0, #E8ECEC, #E8E2D9, #D0DCE3, #23140B
    ══════════════════════════════════════════════ */
 const MOODBOARDS = [
   {
-    id: "wood-floor",
-    nameLt: "Medinės grindys",
-    nameEn: "Wood floor", // Translation — please review
+    id: "wood",
+    nameLt: "Medis",
+    nameEn: "Wood", // Translation — please review
     swatches: [
-      { hex: "#D9C9B2", pattern: "wood", labelLt: "Balintas ąžuolas",  labelEn: "White oak" },
-      { hex: "#C2A382", pattern: "wood", labelLt: "Natūralus ąžuolas", labelEn: "Natural oak" },
-      { hex: "#9C7B58", pattern: "wood", labelLt: "Medaus ąžuolas",    labelEn: "Honey oak" },
-      { hex: "#6E4F37", pattern: "wood", labelLt: "Rūkytas ąžuolas",   labelEn: "Smoked oak" },
-      { hex: "#3E2B1E", pattern: "wood", labelLt: "Riešutmedis",       labelEn: "Walnut" },
+      { hex: "#D9C9B2", pattern: "wood", img: "/materials/wood-light-oak.jpg",   labelLt: "Šviesus ąžuolas",     labelEn: "Light oak" },
+      { hex: "#C2A382", pattern: "wood", img: "/materials/wood-natural-oak.jpg", labelLt: "Natūralus ąžuolas",   labelEn: "Natural oak" },
+      { hex: "#A98A62", pattern: "wood", img: "/materials/wood-panelling.jpg",   labelLt: "Ąžuolo dailylentės",  labelEn: "Oak panelling" },
+      { hex: "#5A4130", pattern: "wood", img: "/materials/wood-smoked-oak.jpg",  labelLt: "Rūkytas ąžuolas",     labelEn: "Smoked oak" },
+      { hex: "#3E2B1E", pattern: "wood", img: "/materials/wood-dark-walnut.jpg", labelLt: "Tamsus riešutmedis",  labelEn: "Dark walnut" },
     ],
   },
   {
-    id: "tiles",
-    nameLt: "Plytelės",
-    nameEn: "Tiles", // Translation — please review
+    id: "tiles-stone",
+    nameLt: "Plytelės ir akmuo",
+    nameEn: "Tiles & stone", // Translation — please review
     swatches: [
-      { hex: "#ECEAE4", pattern: "square", labelLt: "Kvadratinė mozaika", labelEn: "Square mosaic" },
-      { hex: "#D0DCE3", pattern: "slat",   labelLt: "Siauros juostelės",  labelEn: "Finger tiles" },
-      { hex: "#C9AC92", pattern: "brick",  labelLt: "Metro plytelės",     labelEn: "Subway tiles" },
-      { hex: "#B7BAAE", pattern: "hex",    labelLt: "Šešiakampės",        labelEn: "Hexagon" },
-      { hex: "#D8D3C9", pattern: "penny",  labelLt: "Apvalioji mozaika",  labelEn: "Penny round" },
+      { hex: "#CBBCA4", pattern: "slat",   img: "/materials/tile-calce.jpg",       labelLt: "ARTCRAFT Calce",      labelEn: "ARTCRAFT Calce" },
+      { hex: "#E3B896", pattern: "slat",   img: "/materials/tile-terracotta.jpg",  labelLt: "Terakotos juostelės", labelEn: "Terracotta fingers" },
+      { hex: "#D5CDBD", pattern: "square", img: "/materials/tile-pearl-gray.jpg",  labelLt: "Pearl Gray mozaika",  labelEn: "Pearl Gray mosaic" },
+      { hex: "#E9E6E1", pattern: "plain",  img: "/materials/stone-arabescato.jpg", labelLt: "Arabescato marmuras", labelEn: "Arabescato marble" },
+      { hex: "#BDBBB2", pattern: "plain",  img: "/materials/stone-concrete.jpg",   labelLt: "Betonas",             labelEn: "Raw concrete" },
     ],
   },
   {
@@ -424,39 +424,56 @@ const TILE_BRICK =
 const TILE_HEX =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z' fill='%2323140B' fill-opacity='0.13'/%3E%3C/svg%3E\")";
 
-/* Builds the inline style for one material swatch */
-function swatchStyle(s) {
+/* Drawn fallback layers for one swatch (shown while the real
+   photo loads, or if its file is missing) */
+function patternLayers(s) {
   const GROUT = "rgba(35,20,11,0.16)";
   switch (s.pattern) {
     case "wood":
       return {
-        backgroundColor: s.hex,
-        backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 35%, rgba(35,20,11,0.08) 100%), ${WOOD_GRAIN}`,
+        images: [`linear-gradient(90deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 35%, rgba(35,20,11,0.08) 100%)`, WOOD_GRAIN],
+        sizes: ["100% 100%", "auto"],
       };
     case "square":
       return {
-        backgroundColor: s.hex,
-        backgroundImage: `linear-gradient(${GROUT} 1.5px, transparent 1.5px), linear-gradient(90deg, ${GROUT} 1.5px, transparent 1.5px), linear-gradient(180deg, rgba(255,255,255,0.10), rgba(35,20,11,0.04))`,
-        backgroundSize: "28px 28px, 28px 28px, 100% 100%",
+        images: [`linear-gradient(${GROUT} 1.5px, transparent 1.5px)`, `linear-gradient(90deg, ${GROUT} 1.5px, transparent 1.5px)`, `linear-gradient(180deg, rgba(255,255,255,0.10), rgba(35,20,11,0.04))`],
+        sizes: ["28px 28px", "28px 28px", "100% 100%"],
       };
     case "slat":
       return {
-        backgroundColor: s.hex,
-        backgroundImage: `repeating-linear-gradient(90deg, ${GROUT} 0 2px, rgba(255,255,255,0.14) 2px 3px, transparent 3px 14px), linear-gradient(180deg, rgba(255,255,255,0.10), rgba(35,20,11,0.05))`,
+        images: [`repeating-linear-gradient(90deg, ${GROUT} 0 2px, rgba(255,255,255,0.14) 2px 3px, transparent 3px 14px)`, `linear-gradient(180deg, rgba(255,255,255,0.10), rgba(35,20,11,0.05))`],
+        sizes: ["auto", "100% 100%"],
       };
     case "brick":
-      return { backgroundColor: s.hex, backgroundImage: `${TILE_BRICK}, linear-gradient(180deg, rgba(255,255,255,0.08), rgba(35,20,11,0.05))` };
+      return { images: [TILE_BRICK, `linear-gradient(180deg, rgba(255,255,255,0.08), rgba(35,20,11,0.05))`], sizes: ["auto", "100% 100%"] };
     case "hex":
-      return { backgroundColor: s.hex, backgroundImage: `${TILE_HEX}, linear-gradient(180deg, rgba(255,255,255,0.08), rgba(35,20,11,0.05))` };
+      return { images: [TILE_HEX, `linear-gradient(180deg, rgba(255,255,255,0.08), rgba(35,20,11,0.05))`], sizes: ["auto", "100% 100%"] };
     case "penny":
       return {
-        backgroundColor: "#C4BCAE",
-        backgroundImage: `radial-gradient(circle at 10px 10px, ${s.hex} 7px, transparent 8px), radial-gradient(circle at 30px 30px, ${s.hex} 7px, transparent 8px)`,
-        backgroundSize: "40px 40px",
+        color: "#C4BCAE",
+        images: [`radial-gradient(circle at 10px 10px, ${s.hex} 7px, transparent 8px)`, `radial-gradient(circle at 30px 30px, ${s.hex} 7px, transparent 8px)`],
+        sizes: ["40px 40px", "40px 40px"],
       };
     default: /* plain painted paper swatch */
-      return { backgroundColor: s.hex };
+      return { images: [], sizes: [] };
   }
+}
+
+/* Builds the inline style for one material swatch: the real
+   material photograph (s.img) sits on top; the drawn pattern
+   and base colour remain underneath as a graceful fallback. */
+function swatchStyle(s) {
+  const p = patternLayers(s);
+  const images = s.img ? [`url("${s.img}")`, ...p.images] : p.images;
+  const sizes  = s.img ? ["cover", ...p.sizes] : p.sizes;
+  return {
+    backgroundColor: p.color || s.hex,
+    ...(images.length && {
+      backgroundImage: images.join(", "),
+      backgroundSize: sizes.join(", "),
+      backgroundPosition: "center",
+    }),
+  };
 }
 
 /* Perceived-lightness check so captions stay readable on any material */
@@ -571,7 +588,8 @@ function MaterialStripes({ lang, t }) {
                 variants={stripeVariants}
                 style={{ ...swatchStyle(s), transformPerspective: 1200, transformOrigin: "right center" }}
                 className="relative flex-1 h-full">
-                <p className={`absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] md:text-[10px] tracking-[0.25em] uppercase [writing-mode:vertical-rl] md:[writing-mode:horizontal-tb]
+                <p style={{ textShadow: isDarkHex(s.hex) ? "0 0 8px rgba(35,20,11,0.55)" : "0 0 8px rgba(232,230,224,0.65)" }}
+                  className={`absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] md:text-[10px] tracking-[0.25em] uppercase [writing-mode:vertical-rl] md:[writing-mode:horizontal-tb]
                   ${isDarkHex(s.hex) ? "text-[#E8E6E0]" : "text-[#23140B]"}`}>
                   {lang === "lt" ? s.labelLt : s.labelEn}
                 </p>
