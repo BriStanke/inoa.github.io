@@ -451,8 +451,8 @@ const PAPER_GRAIN =
    (kitchen table, desk, sofa, bed — plan coordinates) */
 const DAY_STATIONS = [
   { x: 175, y: 138 },
-  { x: 388, y: 252 },
-  { x: 190, y: 338 },
+  { x: 354, y: 250 },
+  { x: 160, y: 338 },
   { x: 608, y: 352 },
 ];
 
@@ -596,28 +596,31 @@ function FloorPlanDay({ t }) {
             <motion.circle cx="652" cy="152" r="14" {...inkStroke(16, reduce)} />
           </motion.g>
 
-          {/* ── Workspace (midday) ── */}
+          {/* ── Workspace (midday) ──
+              Kept clear of the bedroom wall (x=430) so the desk and its
+              label never sit on top of the wall line. */}
           <motion.g animate={{ opacity: roomOpacity(1) }} transition={{ duration: 1.2 }}
             stroke={INK} strokeWidth="1.4" fill="none">
             {/* Desk */}
-            <motion.rect x="348" y="228" width="84" height="36" rx="2" {...inkStroke(17, reduce)} />
+            <motion.rect x="314" y="228" width="84" height="36" rx="2" {...inkStroke(17, reduce)} />
             {/* Task lamp */}
-            <motion.circle cx="362" cy="240" r="5" {...inkStroke(18, reduce)} />
+            <motion.circle cx="328" cy="240" r="5" {...inkStroke(18, reduce)} />
             {/* Chair */}
-            <motion.circle cx="390" cy="290" r="12" {...inkStroke(18, reduce)} />
+            <motion.circle cx="356" cy="290" r="12" {...inkStroke(18, reduce)} />
           </motion.g>
 
-          {/* ── Living room (evening) ── */}
+          {/* ── Living room (evening) ──
+              Sits further left, opening a clear gap to the workspace. */}
           <motion.g animate={{ opacity: roomOpacity(2) }} transition={{ duration: 1.2 }}
             stroke={INK} strokeWidth="1.4" fill="none">
             {/* Rug */}
-            <motion.rect x="78" y="292" width="268" height="104" rx="2"
+            <motion.rect x="48" y="292" width="268" height="104" rx="2"
               strokeDasharray="3 7" strokeWidth="1" {...inkStroke(19, reduce)} />
             {/* Sofa */}
-            <motion.rect x="92" y="308" width="168" height="56" rx="10" {...inkStroke(20, reduce)} />
-            <motion.path d="M148 308 V364 M204 308 V364" {...inkStroke(21, reduce)} strokeWidth="1" />
+            <motion.rect x="62" y="308" width="168" height="56" rx="10" {...inkStroke(20, reduce)} />
+            <motion.path d="M118 308 V364 M174 308 V364" {...inkStroke(21, reduce)} strokeWidth="1" />
             {/* Coffee table */}
-            <motion.circle cx="304" cy="336" r="25" {...inkStroke(22, reduce)} />
+            <motion.circle cx="274" cy="336" r="25" {...inkStroke(22, reduce)} />
             {/* Plant in the corner */}
             <motion.circle cx="66" cy="454" r="13" {...inkStroke(23, reduce)} />
             <motion.path d="M66 454 L58 440 M66 454 L74 439 M66 454 L66 436" {...inkStroke(23, reduce)} strokeWidth="1" />
@@ -644,8 +647,8 @@ function FloorPlanDay({ t }) {
             style={{ textTransform: "uppercase", fontFamily: "inherit" }}>
             <text x="175" y="198">{rooms.kitchen}</text>
             <text x="610" y="128">{rooms.bath}</text>
-            <text x="390" y="322">{rooms.desk}</text>
-            <text x="176" y="392">{rooms.living}</text>
+            <text x="356" y="322">{rooms.desk}</text>
+            <text x="146" y="392">{rooms.living}</text>
             <text x="556" y="462">{rooms.bedroom}</text>
           </motion.g>
 
@@ -1105,10 +1108,35 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
           className="w-full h-full object-cover" />
       </div>
 
-      {/* ── Right — details above, form below, the whole block centred ── */}
+      {/* ── Right — form above, details below, the whole block centred ── */}
       <div className="col-span-7 h-full flex flex-col justify-center px-14 lg:px-20 py-10 overflow-y-auto">
+        {/* Form — the intro line sits above it */}
+        {/* ✏️ EDIT: contact intro in T object above */}
+        <p className="text-[#6A584C] text-sm leading-relaxed mb-6 max-w-md">{c.intro}</p>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md pb-8 border-b border-[#23140B]/15">
+          <input type="text" placeholder={c.name} required
+            value={formState.name}
+            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
+          <input type="email" placeholder={c.emailField} required
+            value={formState.email}
+            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
+          <textarea placeholder={c.message} rows="3" required
+            value={formState.message}
+            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
+          <button type="submit"
+            disabled={formStatus === "sending" || formStatus === "sent"}
+            onClick={() => { if (formStatus === "error") setFormStatus(null); }}
+            className="text-sm mt-2 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
+            {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
+          </button>
+          {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
+        </form>
+
         {/* Details — two short columns, so they read as one band across the page */}
-        <div className="grid grid-cols-2 gap-10 text-sm pb-8 border-b border-[#23140B]/15">
+        <div className="grid grid-cols-2 gap-10 text-sm mt-8">
           <div>
             <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
             {/* ✏️ EDIT: location lines in T object above */}
@@ -1134,31 +1162,6 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
             </a>
           </div>
         </div>
-
-        {/* Form — the intro line sits above it */}
-        {/* ✏️ EDIT: contact intro in T object above */}
-        <p className="text-[#6A584C] text-sm leading-relaxed mt-8 mb-6 max-w-md">{c.intro}</p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md">
-          <input type="text" placeholder={c.name} required
-            value={formState.name}
-            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
-          <input type="email" placeholder={c.emailField} required
-            value={formState.email}
-            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
-          <textarea placeholder={c.message} rows="3" required
-            value={formState.message}
-            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
-          <button type="submit"
-            disabled={formStatus === "sending" || formStatus === "sent"}
-            onClick={() => { if (formStatus === "error") setFormStatus(null); }}
-            className="text-sm mt-2 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
-            {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
-          </button>
-          {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
-        </form>
       </div>
     </motion.div>
   );
