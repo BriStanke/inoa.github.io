@@ -1527,6 +1527,14 @@ export default function InteriorPortfolio() {
 
             {/* Contact */}
             <Section id="contact">
+              {/* Contact photo — the same plate the desktop page carries */}
+              {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
+              <div className="w-full overflow-hidden mb-10">
+                <img src="/kontaktai.jpeg" alt=""
+                  loading="lazy" decoding="async"
+                  className="w-full h-[70vw] object-cover" />
+              </div>
+
               {/* Contact details */}
               <div className="flex flex-col gap-6 mb-12 text-sm">
                 <div>
