@@ -459,9 +459,9 @@ const DAY_STATIONS = [
 const DAY_SEGMENT_MS = 6000; // one part of the day
 
 /* ✏️ EDIT: colour of the travelling sunlight patch on the plan.
-   Brighter / warmer than the old value so it stays visible against the
-   paper background. Lighter = subtler, more golden = stronger. */
-const DAYLIGHT = "#FFE7A6";
+   Warm enough to be visible against the paper background, but soft.
+   Paler hex = subtler, more golden = stronger. */
+const DAYLIGHT = "#FCEECB";
 
 /* Ink-on animation for one plan stroke */
 function inkStroke(order, reduce) {
@@ -528,9 +528,9 @@ function FloorPlanDay({ t }) {
                   ✏️ EDIT: DAYLIGHT above sets how warm the sunlight patch is;
                   the three stops below set how strong it is at the centre,
                   mid-way, and where it fades out. */}
-              <stop offset="0%"  stopColor={DAYLIGHT} stopOpacity="1" />
-              <stop offset="45%" stopColor={DAYLIGHT} stopOpacity="0.8" />
-              <stop offset="75%" stopColor={DAYLIGHT} stopOpacity="0.4" />
+              <stop offset="0%"  stopColor={DAYLIGHT} stopOpacity="0.9" />
+              <stop offset="45%" stopColor={DAYLIGHT} stopOpacity="0.6" />
+              <stop offset="75%" stopColor={DAYLIGHT} stopOpacity="0.28" />
               <stop offset="100%" stopColor={DAYLIGHT} stopOpacity="0" />
             </radialGradient>
           </defs>
@@ -962,8 +962,8 @@ function DesktopAbout({ t }) {
           </div>
         </div>
 
-        {/* Right side — scrolling text */}
-        <div className="w-1/2 px-12 lg:px-16 pt-[92px] pb-12 flex flex-col gap-8">
+        {/* Right side — scrolling text, sitting in the middle of the page */}
+        <div className="w-1/2 px-12 lg:px-16 pt-[72px] pb-12 flex flex-col justify-center gap-8">
           {/* Mano istorija */}
           <div>
             {/* ✏️ EDIT: story title + paragraphs in T object above */}
@@ -1059,7 +1059,7 @@ function DesktopServices({ t }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="max-w-7xl mx-auto px-10 w-full"
+      className="max-w-7xl mx-auto px-10 w-full min-h-full flex flex-col justify-center"
     >
       {/* ✏️ EDIT: services intro in T object above */}
       <p className="text-[#6A584C] text-sm pt-8 mb-10 max-w-xl">{s.intro}</p>
@@ -1095,52 +1095,43 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.6 }}
-      className="h-full flex flex-row"
+      className="h-full grid grid-cols-2 grid-rows-2"
     >
-      {/* Left — contact info (top) + full-bleed photo (bottom). Fixed height, no scroll. */}
-      <div className="w-1/2 flex flex-col border-r border-[#23140B]/15 overflow-hidden">
-        <div className="flex-shrink-0 px-16 pt-8">
-          <div className="flex flex-col gap-6 text-sm">
-            <div>
-              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
-              {/* ✏️ EDIT: location lines in T object above */}
-              {c.locationLines.map((l, i) => (
-                <p key={i} className="text-[#6A584C] font-normal">{l}</p>
-              ))}
-            </div>
-            <div>
-              <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
-              {/* ✏️ EDIT: name, email, phone, instagram, facebook in T object above */}
-              <p className="text-[#6A584C] font-normal">{c.contactName}</p>
-              <p className="text-[#6A584C] font-normal mt-1">{c.email}</p>
-              <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
-              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
-                className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
-                <InstagramIcon />
-                {c.instagram}
-              </a>
-              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer"
-                className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
-                <FacebookIcon />
-                {c.facebook}
-              </a>
-            </div>
+      {/* ── Top-left quarter — contact details, centred inside their quarter ── */}
+      <div className="flex flex-col justify-center px-16 border-r border-b border-[#23140B]/15 overflow-hidden">
+        <div className="flex flex-col gap-6 text-sm">
+          <div>
+            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.location}</p>
+            {/* ✏️ EDIT: location lines in T object above */}
+            {c.locationLines.map((l, i) => (
+              <p key={i} className="text-[#6A584C] font-normal">{l}</p>
+            ))}
           </div>
-        </div>
-
-        {/* Photo — fills the bottom of the left half, edge to edge, down to the page bottom */}
-        {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
-        <div className="flex-1 min-h-0 pt-10">
-          <img src="/kontaktai.jpeg" alt=""
-            className="w-full h-full object-cover" />
+          <div>
+            <p className="text-[10px] tracking-[0.3em] text-[#978A7E] mb-2">{c.detailsTitle}</p>
+            {/* ✏️ EDIT: name, email, phone, instagram, facebook in T object above */}
+            <p className="text-[#6A584C] font-normal">{c.contactName}</p>
+            <p className="text-[#6A584C] font-normal mt-1">{c.email}</p>
+            <p className="text-[#6A584C] font-normal mt-1">{c.phone}</p>
+            <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer"
+              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+              <InstagramIcon />
+              {c.instagram}
+            </a>
+            <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer"
+              className="text-[#6A584C] font-normal mt-1 hover:opacity-60 transition-opacity flex w-fit items-center gap-2">
+              <FacebookIcon />
+              {c.facebook}
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Right — form. The intro line sits above it, in place of the old "Parašykite mums" label. */}
-      <div className="w-1/2 flex flex-col justify-center px-16 py-16">
+      {/* ── Top-right quarter — the form. The intro line sits above it. ── */}
+      <div className="flex flex-col justify-center px-16 border-b border-[#23140B]/15 overflow-hidden">
         {/* ✏️ EDIT: contact intro in T object above */}
-        <p className="text-[#6A584C] text-sm leading-relaxed mb-8 max-w-md">{c.intro}</p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md">
+        <p className="text-[#6A584C] text-sm leading-relaxed mb-6 max-w-md">{c.intro}</p>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md">
           <input type="text" placeholder={c.name} required
             value={formState.name}
             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -1149,18 +1140,28 @@ function DesktopContact({ t, formState, setFormState, formStatus, setFormStatus,
             value={formState.email}
             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
             className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] focus:border-[#23140B] transition-colors" />
-          <textarea placeholder={c.message} rows="4" required
+          <textarea placeholder={c.message} rows="3" required
             value={formState.message}
             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
             className="border-b border-[#D8D3C9] bg-transparent py-2 text-sm outline-none placeholder:text-[#6A584C] resize-none focus:border-[#23140B] transition-colors" />
           <button type="submit"
             disabled={formStatus === "sending" || formStatus === "sent"}
             onClick={() => { if (formStatus === "error") setFormStatus(null); }}
-            className="text-sm mt-4 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
+            className="text-sm mt-2 hover:opacity-60 transition-opacity text-left disabled:opacity-40 disabled:cursor-not-allowed">
             {formStatus === "sending" ? c.sending : formStatus === "sent" ? c.sent : c.send}
           </button>
           {formStatus === "error" && <p className="text-red-500 text-xs mt-1">{c.error}</p>}
         </form>
+      </div>
+
+      {/* ── Bottom-left quarter — left open, so the photo reads as one plate ── */}
+      <div className="border-r border-[#23140B]/15" />
+
+      {/* ── Bottom-right quarter — the photo, filling exactly one quarter ── */}
+      {/* ✏️ EDIT: contact photo is at public/kontaktai.jpeg */}
+      <div className="overflow-hidden">
+        <img src="/kontaktai.jpeg" alt=""
+          className="w-full h-full object-cover" />
       </div>
     </motion.div>
   );
