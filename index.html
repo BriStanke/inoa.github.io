@@ -4,7 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/logo.png" />
-    <title>INOA</title>
+
+    <!-- ══════════════════════════════════════════════
+         SEO — ✏️ EDIT: title and description are what Google
+         shows in search results. Keep the description under
+         ~155 characters. Written in Lithuanian because that is
+         the site's default language and the audience searching
+         "interjero dizainas Vilnius" searches in Lithuanian.
+         ══════════════════════════════════════════════ -->
+    <title>INOA — Interjero dizaino studija Vilniuje | Airė Romaškevičiūtė</title>
+    <meta name="description" content="INOA — interjero dizaino studija Vilniuje. Pilnas interjero projektas gyvenamosioms ir komercinėms erdvėms: koncepcija, techninis projektas, baldai, autorinė priežiūra." />
+    <meta name="author" content="Airė Romaškevičiūtė" />
+    <link rel="canonical" href="https://inoa.vercel.app/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#E8E6E0" />
+
+    <!-- Open Graph — what appears when the link is shared on
+         Facebook, Instagram, Messenger, WhatsApp, LinkedIn.
+         ✏️ EDIT: og:image should ideally be a 1200×630 photo
+         (an interior shot works best); logo.png is a fallback. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="INOA" />
+    <meta property="og:title" content="INOA — Interjero dizaino studija Vilniuje" />
+    <meta property="og:description" content="Prasmingas dizainas žmogaus gyvenimo ritmui. Pilnas interjero projektas — nuo koncepcijos iki autorinės priežiūros." />
+    <meta property="og:url" content="https://inoa.vercel.app/" />
+    <meta property="og:image" content="https://inoa.vercel.app/logo.png" />
+    <meta property="og:locale" content="lt_LT" />
+    <meta property="og:locale:alternate" content="en_GB" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="INOA — Interjero dizaino studija Vilniuje" />
+    <meta name="twitter:description" content="Prasmingas dizainas žmogaus gyvenimo ritmui. Pilnas interjero projektas — nuo koncepcijos iki autorinės priežiūros." />
+    <meta name="twitter:image" content="https://inoa.vercel.app/logo.png" />
+
+    <!-- Structured data — tells Google this is a local business
+         in Vilnius, so INOA can appear in local + map results.
+         ✏️ EDIT: contact details here must match the Contact page. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://inoa.vercel.app/#business",
+      "name": "INOA",
+      "description": "Interjero dizaino studija Vilniuje. Pilnas interjero projektas gyvenamosioms ir komercinėms erdvėms.",
+      "url": "https://inoa.vercel.app/",
+      "logo": "https://inoa.vercel.app/logo.png",
+      "image": "https://inoa.vercel.app/logo.png",
+      "email": "inoa.aire@gmail.com",
+      "telephone": "+37067259010",
+      "founder": {
+        "@type": "Person",
+        "name": "Airė Romaškevičiūtė",
+        "jobTitle": "Interior Designer"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vilnius",
+        "addressCountry": "LT"
+      },
+      "areaServed": ["Vilnius", "Lietuva"],
+      "knowsLanguage": ["lt", "en"],
+      "sameAs": [
+        "https://www.instagram.com/inoa.interiors/",
+        "https://www.facebook.com/profile.php?id=61575323777448"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
